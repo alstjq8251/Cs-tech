@@ -1,2 +1,7 @@
-객체지향이란? 
-![image](https://user-images.githubusercontent.com/98382954/180629703-7764cb20-ca41-487e-9af3-f4439122e337.png)
+## 객체(object)
+ - 사전적인 정의로 실제 존재하는 것을 말한다. 
+ - 객체지향 이론에서는 사물과 같은 유형적인 것뿐만 아니라, 개념이나 논리와 같은 무형적인 것들도 객체로 간주한다.
+ - 프로그래밍에서의 객체는 클래스에 정의된 내용대로 메모리에 생성된 것을 뜻한다
+
+<img width="690" alt="image" src="https://user-images.githubusercontent.com/70622731/156925789-88554cdb-d347-49f1-a356-670855f07ff1.png">
+
