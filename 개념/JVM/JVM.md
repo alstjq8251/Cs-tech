@@ -56,7 +56,7 @@
  - 하이퍼 바이저로 사용되는 물리 하드웨어를 **호스트** 리소스를 사용하는 여러 VM을 **게스트**라고 한다.
 ##### 베어 메탈(하이퍼 바이저의 첫번째 유형)
 
-<img width="800" height="350" alt="image" src="https://user-images.githubusercontent.com/98382954/180643822-0c348f42-33e3-40c2-8ac1-2909e8a">
+<img width="800" height="350" alt="image" src="https://user-images.githubusercontent.com/98382954/180644109-7daa279f-d419-4032-b4a1-6a593b33c1d5.png">
 
 - 호스트의 하드웨어에서 직접 실행됨
 
