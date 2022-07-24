@@ -5,6 +5,9 @@
 ---
 ### 가상머신 종류
 #### Virtual Machine Type1(베어메탈 하이퍼 바이저(Hypervisor)형 가상화
+
+<img width="690" height="350" alt="image" src="https://user-images.githubusercontent.com/98382954/180643826-93e3aabb-9dac-4704-a1cc-a0c66351d72b.png">
+
 - 하이퍼 바이저(VNM) : 운용 체제와 응용 프로그램을 물리적 하드웨어에서 분리하는 프로세스
 - 하이퍼 바이저 또는 벌츄얼 머신 모니터(VNM) 라고 하는 소프트웨어가 HardWare에서 직접 구동<br>
 -  **TYPE1(Bare Metal, KVM(AWS))** 하드웨어 위에 VNM을 설치하여 복수의 가상머신을 실행하는 방식<br>
@@ -12,12 +15,18 @@
 
 
 #### Virtual Machine Type1 - 전가상화란(Full - Virtualization?
+
+<img width="690" height="350" alt="image" src="https://user-images.githubusercontent.com/98382954/180643815-209208d7-6a21-4999-b45a-de7542d935bc.png">
+
 - 하드웨어를 가상화 하는 방식. 하이퍼 바이저를 베어메탈에 구동하면, DOMO라고 하는 관리형 가상머신이 구동됨
 - 전가상화는 나머지 모든 가상머신들의 하드웨어 접근이 DOMO를 통해서 이뤄져 모든 명령에 DOMO가 개입하게 되는 형태를 띄게된다.<br>
 - > > 하드웨어를 완전히 가상화하여 별다른 게스트 운영체제의 수정없이 사용할 수 있다는 장점이 있다. 
 - > > 하이퍼 바이저가 모든 명령을 중재하여 성능이 비교적 느리고 특정 인스트럭션의 경우 하이퍼 바이저가 반드시 처리해줘야 하며 트랩처리를 해야하는 단점이 있다.
 
 #### Virtual Machine Type1 - 반가상화란(Para - Virtualization)?
+
+<img width="690" height="350" alt="image" src="https://user-images.githubusercontent.com/98382954/180643819-d513201b-4e3a-4a29-b51d-65f9387a128e.png">
+
  - 일반적으로 TYPE1은 터프라이즈 데이터 센터와 서버 기반 환경에서 가장 일반적으로 사용됩니다.
  - 하드웨어를 완전히 가상화 하지 않으며 전가상화의 단점인 성능 저하를 해소하고자 DOMO를 통해 하이퍼바이저에게 요청을 보내지 않는다
  - 하이퍼 콜(Hyper-Call)이라는 인터페이스로 하이퍼 바이저에게 직접 요청을 날리는 방식이다.
@@ -26,6 +35,9 @@
  - > > 필요한 경우 하이퍼 바이저에게 하이퍼 콜을 요청하도록 운영체제의 커널을 수정해야 하며 오픈소스 운영체제가 <br>아니라면 반가상화를 이용하기 쉽지 않다는 단점이 있다.
 
 #### Virtual Machine Type2(호스트형 가상화)
+
+<img width="690" height="350" alt="image" src="https://user-images.githubusercontent.com/98382954/180643813-f09229ac-858c-4457-b3c8-e5e0e3611395.png">
+
 - TYPE2는 기존의 운영 체제에서 소프트웨어 레이어 또는 애플리케이션으로서 구동됩니다.
 - 하이퍼 바이저 또는 버츄얼 머신 모니터(VNM)라고 하는 소프트웨어가 Host OS 상위에 구동<br>
 - **TYPE2(VMWare)** OS 위에 하나의 application처럼 VMM을 설치하여 사용하는 방식
@@ -40,9 +52,15 @@
 - 하이퍼 바이저는 메모리 및 처리와 같은 단일 호스트 컴퓨터의 리소스를 가상으로 공유하여 호스트가 여러 게스트 가상 머신을 지원할 수 <br>있도록 하는 것이다.
  - 하이퍼 바이저로 사용되는 물리 하드웨어를 **호스트** 리소스를 사용하는 여러 VM을 **게스트**라고 한다.
 ##### 베어 메탈(하이퍼 바이저의 첫번째 유형)
+
+<img width="690" height="350" alt="image" src="https://user-images.githubusercontent.com/98382954/180643822-0c348f42-33e3-40c2-8ac1-2909e8a">
+
 - 호스트의 하드웨어에서 직접 실행됨
 
 ##### 호스팅(하이퍼 바이저의 두번째 유형)
+
+<img width="690" height="350" alt="image" src="https://user-images.githubusercontent.com/98382954/180643830-2cade862-0ba1-4e37-a2ba-c6224a2a86fe.png">
+
 - 다른 컴퓨터 프로그램처럼 운영 체제에서 소프트웨어 계층으로 실행됨 
 
 ##### 하이퍼 바이저를 사용해야 하는 이유?
@@ -52,7 +70,7 @@
 ## JVM 이란?
 - Java Virtual Machine의 줄임말로서 java는 OS에 종속적이지 않는 특성을 지니고 있는데 OS에서 종속 받지 않게  <br> OS위에서 java를 실행시키는 프로그램이 JVM이다.
 
-<img width="690" alt="image" src="https://user-images.githubusercontent.com/70622731/156925789-88554cdb-d347-49f1-a356-670855f07ff1.png">
+<img width="690" height="350" alt="image" src="https://user-images.githubusercontent.com/98382954/180643832-c7885c9b-d5be-4f3f-87f9-40fd642061a4.png">
 
 - java의 소스코드, 원시코드(.java)는 CPU가 인식을 하지 못하므로 기계어로 컴파일을 해줘야 하는데 <br> java는 jvm을 이용하여 os에 전달하기 때문에 jvm이 인식할 수 있는 java bytecode(*.class)로 변환된다
 
