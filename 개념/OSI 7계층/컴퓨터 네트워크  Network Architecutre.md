@@ -275,7 +275,7 @@
 <https://tgyun615.com/107><br>
 <http://wiki.hash.kr/index.php/OSI_7_계층><br>
 <https://www.crocus.co.kr/1102><br>
-<https://velog.io/@jeongs/네트워크-OSI-7-계층-그림과-함께-이해하기 ><br>
+<https://velog.io/@jeongs/네트워크-OSI-7-계층-그림과-함께-이해하기><br>
 <https://codingpractices.tistory.com/96><br>
 <https://liveyourit.tistory.com/186><br>
 <https://wiseworld.tistory.com/55><br>
