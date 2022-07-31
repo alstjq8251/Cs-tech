@@ -127,13 +127,13 @@
   - 객체간 결합도를 낮추면서 유연한 코드를 작성할 수 있다.
 - **의존성 주입 3가지 방법**
   - 생성자 주입
-  <img width="90%" alt="image" src="https://user-images.githubusercontent.com/98382954/182028996-e2ac773c-204d-47e9-b6ca-2c0f50d8ad62.png">
+   <img width="90%" alt="image" src="https://user-images.githubusercontent.com/98382954/182028996-e2ac773c-204d-47e9-b6ca-2c0f50d8ad62.png">
   
     - 객체 필드부에 @Autowired 어노테이션만 붙이면 자동으로 의존성이 주입된다. 
       사용법이 간단하기에 가장 많이 접할 수 있지만 외부에서 변경하기 힘들다는 단점이 존재한다.
       프레임워크에 의존적이며 객체 지향적으로는 좋지 않은 방법이다.
   - 생성자 주입
-  <img width="90%" alt="image" src="https://user-images.githubusercontent.com/98382954/182028994-685d423b-7738-4045-ae73-f54254a972f5.png">
+   <img width="90%" alt="image" src="https://user-images.githubusercontent.com/98382954/182028994-685d423b-7738-4045-ae73-f54254a972f5.png">
   
     - 클래스의 생성자가 하나이며 그 생성자로 주입받는 객체가 빈이라면 @Autowired를 생략할 수 있다.
   - Setter 주입
