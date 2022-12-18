@@ -57,7 +57,14 @@
  2. Configuration의 차이
  - 스프링에선 하나하나 객체들을 빈으로 설정해야 했으며 외부 라이브러리들에 대한 설정들도 개별로 설정해야 했다.
  - SpringBoot에선 @SpringBootApplication 이라는 스프링부트의 선언으로 간단화 할 수 있다.
-  - 여기서 
+   - @Configuration + @EnableAutoConfiguration + @ComponentScan를 합친것을 의미하는데 이렇게 선언하므로서 설정 자동화 및 ComponentScan까지 하겠다는 것이다.
+ - SpringBoot에선 또한 @EnableAutoConfiguration이라는 어노테이션을 사용하여 SpringBoot의 메타 파일을 읽어 미리 설정된 설정파일을 빈으로 등록해주는 역할을 해준다.
+   - Meta파일이란 Spring.factories에 있는 것을 의미한다.
+   - ![image](https://user-images.githubusercontent.com/98382954/208288049-a576d769-ed2b-4e1f-b62b-d04efde0c7e9.png)
+
+   - 위와 같이 설정된 파일들을 스프링부트에서 빈으로 등록하여 개별적으로 설정해줘야 하는 파일을 편리하게 사용할 수 있게 해준다.
+   - 스프링과 달리 자동으로 설정해주는 것이기 때문에 최적화를 위해선 쓰지 않는 설정들에 대해서 exclude를 사용해야 최적화가 가능하다.
+ 
  3. Embedded Tomcat - 편리한 배포
  - Spring에선 빌드 후 war파일을 실행가능한 jar파일로 만들어야 하기 때문에 따로 was를 정해 설정파일을 마쳐 jar파일로 만들어 배포해야한다.
  - SpringBoot에선 Tomcat이나 Jetty같은 내장 was가 존재하기 때문에 독립적으로 실행 가능한 jar파일로 만들어 배포할 수 있어 배포가 간단해진다.
