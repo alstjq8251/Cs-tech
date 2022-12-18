@@ -38,8 +38,29 @@
   - AOP는 AspectJ라는 문법으로 작성이 가능하다.
   - 개발자는 비지니스 로직에만 집중할 수 있어 반복된 코드 작성을 피할 수 있다.
   - 원하는 관심사의 유지보스가 수월한 코드를 작성할 수 있으며 프로젝트마다 다른 관심사를 적용할 때 코드의 수정을 최소화 할 수 있다. 
-  4. `트랜잭션`의 
+  4. `트랜잭션`의 지원
+  - 하나의 작업을 수행하기 위한 프로세스의 최소한의 단위를 의미한다.
+  5. `타 프레임워크와의 결합`
+  - JUnit, Mockito와 같은 유닛 테스트 프레임워크와 통합이 간단하여 이를 통해 개발하는 프로그램의 품질이 향상된다.
+#### Spring과 Springboot의 차이
+- 1. Dependency의 차이 
+  - Spring 프레임워크에선 의존성에 관한 설정파일이 매우 길며 설정파일에 관해서 하나하나 직접 작성해야 한다.
 
+> 하단은 Spring에서 의존성에 관한 설정파일을 작성하는 예시이다.
+<img width="743" alt="image" src="https://user-images.githubusercontent.com/98382954/208287151-ce0acf83-fd2c-4c4f-8fb9-bdf260944fb6.png">
 
+> SpringBoot에서 스프링과 똑같은 의존성에 관한 설정파일을 작성하는 예시
+<img width="544" alt="image" src="https://user-images.githubusercontent.com/98382954/208287190-2fd90c70-b893-4a31-b9d2-6a2c39e740d8.png">
+
+ - SpringBoot에선 빌드 도구 툴에 의존성을 작성하게 되면 스프링 프레임워크에서 모든 Dependency를 자동으로 추가하고 관리해주기때문에 개발환경 세팅시 버전의 상이함을 신경쓰지 않아도 된다.
+ - Spring에선 테스트 프레임워크를 통합해 사용하려고 하면 Junit , Mockito등 많은 라이브러리를 추가해야 하지만 SpringBoot에선 한줄의 의존성만 추가하면 된다.
+ 2. Configuration의 차이
+ - 스프링에선 하나하나 객체들을 빈으로 설정해야 했으며 외부 라이브러리들에 대한 설정들도 개별로 설정해야 했다.
+ - SpringBoot에선 @SpringBootApplication 이라는 스프링부트의 선언으로 간단화 할 수 있다.
+  - 여기서 
+ 3. Embedded Tomcat - 편리한 배포
+ - Spring에선 빌드 후 war파일을 실행가능한 jar파일로 만들어야 하기 때문에 따로 was를 정해 설정파일을 마쳐 jar파일로 만들어 배포해야한다.
+ - SpringBoot에선 Tomcat이나 Jetty같은 내장 was가 존재하기 때문에 독립적으로 실행 가능한 jar파일로 만들어 배포할 수 있어 배포가 간단해진다.
 ##### Reference
-<https://programforlife.tistory.com/68>
+<https://programforlife.tistory.com/68><br>
+<https://velog.io/@msriver/Spring-2%EC%9E%A5-%EC%8A%A4%ED%94%84%EB%A7%81%EC%9D%98-%ED%8A%B9%EC%A7%95%EA%B3%BC-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%A3%BC%EC%9E%85><br>
