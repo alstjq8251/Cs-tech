@@ -88,7 +88,8 @@
   > `Web-MVC` 웹 응용 프로그램을 위한 Spring의 MVC(model-view-controller) 구현이 포함되어 있다.
 ---
 ### Spring Boot란?
- ~추후 기술~ 
+하단의 링크 참조
+<https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/spring/Spring%20%EA%B3%BC%20Spring%20Boot%EC%9D%98%20%EC%B0%A8%EC%9D%B4.md>
 
 ---
 ## 스프링에서 사용되는 주요 모듈
