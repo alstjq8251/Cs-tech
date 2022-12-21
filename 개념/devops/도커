@@ -6,7 +6,7 @@
 
  
 
-도커의 명령어들은 docker로 시작되며
+- 도커의 명령어들은 docker로 시작되며
 
 컨테이너의 상태를 알아보는 명령어 docker ps -a 혹은 docker ps 혹은 docker inspects 혹은 docker container ls
 
