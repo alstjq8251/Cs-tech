@@ -1,3 +1,7 @@
+### JPA란?
+- Java Persistance Api의 약자이다.
+- java진영에서 쓰이는 ORM 기술에대한 API 표준 명세를 의미한다.
+
 ### ORM이란?
 - `Object Relational Mapping`의 약자로서 객체와 관계형 데이터베이스간의 패러다임 불일치 문제를 해결하는 기술을 의미한다.
 
@@ -12,6 +16,16 @@
 
 > `ORM`이후 개발자들은 더 이상 비효율적인 쿼리를 작성하지 않아도 되며 데이터 중심적인 개발에서 직관적인 코드와 객체로 코드를 작성할 수 있어 객체 지향적인 개발을 지향할 수 있게 되었다.
 
-### JPA란?
-- Java Persistance Api의 약자이다.
-- 
+#### 표준 명세로서의 JPA?
+- JPA는 특정 기능을 하는 라이브러리가 아니고, ORM을 사용하기 위한 인터페이스를 모아둔 것이다.
+  - JPA는 자바 어플리케이션에서 관계형 데이터베이스를 어떻게 사용해야 하는지를 정의하는 방법중 한 가지이다.
+    - JPA외 Mabatis ibatis등 다양한 방법이 존재한다.
+  - JPA는 단순 명세이기 때문에 구현체가 존재하지 않는다.
+    - hibernate , EclipseLink , DataNucleus등이 존재한다.
+    
+![image](https://user-images.githubusercontent.com/98382954/210589038-d80259b0-49ee-44db-85b5-95a656d829b2.png)
+
+  - JPA를 정의한 javax.persistence 패키지의 대부분은 interface , enum , Exception, 그리고  Annotation 들로 이루어져 있다.
+  - JPA를 이루는 핵심 `EntityManager`또한 javax.persistence 패키지 안에 interface 로 정의되어 있다.
+    - 추후 기술할 EntityManger는 영속성 컨텍스트를 내부에 두어 Entity의 생명주기 및 영속성을 관리한다.
+ 
