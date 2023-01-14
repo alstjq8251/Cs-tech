@@ -98,4 +98,5 @@
 3.`Entity factory`
 
 4.`Entity manager`
+- 엔티티매니저
 
