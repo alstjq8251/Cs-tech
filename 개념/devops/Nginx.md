@@ -189,9 +189,15 @@ PHP 모듈 등 직접 적재 가능	| 많은 접속자들 대응 가능
   
 <img width="1106" alt="image" src="https://user-images.githubusercontent.com/98382954/214062375-1560ddd2-75a8-4b6d-80ae-04cc74f8c90a.png">
   
+- 클라이언트의 요청을 받아 내부 서버로 전달해주는 방식을 의미한다.
+  - 호출한 Ip를 알아낸다고 해도 내부적으로 전달하는 IP를 알 수 없어 서버를 숨겨주는 역할을 한다.
+  - 이러한 점들로 `보안` , `Load Balancing`의 역할을 수행할 수 있게 된다.
+    - 프록시 서버를 거쳐 내부 서버로 접속해야 하기 때문에 공격시 2개의 서버를 모두 뚫어야만 가능하므로 보안이 한층 강해진다.
+    - 요청이 왔을 때 내부 서버로 전달해주는 방식때문에 여러가지 방식을 정해 각 서버들로 트래픽을 분산시켜 줄 수 있게 되며 
+      내부 서버를 유연하게 증가 시킬 수 있게 되는 장점을 갖게 된다.
 
-
-3. `SSSL termination 지원`
+3. `SSL termination 지원`
+  - Nginx는 
 4. `HSTS, CORS처리`
 5. `TCP,UDP 커넥션 부하 분산(로드밸런싱)`
   
@@ -199,5 +205,6 @@ PHP 모듈 등 직접 적재 가능	| 많은 접속자들 대응 가능
 <https://jizard.tistory.com/306><br>
 <https://velog.io/@wijihoon123/Nginx%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80><br>
 <https://sihyung92.oopy.io/server/nginx_feat_apache><br>
-<https://applefarm.tistory.com/105>
+<https://applefarm.tistory.com/105><br>
+<https://earth-95.tistory.com/138>
 
