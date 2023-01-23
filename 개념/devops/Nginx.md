@@ -178,8 +178,19 @@ PHP 모듈 등 직접 적재 가능	| 많은 접속자들 대응 가능
 
 <img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/214060288-7e59f1ba-1a19-40e0-9e52-43c55d937c43.png">
 
-- ㄹ  
+- Forward Proxy로 사용하는 경우는 클라이언트의 요청이 직접적으로 전송되지 않고 중개자인 Proxy Server를 거쳐 요청이 전송되는 것을 의미한다. 
+- 정해진 사이트의 요청만을 연결하도록 제한할 수 있어 보안이 중요한 경우 사용된다.
+- Nginx는 성능 향상을 위해 나온 것인만큼 원래는 Reverse Proxy만 지원하나 ngx_http_proxy_connect_module 설정을 추가해야 가능하다.
+  
+> 포워드 프록시서버를 사용하는 경우 클라이언트의 정보를 감출 수 있고 대개 캐싱 기능을 사용할 수 있어 요청*응답간 성능 향상을 시킬 수 있지만<br>
+> Nginx는 고성능 웹 서버로 사용하며 대개 Reverse Proxy서버로 사용하기에 추가적인 정보는 기술하지 않는다.
+
 2. `Reverse Proxy`
+  
+<img width="1106" alt="image" src="https://user-images.githubusercontent.com/98382954/214062375-1560ddd2-75a8-4b6d-80ae-04cc74f8c90a.png">
+  
+
+
 3. `SSSL termination 지원`
 4. `HSTS, CORS처리`
 5. `TCP,UDP 커넥션 부하 분산(로드밸런싱)`
