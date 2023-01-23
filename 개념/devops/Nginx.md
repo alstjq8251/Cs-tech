@@ -197,7 +197,30 @@ PHP 모듈 등 직접 적재 가능	| 많은 접속자들 대응 가능
       내부 서버를 유연하게 증가 시킬 수 있게 되는 장점을 갖게 된다.
 
 3. `SSL termination 지원`
+
+```
+server {
+    listen 80;
+    server_name test-nexus.domain.com fail_timeout=0;
+    return 301 https://test-nexus.domain.com$request_uri;
+}
+
+server {
+    server_name  test-nexus.domain.com;
+    listen 443 ssl;
+    server_name_in_redirect off;
+    proxy_set_header Host $host:$server_port;
+
+    ssl_certificate /etc/nginx/certs/nexus-test/test-nexus.domain.com.cer;
+    ssl_certificate_key /etc/nginx/certs/nexus-test/test-nexus.domain.com.key;
+    ssl_session_timeout         5m;
+    ssl_protocols                       TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers                         HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers   on;
+```
+  
   - Nginx는 요청이 왔을때 내부적인 서버 앞단에서 요청을 받아 분산시켜 주는 역할을 하기 때문에 이때 받아주는 요청과 응답을 
+  
     Nginx에서 SSL인증서 처리등을 하게 되면 내부 서버에선 ssl인증을 하지 않아도 Https통신을 할 수 있게 된다.
 
 4. `HSTS, CORS처리`
