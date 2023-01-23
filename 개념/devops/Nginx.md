@@ -50,8 +50,13 @@ Concurrent 10,000 clients/connections의 줄임말로 10000개의 요청을 동�
 
 - <https://github.com/alstjq8251/Cs-tech/tree/main/%EA%B0%9C%EB%85%90/OS>
 
+#### Nginx의 역할
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/214041177-2a0347b5-9554-4c91-995f-694da33adb6c.png">
+
+-
+
 #### Nginx의 구조?
-<img width="705" alt="image" src="https://user-images.githubusercontent.com/98382954/214029449-09724352-2d1d-4693-a7ff-08436fcd4799.png">   
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/214029449-09724352-2d1d-4693-a7ff-08436fcd4799.png">   
 
 ```
 Nginx는 하나의 Master Process와 다수의 Worker Process로 구성되어 실행된다(멀티프로세스 , 싱글 쓰레드). 
@@ -63,16 +68,69 @@ Nginx가 구동될 때 Master Process는 정해진 수만큼 Worker Process를 �
 
 #### Nginx의 Event Driven?
 
-<img width="436" alt="image" src="https://user-images.githubusercontent.com/98382954/214037296-72839bbf-8870-4571-9846-6412303ae69c.png">
-
 - Nginx에선 TCP,UDP의 connection과 Http Request 처리, Connection의 종료까지의 모든 절차를 `이벤트` 라는 개념으로 취급하고 처리한다.
 - Worker Process에게 working queue라는 이름의 처리해야할 작업이 순차적으로 담긴 큐를 처리하도록 하며 끊임없이 이벤트를 처리하게 된다.
   - Apache에선 프로세스가 많아짐에 따라 keep alive의 상황에서 커넥션이 종료되지 않았을 때 자원이 낭비되는 것과 대조적인 모습인데
   
     반대로 이땐 이벤트의 처리에 따라 Blocking이 될 수 도 있다.
-      - 동기 
-#### Nginx의 Connction Pool
-- Nginx에선 이벤트들을 Connection Pool에 넣어 비동기적으로 처리하기 때문에 
+      - 동기 방식으로 DB의 응답을 처리하는 경우
+      - 라이브러리 함수 호출등의 경우
+      - 이벤트 처리가 오래 걸리는 경우
+  - 이로인해 Nginx는 Thread Pool이라는 개념을 도입하게 되었다.
+
+#### Nginx의 Thread Pool
+
+`Thread Pool`은 생성비용이 비싼 스레드를 필요할 때 편하게 늘리기 위해 스레드를 미리 만들어놓고 필요한 작업에게 할당해주는 개념이다.
+
+- 하나의 Worker Process가 모든 요청을 처리한다는 것은 요청을 처리하는 속도가 지연됨에 따라 다른 요청들이 block되는 것을 의미하는데 
+
+  Nginx에선 이것을 방지하기 위해 오래 걸리는 작업(Disk 읽기, 파일 전송하기)을 처리하는 Thread Pool을 따로 만들어 놓았다.(1.7.11버전 이후) 
+
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/214042020-a9faca9e-b39f-405c-a5bf-db1c71b1accb.png">
+
+- Worker Process가 요청을 Task Queue에 넣으면 각 요청을 Thread Pool 에 있는 Thread들이 처리해 수행 결과를 다시 Worker Process에게 전달한다.
+
+> Thread pool 개념을 도입했다고 해서 기본적으로 적용되지 않는다.<br>
+> 1.7.11 버전 이상에서 별도의 설정이 필요하다는 점에 유의하자. (적용 방법은 공식문서에 나와있다.)
+
+#### Nginx의 Worker Process구조
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/214043855-4e74be1d-7c71-49a4-a0d6-40c658b669cd.png">
+
+`Master Process` 
+  - 설정을 읽거나 포트에 바인딩을 하는 권한이 필요한 작업을 수행하고 3개의 Child Process를 생성한다.
+`Cache Load Process` 
+  - 서버 시작 시 실행되고, 디스크의 캐시를 메모리에 올려놓는 역할을 한다.
+`Cache Manager process` 
+  - 주기적으로 실행되고, 캐시에서 항목을 정리하여 정해진 크기 내에서 유지한다.
+`Worker Process` 
+  - Nginx로 들어오는 모든 요청을 처리한다.
+  - 네트워크 연결 처리 , 디스크에 Write처리 ,  Upstream 서버와 통신하는 작업을 처리한다.
+  - Worker Process는 싱글 스레드로 동작하며 Non-Blocking 방식으로 여러 요청을 처리하며 CPU 컨텍스트 스위칭 비용을 최소화한다.
+
+##### Nginx가 CPU 컨텍스트 스위칭 비용을 최소화 하는 방식
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/214043427-d6374116-1641-433a-94f9-bdd26ad4cd43.png">
+
+- Nginx는 각 프로세스마다 하나의 코어를 이용하도록 배정하기 때문에 CPU에선 컨텍스트 스위칭하는 비용이 발생하지 않게되어 부하가 최소화 되게 된다.
+
+#### Nginx의 장점
+- 동일한 자원을 가지고 처리하는 커넥션 양이 아파치와 비교하여 최소 10배 이상 증가(일반적으론 100~1000배까지 증가)
+- 동일 커넥션 수로 통신 시 2배 이상의 처리 속도 향상
+  - Nginx는 비동기적으로 한번에 모든 요청을 처리하기 때문(asynchronous)
+  - Non-Blocking방식으로 Blocking되어 프로세스의 처리 속도가 지연되는 것을 방지한다.
+- 효율적인 설정 갱신
+  - Nginx는 서버가 동작하는 와중에도 설정을 변경하는 것이 가능하다.
+
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/214049549-48b06d25-5944-4d34-a5bb-519b90ccbf34.png">
+
+- 보통의 서버 프로그램들(Apache)등은 설정이 바뀐 경우 프로그램을 재구동 시켜야 하지만 Nginx는 `Event-Driven`방식으로 처리하기 때문에 
+
+  서버가 동작하는 와중에도 설정을 변경할 수 있다. 
+  - service reload, docker exec <name> nginx service reload (docker 기반)
+  - 상단의 사진과 같이 설정을 바꾸고 명령어를 실행하면 Master Process는 설정을 읽어 새로운 워커 노드를 생성한다.
+    
+  - 기존의 워커 프로세스(초록색)로는 새로운 이벤트를 할당하지 않고 기존의 작업이 모두 끝나면 새로운 워커 프로세스(노란색)에 이벤트를 전달하고
+  
+    기존의 워커 프로세스를 종료하는 방식으로 동작하는 와중에도 설정이 바뀌었을때 Nginx는 바로 적용이 가능하다.
 
 #### Reference
 <https://jizard.tistory.com/306><br>
