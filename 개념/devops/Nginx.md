@@ -173,13 +173,17 @@ PHP 모듈 등 직접 적재 가능	| 많은 접속자들 대응 가능
 3. `동적 모듈 지원`
   - Apache는 Apache가 지원하는 모듈별로 서버 구성을 자유롭게 커스텀 할 수 있는 유연성을 갖추고 있다.
 
-#### Nginx가 수행하는 기능
+### Nginx가 수행하는 기능
 1. `Forward Proxy`
+
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/214060288-7e59f1ba-1a19-40e0-9e52-43c55d937c43.png">
+
+- ㄹ  
 2. `Reverse Proxy`
 3. `SSSL termination 지원`
 4. `HSTS, CORS처리`
 5. `TCP,UDP 커넥션 부하 분산(로드밸런싱)`
-
+  
 #### Reference
 <https://jizard.tistory.com/306><br>
 <https://velog.io/@wijihoon123/Nginx%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80><br>
