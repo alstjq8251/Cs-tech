@@ -12,7 +12,7 @@ Reverse Proxy Server로 활용하여 WAS 서버의 부하를 줄일 수 있는 �
 
 #### apache의 구조와 C10K?
 
-<img width="771" alt="image" src="https://user-images.githubusercontent.com/98382954/214032014-2892314b-5ff5-4014-811a-e2f842560ba2.png">
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/214032014-2892314b-5ff5-4014-811a-e2f842560ba2.png">
 
 - apache는 상단의 사진과 같이 unix의 os가 네트워크 커넥션을 생성하는 방식과 유사하게 요청하나에 프로세스 하나를 할당하는 방식으로 처리한다.
   - process를 생성하는 비용은 부하가 상당하기에 미리 생성해서 할당하는 `PREFORK`방식으로 요청을 처리했다.
@@ -25,7 +25,11 @@ Concurrent 10,000 clients/connections의 줄임말로 10000개의 요청을 동�
 ```
       
 #### Apache의 단점
-- 위에서 설명한 것과 같이 C10K의 문제인데 10000개정도의 많은 요청이 몰리면 처리하기가 어렵다는 단점이 존재한다.
+
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/214029072-4cbb68ae-1264-49de-be94-895cd1c86705.png">
+
+- 상단의 사진처럼 C10K의 문제인데 10000개 정도의 많은 요청이 몰리면 처리하기가 어렵다는 단점이 존재한다.
+  - 10000개 정도의 요청이 들어오면 처리가 힘들어진다고 한다.
 - 기술의 발전해감에 따라 하드웨어 성능이 향상되어 1만개 이상의 요청을 받을 수 있었으나 Apache의 내부구조의 단점 때문에 이를 처리하기가 어려웠다.
   - 쉽게 오버라이딩하여 개발자들마다 설정을 추가하고 바꾸는등 모듈을 쉽게 얹을 수 있는 장점에 비해 프로세스가 무거웠으며 이러한 프로세스를 
 
@@ -37,34 +41,42 @@ Concurrent 10,000 clients/connections의 줄임말로 10000개의 요청을 동�
   - Apache는 프로세스가 각 요청마다 할당되는 방식때문에 수많은 프로세스가 cpu를 컨텍스트 스위칭하는 비용도 많이 발생했다.
 
 ##### CPU 컨텍스트 스위칭이란?
-- 
+- CPU 컨텍스트 스위칭은 하단의 링크를 들어가 확인이 가능하다.
 
-> Multiprocess와 MultiThread의 차이는 기술했던 하단의 링크를 들어가 확인이 가능하다.
-<>
+- <>
 
+##### Multiprocess, MultiThread의 차이?
+- Multiprocess와 MultiThread의 차이는 기술했던 하단의 링크를 들어가 확인이 가능하다.
 
-#### Nginx와 Apache의 차이점?
-
-`Apache`는 Proccess-Driven방식으로 요청을 처리하며 10000개의 동시요청을 처리하기 어렵다,.
-- Apache 웹 서버는 Proccess-Driven방식을 취하고 있는데 Apache의 MPM(Multi-Processing Module)은 클라이언트에
-
-  요청이 많을 경우 요청시마다 Proccess 또는 Thread를 생성하며 처리하고 이것은 자원이 쉽게 고갈된다는 것을 의미한다.
-
-  - 10000개의 요청이 있을경우 10000개의 해당하는 Process또는 Thread를 만들어야 하는데 만들때 생기는 비용과 오버헤드는 
-
-    기존의 웹서버가 갖고 있던 단점이었고 대량의 트래픽을 처리하지 못하는 것을 의미했다.
-    
- <img width="720" alt="image" src="https://user-images.githubusercontent.com/98382954/214029072-4cbb68ae-1264-49de-be94-895cd1c86705.png">
-   
-
-`Nginx`는 Event-Driven방식을 사용하고 있는데
+- <https://github.com/alstjq8251/Cs-tech/tree/main/%EA%B0%9C%EB%85%90/OS>
 
 #### Nginx의 구조?
-<img width="705" alt="image" src="https://user-images.githubusercontent.com/98382954/214029449-09724352-2d1d-4693-a7ff-08436fcd4799.png">
+<img width="705" alt="image" src="https://user-images.githubusercontent.com/98382954/214029449-09724352-2d1d-4693-a7ff-08436fcd4799.png">   
 
+```
+Nginx는 하나의 Master Process와 다수의 Worker Process로 구성되어 실행된다(멀티프로세스 , 싱글 쓰레드). 
+Nginx는 설정파일을 읽고 워커 프로세스를 생성하는 역할을 하는 마스터 프로세스와, 실제로 유저 요청을 처리하는 워커 프로세스로 이루어져 있다.
+모든 요청은 Worker Process에서 처리합니다. Nginx는 이벤트 기반 모델을 사용하고, Worker Process 사이에 요청을 효율적으로 분배하기 위해 OS에 의존적인 메커니즘을 사용한다.
+Worker Process의 개수는 설정 파일에서 정의되며, 정의된 프로세스 개수와 사용 가능한 CPU 코어 숫자에 맞게 자동으로 조정된다.
+Nginx가 구동될 때 Master Process는 정해진 수만큼 Worker Process를 생성하고 리슨 소켓(워커 프로세스와 통신할 수 있는 소켓 디스크립터)을 배정하게 된다.
+```
+
+#### Nginx의 Event Driven?
+
+<img width="436" alt="image" src="https://user-images.githubusercontent.com/98382954/214037296-72839bbf-8870-4571-9846-6412303ae69c.png">
+
+- Nginx에선 TCP,UDP의 connection과 Http Request 처리, Connection의 종료까지의 모든 절차를 `이벤트` 라는 개념으로 취급하고 처리한다.
+- Worker Process에게 working queue라는 이름의 처리해야할 작업이 순차적으로 담긴 큐를 처리하도록 하며 끊임없이 이벤트를 처리하게 된다.
+  - Apache에선 프로세스가 많아짐에 따라 keep alive의 상황에서 커넥션이 종료되지 않았을 때 자원이 낭비되는 것과 대조적인 모습인데
+  
+    반대로 이땐 이벤트의 처리에 따라 Blocking이 될 수 도 있다.
+      - 동기 
+#### Nginx의 Connction Pool
+- Nginx에선 이벤트들을 Connection Pool에 넣어 비동기적으로 처리하기 때문에 
 
 #### Reference
 <https://jizard.tistory.com/306><br>
 <https://velog.io/@wijihoon123/Nginx%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80><br>
-<https://sihyung92.oopy.io/server/nginx_feat_apache>
+<https://sihyung92.oopy.io/server/nginx_feat_apache><br>
+<https://applefarm.tistory.com/105>
 
