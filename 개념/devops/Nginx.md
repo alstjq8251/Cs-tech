@@ -263,5 +263,6 @@ server {
 <https://velog.io/@wijihoon123/Nginx%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80><br>
 <https://sihyung92.oopy.io/server/nginx_feat_apache><br>
 <https://applefarm.tistory.com/105><br>
-<https://earth-95.tistory.com/138>
+<https://earth-95.tistory.com/138><br>
+<https://velog.io/@kimjiwonpg98/Nginx-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EA%B5%AC%EC%B6%95#-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%A2%85%EB%A5%98>
 
