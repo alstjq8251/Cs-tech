@@ -226,6 +226,37 @@ server {
 4. `HSTS, CORS처리`
 
 5. `TCP,UDP 커넥션 부하 분산(로드밸런싱)`
+- 로드밸런싱을 하는 소프트웨어는 Nginx말고도 HAProxy가 있지만 현재는 Nginx만 알아본다.
+- Nginx에선 로드밸런싱을 할때 각각 정해준 알고리즘을 사용하여 트래픽을 분산시키게 되는데 이 때 특정 알고리즘은 Nginx Plux에서만 된다고 한다.
+
+**Nginx에서 로드밸런싱을 적용하기 위해 Nginx.conf파일을 추가/변경 시킨다**
+```
+upstream backend {  // backend자리에 이름
+    least_conn;     //알고리즘을 적어준다. (기본: 라운드 로빈)
+    server localhost:8801; 
+    server localhost:8802; //클라이언트가 Nginx로 요청 시
+    server localhost:8803; //우회시켜줄 Server 정보
+}
+
+server {
+  listen 80; //클라이언트가 요청하는 포트
+  
+  location / {
+    proxy_set_header Host $host; //클라이언트의 호스트 설정
+    proxy_set_header Connection ""; //upstream서버를 사용하겠다 지정(⭐중요)
+    proxy_pass http://backend; //설정한 이름으로 요청 보내기
+  }
+}
+```
+##### Nginx의 로드밸런싱 알고리즘
+| Nginx | 방법 | 설명 |
+|:---|:---|:---|
+|| 라운드로빈(기본값) | 요청을 순서대로 처리한다.
+||	least_conn(최소 연결) | 각 요청을 서버에 할당된 가중치를 고려해 연결 수가 가장 적은 서버로 전송
+|| ip_hash | 요청이 클라이언트 IP주소로 해싱 > 한번 요청 받은 서버가 있을 때 해당 서버에만 요청을 분배
+|| least_time | 	연결 수가 가장 적으면서 평균 응답시간이 가장 적은 쪽을 선택해서 분배 (Nginx Plus에서만 가능)
+	
+
   
 #### Reference
 <https://jizard.tistory.com/306><br>
