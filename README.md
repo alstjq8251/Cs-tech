@@ -8,17 +8,8 @@
 
 ## 📒 Network
   - [OSI 7 Layer](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/OSI%207%EA%B3%84%EC%B8%B5/%EC%BB%B4%ED%93%A8%ED%84%B0%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%20Network%20Architecutre.md)
-  　　　<details> 
-        <summary>Protocal Layer</summary><br>
-        <li> Protocal의 구성요소</li>
-        <li> Protocal의 특징</li>
-        <li> Protocal의 기능</li>
-        <li> 프로토콜의 계층화</li>
-  　　　</details>  
-    
+    - Protocal Layer 
     - OSI 7계층
-    
-  - 
 
 ## 📒 Java
 - [VM-JVM](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/JVM/JVM.md)
@@ -67,4 +58,17 @@
     - Maven vs Gradle
     - Gradle의 장점
 
+## 📒 Middleware
+  - [Nginx](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/devops/Nginx.md)
+    - Nginx의 개요
+    - Apache의 단점
+    - Nginx의 내부 구조와 최적화를 시키는 방식
+    - Apache vs Nginx
+    - Nginx의 기능
 
+## 📒 Devops
+  - [Nexus](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/devops/Nexus.md)
+  - [Docker](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/devops/%EB%8F%84%EC%BB%A4.md)
+  - [Jenkins](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/devops/jenkins.md)
+  - [CI & CD](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/devops/CI%26CD.md)
+     
