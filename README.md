@@ -23,7 +23,7 @@
   - Java에서의 객체(클래스-인스턴스)
   
 ## 📒 OS(Operating System)
-- [Multi Process, Multi Thread](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/OS/Multi%20Process%2C%20Multi%20Thread.md)
+- [Process, Thread](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/OS/Process%20Thread.md)
 
 ## 📒 Spring(Java Back-End Framework)
   - [JPA](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/spring/JPA.md)
