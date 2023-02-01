@@ -136,8 +136,8 @@ CPU는 상상이상으로 빠르기 때문에, 프로세스들을 번갈아가�
 
 <img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/215781678-7c8cd83c-517d-4ca3-829a-aab584b3c147.png">
 
-
-
+`Running`
+  - 지금 실행중인 상태를 의미한다.
 
 #### Reference
 <https://gmlwjd9405.github.io/2018/09/14/process-vs-thread.html><br>
