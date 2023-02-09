@@ -8,4 +8,4 @@
 ### 컨테이너 이미지 스캔 툴 종류와 특징
 
 1. Anchore
-<img width="1002" alt="image" src="https://user-images.githubusercontent.com/98382954/217847286-19003a34-c195-41d3-a5e0-15178e556d78.png">
+<img width="830" alt="image" src="https://user-images.githubusercontent.com/98382954/217847641-2dddb21e-be07-4485-b629-e580817bd0a5.png">
