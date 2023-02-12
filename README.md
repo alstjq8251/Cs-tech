@@ -21,7 +21,10 @@
   - 객체의 4가지 특징
   - 객체지향의 5대 원칙(OOP)
   - Java에서의 객체(클래스-인스턴스)
-  
+
+## 📒 디자인 패턴
+- [디자인 패턴](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/%EA%B0%9D%EC%B2%B4/%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4.md)
+
 ## 📒 OS(Operating System)
 - [Process, Thread](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/OS/Process%20Thread.md)
 
