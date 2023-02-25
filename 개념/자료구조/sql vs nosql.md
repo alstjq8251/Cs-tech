@@ -1,1 +1,1 @@
-d
+### sql vs nosql
