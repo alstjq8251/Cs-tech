@@ -14,10 +14,47 @@
 - `2단계 인증(2FA)`
 - `암호 인코딩`
 
+
+### Spring Security Architecture
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/223129038-f14c697e-0951-4473-b334-d5b4ce36c312.png">
+
+로그인 , 회원가입등의 유저의 요청이 들어왔을 때 Spring Security Architecture가 작동하는 흐름은 상단의 사진과 같다.(flow는 하단)
+1. 유저의 요청을 Filter에서 검증한다.
+   - SecurityConfig설정에서 요청을 패스하게 되어있는지? 혹은 url과 메소드가 맞는지 등의 여부를 거쳐 필터에서 요청을 가로채게 된다.
+2. 기본적으로 로그인 시 `UsernamePasswordFilter`에서 요청을 받으며 검증하기 위한 객체로 `usernamepasswordtoken`을 만들어 사용한다.
+3. 검증하기 위해 `AuthenticationManager`은 처리를 위임받고 자신이 갖고 있는(1...N)개의 `AuthenticationProvider`를 찾아 검증을 위임한다.
+   - `AuthenticationProvider`는 `DaoAuthenticationProvider`를 상속받아 구현하는데 비밀번호 검증 , 인증객체 타입 비교 , 최종 인증객체 생성
+
+   - 등의 책임을 갖고 있다.
+5. `AuthenticationProvider`는 `UserDetailsService`에게 유저의 ID를 전달해 DB에 유저의 ID와 일치하는 정보가 있는지 검사를 시킨다.
+6. `UserDetailService`는 전달된 ID로 DB에 유저 정보를 찾아 UserDetails라는 인증 객체를 만들어 반환한다.
+7. 반환된 객체의 비밀번호를 비교해 틀릴 시 BadCredentialsException 예외를 발생시키며 성공하면 인증토큰을 만들어 반환한다.
+8.1 Filter에선 인증이 성공적이면 SuccessHandler에게 처리를 위임한다.
+   - Spring Security Inmemory 세션저장소인 SecurityContextHolder내부의 SecurityContext에 저장한다.
+8.2 인증이 실패한다면 해당 예외를 `ExceptionTranslationFilter`에게 전달해 적절한 Handler를 찾아 처리를 위임한다.  
+
+
+### Spring Security Filter Chain
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/223130384-b6383d98-e622-4839-af12-f70ee9fe5709.png">
+
 ### Spring Security의 필터들
 `UsernamePasswordAuthenticationFilter`
   - 사용자 이름과 암호가 포함된 인증 요청을 처리한다.
   - 요청에서 사용자 이름과 암호를 추출하고 `Authentication` 개체를 생성한 다음 인증을 위해 `AuthenticationManager`에 전달한다.
+
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/223125681-3c6787d6-61b7-489d-b616-d19e59a507d4.png">
+
+#### UsernamePasswordAuthenticationFilter Flow
+- 기본적으로 UsernamePasswordAuthenticationFilter는 FormLogin방식에서 진행되는 필터이며 사용자의 Id, password를 검증한다.
+- AbstractAuthenticationProcessingFilter라는 추상클래스를 상속해 사용하고 있으며 해당 클래스가 갖고있는
+
+  RequestMatcher("login") url이 일치할 경우에 검증을 진행하고 아닐경우 다음 필터로 요청을 보낸다.
+    - SecurityConfig에서 loginProcessingUrl()메소드를 통해 이 url을 바꾸거나 필터를 상속해 해당 필터의 url,메소드를 커스터마이징 하는것도 
+    
+      가능하다.
+      
+      <img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/223127126-37758706-4bde-4a9b-9ab7-5aa9a48efdc7.png">
+- 요청으로 들어온 Id, passWord를 인증되지 않는 UsernamepasswordToken으로 만들어 AuthenticationManager에게 처리를 위임한다.
 
 `BasicAuthenticationFilter`
   - 기본 인증 요청 처리를 담당한다.
@@ -46,3 +83,6 @@
 `FilterSecurityInterceptor`
   - 인증 시행을 담당하는 필터이다.
   - 사용자의 역할 또는 권한에 기반한 규칙. 요청을 가로채고 AccessDecisionManager 및 SecurityMetadataSource를 기반으로 보안 규칙을 적용한다.
+
+#### Reference
+<https://catsbi.oopy.io/c0a4f395-24b2-44e5-8eeb-275d19e2a536><br>
