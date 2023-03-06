@@ -26,3 +26,18 @@
           있고 휴먼 오류에 대하여 파라미터 순서가 아니라 필드값에 대응하는 값들을 지정하여 생성하기 때문에 유연하게 대처 가능하며 
           필드 순서에도 무관해진다는 장점이 존재한다.
  ##### 가급적 @Builder는 클래스가 아니라 직접 만든 생성자 혹은 객체 생성 메소드에 붙여주길 권고한다.
+
+#### 테스트 관련 어노테이션
+- `@WebMvcTest`
+  - @Controller, @RestController가 설정된 클래스들을 찾아 메모리에 생성한다. 
+- `@AutoConfigureMockMvc`
+  - @Controller , @Service, @Repository가 분은 객체들도 모두 메모리에 생성한다.
+  - @SpringBootTest와 함께 사용하면 
+  - SpringBootTest(webEnvironment=WebEnvironment.MOCK)설정으로 모킹한 객체를 의존성 주입 받으려할때 사용한다. 
+- `@ExtendWith(SpringExtension.class)`
+  - Junit5에서는 ExtendWith 어노테이션을 통해 테스트 클래스 또는 메서드의 기능을 확장할 수 있다
+    - Junit4에선 runwith 어노테이션이 동일한 기능을 제공한다.
+  - Spring TestContext Framework의 기능을Junit5의 Jupiter 프로그래밍 모델에 통합하는 역할을 한다.  
+    - @ExtendWith(SpringExtension.class)를 @ExtendWith(MockitoExtension.class) 로 작성해도 동일하게 작용한다.
+
+    - MockitoExtension은 SpringExtension 보다는 적지만, 다양한 기능을 구현하여 테스트 클래스의 기능을 확장한다.
