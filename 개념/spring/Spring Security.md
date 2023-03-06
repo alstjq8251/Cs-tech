@@ -26,12 +26,12 @@
    - `AuthenticationProvider`는 `DaoAuthenticationProvider`를 상속받아 구현하는데 비밀번호 검증 , 인증객체 타입 비교 , 최종 인증객체 생성
 
    - 등의 책임을 갖고 있다.
-5. `AuthenticationProvider`는 `UserDetailsService`에게 유저의 ID를 전달해 DB에 유저의 ID와 일치하는 정보가 있는지 검사를 시킨다.
-6. `UserDetailService`는 전달된 ID로 DB에 유저 정보를 찾아 UserDetails라는 인증 객체를 만들어 반환한다.
-7. 반환된 객체의 비밀번호를 비교해 틀릴 시 BadCredentialsException 예외를 발생시키며 성공하면 인증토큰을 만들어 반환한다.
-8.1 Filter에선 인증이 성공적이면 SuccessHandler에게 처리를 위임한다.
+4. `AuthenticationProvider`는 `UserDetailsService`에게 유저의 ID를 전달해 DB에 유저의 ID와 일치하는 정보가 있는지 검사를 시킨다.
+5. `UserDetailService`는 전달된 ID로 DB에 유저 정보를 찾아 UserDetails라는 인증 객체를 만들어 반환한다.
+6. 반환된 객체의 비밀번호를 비교해 틀릴 시 BadCredentialsException 예외를 발생시키며 성공하면 인증토큰을 만들어 반환한다.
+7. Filter에선 인증이 성공적이면 SuccessHandler에게 처리를 위임한다.
    - Spring Security Inmemory 세션저장소인 SecurityContextHolder내부의 SecurityContext에 저장한다.
-8.2 인증이 실패한다면 해당 예외를 `ExceptionTranslationFilter`에게 전달해 적절한 Handler를 찾아 처리를 위임한다.  
+8. 인증이 실패한다면 해당 예외를 `ExceptionTranslationFilter`에게 전달해 적절한 Handler를 찾아 처리를 위임한다.  
 
 
 ### Spring Security Filter Chain
