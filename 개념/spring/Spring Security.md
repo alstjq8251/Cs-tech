@@ -66,7 +66,8 @@
 15.FilterSecurityInterceptor
 ```
 
-하단의 사진은 SpringSecurity가
+하단의 사진은 SpringSecurity가 호출하는 각 필터들이 내부적으로 요청들을 어떻게 위임하고 책임을 전달하는지를 간단하게 나타낸 것이다.
+
 <img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/223130384-b6383d98-e622-4839-af12-f70ee9fe5709.png">
 
 ### Spring Security의 필터들
@@ -87,6 +88,14 @@
       
       <img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/223127126-37758706-4bde-4a9b-9ab7-5aa9a48efdc7.png">
 - 요청으로 들어온 Id, passWord를 인증되지 않는 UsernamepasswordToken으로 만들어 AuthenticationManager에게 처리를 위임한다.
+- 이후 AuthenticationProvider는 반복문을 돌며 내부적인 DaoAuthenticationProvider가 요청을 처리할 수 있는지 찾고 처리를 위임한다.
+- AuthenticationProvider는 UserDetailsService에게 user의 ID를 전달해 db에 유저정보가 있는지 처리를 맡긴다.
+- UserDetailsServices는 유저 정보가 있을 때 UserDetails라는 내부적인 인증 구현체를 만들어 리턴한다.
+   - 없을 땐 UsernameNotFoundException라는 에러를 발생시킨다.
+- AuthenticationProvider는 유저정보와 password의 일치여부를 확인한 후 인증 토큰을 만들어 내부적으로 Handler에게 처리를 맡긴다.
+   - password가 일치하지 않을 땐 BadCredentialsException 라는 에러를 발생시킨다.
+- 요청이 성공적이라면 내부적으로 갖고있는 SuccessHandler에게 처리를 맡긴다.(커스터마이징 가능)
+- 요청이 실패적이라면 ExceptionTranslationFilter를 거쳐 인증 , 인가 등으로 구분 후 예외처리 핸들러에게 처리를 맡긴다.
 
 `BasicAuthenticationFilter`
   - 기본 인증 요청 처리를 담당한다.
