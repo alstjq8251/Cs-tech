@@ -33,8 +33,40 @@
    - Spring Security Inmemory 세션저장소인 SecurityContextHolder내부의 SecurityContext에 저장한다.
 8. 인증이 실패한다면 해당 예외를 `ExceptionTranslationFilter`에게 전달해 적절한 Handler를 찾아 처리를 위임한다.  
 
+#### Spring Security Architecture Flow
+1. Spring Servlet container에 요청이 들어오면 `DeligatingFilterProxy`가 요청을 받는다.
+   - `DeligatingFilterProxy`는 SpringBoot를 사용하면 자동으로 등록되므로 사용하지 않으려면 설정을 해야한다.
+2. `DeligatingFilterProxy`는 특정한 빈 이름으로 요청의 필터처리를 FilterChainProxy로 위임한다.
+3. FilterChainProxy는 여러 필터들을 체인형태로 가지고 있고 이런 체인은 WebSecurity, HttpSecurity를 사용해 만들어진다.
+4. 개발자가 WebSecurityConfigureAdapter를 상속받아 시큐리티 설정을 커스텀 하는것이 WebSecurity 체인을 만드는 것이다.
+   - 이렇게 개발자가 만든 필터들을 바탕으로 필터 체인을 이룬다고 할 수 있다. 
 
 ### Spring Security Filter Chain
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/223420499-3cea9321-4b0b-4ff6-8d9a-109b550c7959.png">
+
+- 위 사진은 스프링 SecurityConfig에 debug를 작성해 스프링에서 직접적으로 호출하는 필터들과 그 순서를 나열한 목록이다.
+   - 중간엔 UsernamePasswordAuthenticationFilter이 들어가야 하나 상속해서 재구현한 필터를 그 순서에 끼워넣어 없는 것이다.
+
+```
+스프링 Security에서 호출하는 필터들과 그 순서는 하단과 같다.
+1.WebAsyncManagerIntergrationFilter
+2.SecurityContextPersistenceFilter
+3.HeaderWriterFilter
+4.CsrfFilter
+5.LogoutFilter
+6.UsernamePasswordAuthenticationFilter
+7.DefaultLoginPageGeneratingFilter
+8.DefaultLogoutPageGeneratingFilter
+9.BasicAuthenticationFilter
+10.RequestCacheAwareFtiler
+11.SecurityContextHolderAwareReqeustFilter
+12.AnonymouseAuthenticationFilter
+13.SessionManagementFilter
+14.ExeptionTranslationFilter
+15.FilterSecurityInterceptor
+```
+
+하단의 사진은 SpringSecurity가
 <img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/223130384-b6383d98-e622-4839-af12-f70ee9fe5709.png">
 
 ### Spring Security의 필터들
