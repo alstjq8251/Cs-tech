@@ -113,6 +113,15 @@
   - Logout 요청 처리를 담당하는 필터이다.
   - 사용자의 세션을 무효화하고 모든 인증 관련 쿠키 또는 헤더를 지운다.
 
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/223426257-1a87b3f0-20fc-4a9e-acfd-b12c3b21b758.png">
+
+#### LogoutFilter Flow
+- 로그아웃 요청의 url이 /logout인지 확인 후 맞을 때 진행 아닐 땐 다음 필터로 요청 위임
+- SecurityContext에서 인증객체 Authentication을 꺼낸 뒤 SecurityContextLogoutHandler에게 처리를 위임한다.
+   - session.invalidate(), delete cookie sessionContextHolder.clearContext()로 세션을 비우고 인증객체를 null로 만든다.
+- SimpleUrlLogoutSuccessHanlder에게 처리를 위임하며 로그아웃 페이지로 리다이랙트 시킨다.
+
+
 `AnonymousAuthenticationFilter`
   - 인증되지 않은 요청에 대해 익명 인증을 제공한다.
   - 사용자에 대한 `AnonymousAuthenticationToken`을 생성하고 체인의 다음 필터로 전달한다.
