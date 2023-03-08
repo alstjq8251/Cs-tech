@@ -134,5 +134,8 @@
   - 인증 시행을 담당하는 필터이다.
   - 사용자의 역할 또는 권한에 기반한 규칙. 요청을 가로채고 AccessDecisionManager 및 SecurityMetadataSource를 기반으로 보안 규칙을 적용한다.
 
+### Spring Security와 Oauth2
+Spring Security는 OAUth2의 소셜로그인 기능도 제공한다.
+
 #### Reference
 <https://catsbi.oopy.io/c0a4f395-24b2-44e5-8eeb-275d19e2a536><br>
