@@ -138,6 +138,7 @@
 Spring Security는 OAUth2의 소셜로그인 기능도 제공한다.
 
 이때 기본적으로 Oauth2 인증 흐름이 어떻게 되는지 알 필요가 있다.
+<https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/spring/%EC%86%8C%EC%85%9C%EB%A1%9C%EA%B7%B8%EC%9D%B8.md>
 먼저 플로우는 하단과 같다.
 
 
