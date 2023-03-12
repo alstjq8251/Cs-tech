@@ -141,6 +141,8 @@ Spring Security는 OAUth2의 소셜로그인 기능도 제공한다.
 <https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/spring/%EC%86%8C%EC%85%9C%EB%A1%9C%EA%B7%B8%EC%9D%B8.md>
 먼저 플로우는 하단과 같다.
 
+SpringSecurty 5.0버전 이상애서는 
+OAuth2CleintLoginFIlter가 유저 정보를 가져오는 역할을 담당한다.
 
 #### Reference
 <https://catsbi.oopy.io/c0a4f395-24b2-44e5-8eeb-275d19e2a536><br>
