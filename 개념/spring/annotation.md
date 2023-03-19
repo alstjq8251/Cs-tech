@@ -45,3 +45,7 @@
     - @ExtendWith(SpringExtension.class)를 @ExtendWith(MockitoExtension.class) 로 작성해도 동일하게 작용한다.
 
     - MockitoExtension은 SpringExtension 보다는 적지만, 다양한 기능을 구현하여 테스트 클래스의 기능을 확장한다.
+
+#### 주석 관련 어노테이션
+- `@Override`
+  - 인터페이스 , 추상클래스의 메소드를 상속하고 있음을 알려주는 주석의 성격을 띈 어노테이션이다. 
