@@ -10,3 +10,5 @@
 ### Jacoco를 연동하기 위한 과정 및 각 설정 별 설명
 1. gradle
   - 하단의 사진처럼 의존성을 추가한다.
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/227242229-7fdeffc0-aefc-46a1-9dce-97752913ea00.png">
+
