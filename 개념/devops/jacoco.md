@@ -12,3 +12,5 @@
   - 하단의 사진처럼 의존성을 추가한다.
 <img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/227242229-7fdeffc0-aefc-46a1-9dce-97752913ea00.png">
 
+  - 상단의 의존성을 추가하고 gradle refresh 혹은 ./gradlew clean build --refresh dependencies를 진행하면 하단을 확인 가능하다.
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/227561314-83b3e960-4de4-49c0-8089-ad74f2599298.png">
