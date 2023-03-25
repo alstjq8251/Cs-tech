@@ -126,4 +126,6 @@
     - 패키지 레벨의 경로로 지정해야 하며 경로엔 *, ?와 같은 와일드카드를 포함시킬 수 있다.
   > `finalizedBy` 메서드로 Jacoco 플러그인 Task간 의존성을 설정할 수 있다.
     
+#### Reference
+<https://techblog.woowahan.com/2661/><br>
       
