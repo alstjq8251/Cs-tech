@@ -27,6 +27,31 @@
 
 ## 📒 OS(Operating System)
 - [Process, Thread](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/OS/Process%20Thread.md)
+  - Process와 Thread를 이해해야 하는 이유 
+  - Process vs Program vs Processer
+  1. Process란?
+    - Process의 메모리 구조
+    - Process의 상태
+    - Process의 상태 전이
+  2. Thread란?
+    - Thread의 탄생 배경
+    - Java Thread
+    - Thread의 상태 전이
+  3. MultiProcess
+    - Multiprocess의 장단점
+  4. MultiThread
+    - MultiThread의 장단점
+  - MultiProcess vs MultiThread
+  5. Thread Synchronized
+  6. 결론
+- [Context Switching](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/OS/ContextSwitching.md)
+  - Context란?
+  - Context Switching 이란?
+  - Context Switching의 과정
+  - Context Switching을 하는 이유
+  - Context Switching인 경우와 아닌 경우
+  - Context Switching의 절차
+  - 오버헤드 해결 방안
 
 ## 📒 Spring(Java Back-End Framework)
   - [JPA](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/spring/JPA.md)
