@@ -99,4 +99,20 @@
   - [Docker](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/devops/%EB%8F%84%EC%BB%A4.md)
   - [Jenkins](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/devops/jenkins.md)
   - [CI & CD](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/devops/CI%26CD.md)
+  - [SonarQube](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/devops/Sonarqube.md)
+    1. SonarQube란?
+    2. SonarQube와 같은 정적 코드 분석 도구를 사용하는 이유?
+    3. 정적 코드 분석 도구가 검증하는 코드의 품질이란?
+      - 기능상의 품질
+      - 구조 상의 품질
+    4. 코드의 품질을 높이기 위한 활동  
+  - [Jacoco](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/devops/jacoco.md)
+    1. Jacoco란?
+    2. Jacoco의 특징
+    3. Jacoco를 연동하기 위한 과정 및 각 Task 및 규칙들의 설명
+      - JacocopluginExtension 속성
+      - JacocoTestReport Task
+      - JacocoTestCoverageVerification Task
+        - rule
+        - exclude  
      
