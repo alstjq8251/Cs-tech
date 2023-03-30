@@ -10,7 +10,10 @@
 추후 다시 CPU를 점유하게 됐을때 진행했던 작업 , 시점등을 저장하지 않으면 실행 시점을 알 수 없기 때문에 PCB란 고유의 db에 저장하는 것이다.
 ```
 
-#### PCB에 저장되는 것
+#### PCB 구조
+
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/228878230-0492bd4a-3211-4b47-8226-6f0d3eede831.png">
+
 1. 프로세스 식별자(Process ID)
 2. 프로세스 상태(Process State) 
    - 생성(create), 준비(ready), 실행 (running), 대기(waiting), 완료(terminated) 상태 
@@ -30,3 +33,4 @@
 
 #### Reference
 <https://jwprogramming.tistory.com/16><br>
+<https://velog.io/@nnnyeong/OS-Context-Switching-PCB-Process-Control-Block><br>
