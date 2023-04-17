@@ -4,3 +4,8 @@
 - 자원: 해당 소프트웨어가 관리하는 모든 것
   -> Ex) 문서, 그림, 데이터, 해당 소프트웨어 자체 등
 - 자원의 표현: 그 자원을 표현하기 위한 이름
+
+Rest의 구체적 개념
+- HTTP URI(Uniform Resource Identifier)를 통해 자원(Resource)을 명시하고, 
+
+  HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용하는 것을 의미한다.
