@@ -10,6 +10,8 @@ Rest의 구체적 개념
 
   HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용하는 것을 의미한다.
 
+#### Rest
+
 API란?
 - API(Application Programming Interface)란
 데이터와 기능의 집합을 제공하여 컴퓨터 프로그램간 상호작용을 촉진하며, 서로 정보를 교환가능 하도록 하는 것
