@@ -12,6 +12,8 @@ Rest의 구체적 개념
 
 #### Rest의 장단점
 
+#### Rest가 필요한 
+
 API란?
 - API(Application Programming Interface)란
 데이터와 기능의 집합을 제공하여 컴퓨터 프로그램간 상호작용을 촉진하며, 서로 정보를 교환가능 하도록 하는 것
