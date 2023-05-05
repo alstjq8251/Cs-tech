@@ -72,7 +72,54 @@ Load - 적재한다.
 > 초기화 설정 클래스가 로드되는 순서는 하단의 사진과 같다.
 <img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/236474246-fe8c01f2-7c5c-4c95-b7f4-18830d7512d3.png">
 
+#### Spring Batch Db Schema
+**SpringBatch는 기본적으로 배치의 실행 및 관리를 위한 목적으로 db에 데이터를 저장한다.**
+1. `스프링 배치 메타 데이터`
+  - 스프링 배치의 실행 및 관리를 위한 목적으로 여러 도메인들(Job, Step, JobParameters)의 정보들을 저장, 업데이트, 조회할 수 있는 스키마 제공
+  - 과거, 현재의 실행에 대한 세세한 정보, 실행에 대한 성공과, 실패 여부 등을 일목요연하게 관리함으로서 배치운용에 있어 리스크 발생 시 빠른 대처 가능
+  - DB와 연동할경우 필수적으로 메타데이터를 생성해야함
+2. `DB 스키마 제공`
+  - 파일 위치 :/org/springframework/batch/core/schema/*.sql
+  - DB 유형별로 제공
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/236498922-4d593e5f-769c-4516-9737-5af657dbb32b.png">
 
+> 상단의 스크립트로 생성되는 db스키마는 하단의 사진과 같다.
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/236500631-e7a9f885-be5f-4e4a-995e-91382f7d6e6e.png">
+
+> 생성되는 각각의 테이블을 하단에서 설명한다. (테이블 앞에 붙는 Batch는 기본 prefix로서 바꿀 수 있다.)
+`Job 관련 테이블`
+  1. `Batch_Job_Instance`
+    - `Job`이 실행될 때 `Instance`정보가 저장되며 job_name과 job_key를 키로 하여 하나의 데이터가 저장
+    - 동일한 job_name과 job_key로 중복 저장될 수 없다.
+  2. `Batch_Job_Execution`
+    - job의 실행정보가 저장되며 job 생성, 시작 , 종료 시간, 실행상태, 메세지 등을 관리
+  3. `Batch_Job_Execution_Parameters`
+    - job과 함께 실행되는 jobparameter정보를 저장
+  4. `Batch_Job_Execution_Context`
+    - Job의 실행동안 여러가지 상태정보, 공유정보를 직렬화(Json형태) 하여 저장
+    - Step간 서로 공유 가능함
+`Step 관련 테이블`
+  1. `Batch_Step_Execution`
+    - Step의 실행정보가 저장되며 생성,시작, 종료시간, 실행상태, 메세지 등을 관리
+  2. `Batch_Step_Execution_Context`
+    - Step의 실행동안 여러가지 상태 정보, 공유 데이터를 직렬화(Json형태)하여 저장
+    - Step별로 저장되며 Step간 공유할 수 없음
+
+3. 스키마 생성 설정
+  1. `수동 생성`
+    - 생성되어있는 쿼리를 복사 후 직접 실행하여 생성
+  2. `자동 생성`
+  
+  | 명령어 | 실행내용 |
+  | :--: | :--: |
+  | `Always` | 스크립트 항상 실행 <br> RDBMS설정이 되어있을 경우 내장 DB보다 우선하여 실행|
+  | `Embeded` | 내장 DB일때만 실행되며 스크립트 자동 생성 , 기본값임|
+  | `Never` | 스크립트 항상 실행 안함<br> 내장 DB일 경우 스크립트가 생성이 되지 않기 때문에 오류 발생<br>운영에서 수동으로 스크립트 생성 후 실행하는 것을 권장|
+  
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/236500358-3cb1b1a0-12c9-4539-94a1-7256b0fe919b.png">
+
+> 생성 전략은 상단과 같이 yaml, properties에 선언한다.
+  
 #### Reference
 <https://velog.io/@power0080/%EA%B0%9C%EB%85%90%EC%9B%90%EB%A6%ACspring-batch-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC-1%ED%8E%B8><br>
 <https://www.inflearn.com/course/lecture?courseSlug=%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B0%B0%EC%B9%98&unitId=91280><br>
