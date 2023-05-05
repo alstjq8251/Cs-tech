@@ -52,7 +52,27 @@ Load - 적재한다.
 ### Batch Architecture
 <img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/236454840-5e444d3c-5ba8-4f2c-8578-2815181c6dba.png">
 
+#### Spring Batch 초기화 설정 클래스
+`@EnableBatchProcessiong`어노테이션이 선언되면 하위의 4개의 설정클래스가 초기화된다.
+1. `BatchAutoConfiguration`
+  - 스프링 배치가 초기화 될 때 자동으로 실행되는 설정 클래스
+  - Job을 수행하는 JobLauncherApplicationRunner 빈을 생성
+2. `SimpleBatchConfiguration`
+  - `JobBuilderFactory`와 `StepBuilderFactory`생성
+  - 스프링 배치의 주요 구성 요소 생성 - 프록시 객체로 생성됨
+3. `BatchConfigurerConfiguration`
+  - `BasicBatchConfigurer`
+    - `SimpleBatchConfiguration`에서 생성한 프록시 객체의 실제 대상 객체를 생성하는 설정 클래스
+    - 빈으로 의존성을 주입받아서 주요 객체들을 참조해서 사용할 수 있다.  
+  - `JpaBatchConfigurer`
+    - Jpa관련 객체를 생성하는 설정 클래스
+  - 사용자 정의 `BatchConfigurer` 인터페이스를 구현하여 사용할 수 있다.
+
+> 초기화 설정 클래스가 로드되는 순서는 하단의 사진과 같다.
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/236474246-fe8c01f2-7c5c-4c95-b7f4-18830d7512d3.png">
+
 
 #### Reference
 <https://velog.io/@power0080/%EA%B0%9C%EB%85%90%EC%9B%90%EB%A6%ACspring-batch-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC-1%ED%8E%B8><br>
+<https://www.inflearn.com/course/lecture?courseSlug=%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B0%B0%EC%B9%98&unitId=91280><br>
 
