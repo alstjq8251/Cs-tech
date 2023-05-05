@@ -27,6 +27,7 @@
 - SpringBatch는 SpringSource(현재는 pivol)와 Accentual(경영 컨설팅 기업)의 합작품이다.
   - Accentual - 배치 아키텍쳐를 구현하면서 쌓은 기술적인 경험과 노하우
   - SpringSource - 깊이있는 기술적 기반과 스프링 프로그래밍 모델
+  
 Accentual은 이전에 소유했던 배치 처리 아키텍쳐 프레임 워크를 Spring Batch프로젝트에 기증함
 
 #### Batch의 핵심 패턴
