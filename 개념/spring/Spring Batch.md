@@ -119,6 +119,37 @@ Load - 적재한다.
 <img width="100%" alt="image" src="https://user-images.githubusercontent.com/98382954/236500358-3cb1b1a0-12c9-4539-94a1-7256b0fe919b.png">
 
 > 생성 전략은 상단과 같이 yaml, properties에 선언한다.
+
+#### SpringBatch Domain의 이해
+`Job`
+
+`JobInstance`
+1. 개념
+- Job이 실행될때 생성되는 Job의 논리적 실행 단위 객체로서 고유한 식별 가능한 작업 실행을 의미
+- Job의 실행과 구성은 동일하지만 Job이 실행되는 시점에 처리하는 내용은 다르기 때문에 Job의 실행을 구별해야함
+  - ex: 하루 한번씩 배치 Job이 실행된다면 매일 실행되는 각각의 Job을 JobInstance라고 표현ㅓ
+- JobInstance 생성 및 실행
+  - 처음 시작하는 Job + Jobparameter 일 경우 새로운 JobInstance 생성
+  - 이전과 동일한 Job + Jobparameter 으로 실행할 경우 이미 존재하는 JobInstance 리턴
+    - 내부적으로 jobname + jobkey(jobparameter의 해시값)를 가지고 JobInstance를 얻음
+- Job과는 1:N 관계
+2. BATCH_JOB_INSTANCE테이블과 매핑
+  - Jobname(Job) + Jobkey(Jobparameter 해시값)가 동일한 데이터는 중복해서 저장할 수 없음
+
+`JobParameter`
+1. 개념
+- Job을 실행할때 함께 포함되어 사용되는 파라미터를 가진 도메인 객체
+- 하나의 Job에 존재할 수 있는 여러개의 JobInstance를 구분하기 위한 용도
+- JobParameter와 JobInstance는 1:1관계
+2. 생성 및 바인딩
+- 어플리케이션 생성 시 주입
+  - java -jar LogBatch.jar requestDate=2021
+- 코드로 생성
+  -  JobParameterBuilder, DefaultJobParaemterConverter
+- SpEL
+  - @Value("#{jobparameter[requestDate]}"), @JobScope, @JobScope 선언 필수
+3. BATCH_JOB_EXECUTION_PARAM 테이블과 매핑
+- JOB_EXECUTION 1:N 관계  
   
 #### Reference
 <https://velog.io/@power0080/%EA%B0%9C%EB%85%90%EC%9B%90%EB%A6%ACspring-batch-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC-1%ED%8E%B8><br>
