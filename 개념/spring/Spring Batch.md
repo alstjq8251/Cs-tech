@@ -150,6 +150,20 @@ Load - 적재한다.
   - @Value("#{jobparameter[requestDate]}"), @JobScope, @JobScope 선언 필수
 3. BATCH_JOB_EXECUTION_PARAM 테이블과 매핑
 - JOB_EXECUTION 1:N 관계  
+
+`JobExecution`
+1. 개념
+- JobInstance에 대한 한번의 시도를 의미하는 객체로서 Job 실행 중에 발생한 정보들을 저장하고 있는 객체
+  - 시작시간 , 종료시간 , 상태(시작됨,완료,실패), 종료상태의 속성을 가짐
+- JobInstance와의 관계
+  - JobExecution은 `FAILED`또는 `COMPLETED` 등의 Job의 실행 결과 상태를 가지고 있음
+  - JobExecution의 실행 상태 결과가 `COMPLETED`면 JobInstance의 실행이 완료된 것으로 간주해 재실행이 불가함 
+  - JobExecution의 실행 상태 결과가 `FAILED`면 JobInstance의 실행이 완료되지 않은것으로 간주해서 재실행이 가능함
+    - JobParameter가 동일한 값으로 Job을 실행할 지라도 계속해서 JobInstance를 실행할 수 있음
+  - JobExecution의 실행 상태 결과가 `COMPLETED`가 될때 까지 하나의 JobInstance내에서 여러 번의 시도가 생길 수 있음
+
+2. BATCH_JOB_EXECUTION 테이블과 매핑
+- JobInstance와 JobExecution은 1:N관계로서 JobInstance에 대한 성공/실패 내역을 가지고 있음
   
 #### Reference
 <https://velog.io/@power0080/%EA%B0%9C%EB%85%90%EC%9B%90%EB%A6%ACspring-batch-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC-1%ED%8E%B8><br>
