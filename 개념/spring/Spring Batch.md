@@ -216,6 +216,15 @@ Load - 적재한다.
 | | ExitStatus | 실행결과를 나타내는 클래스로서 종료코드를 포함(UNKNOWN, EXECUTING, COMPLETED, NOOP, FAILED, STOPED)|
 | | StepExecution | StepExecution 객체를 저장|
 
+`ExecutionContext`
+1.개념
+- 프레임워크에서 유지 및 관리하는 키/값으로 된 컬렉션으로 StepExecution 또는 JobExecution객체의 상태(State)를 공유하는 공유 객체
+- DB에 직렬화 한 값으로 저장됨{"key"-"value"}
+- 공유 범위 
+  - Step 범위 각 Step에 StepExecution에 저장되며 Step간 공유 안됨
+  - Job 범위 각 Job에 JobExecution에 저장되며 Job간 서로 공유 안되며 해당 Job의 Step간 서로 공유됨
+- Job 재시작 시 이미 처리한 Row데이터는 건너뛰고 이후로 수행하도록 할 때 상태정보를 활용한다.
+
 
 #### Reference
 <https://velog.io/@power0080/%EA%B0%9C%EB%85%90%EC%9B%90%EB%A6%ACspring-batch-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC-1%ED%8E%B8><br>
