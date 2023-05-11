@@ -217,13 +217,30 @@ Load - 적재한다.
 | | StepExecution | StepExecution 객체를 저장|
 
 `ExecutionContext`
-1.개념
+1. 개념
 - 프레임워크에서 유지 및 관리하는 키/값으로 된 컬렉션으로 StepExecution 또는 JobExecution객체의 상태(State)를 공유하는 공유 객체
 - DB에 직렬화 한 값으로 저장됨{"key"-"value"}
 - 공유 범위 
   - Step 범위 각 Step에 StepExecution에 저장되며 Step간 공유 안됨
   - Job 범위 각 Job에 JobExecution에 저장되며 Job간 서로 공유 안되며 해당 Job의 Step간 서로 공유됨
 - Job 재시작 시 이미 처리한 Row데이터는 건너뛰고 이후로 수행하도록 할 때 상태정보를 활용한다.
+
+`JobRepository`
+1. 개념
+- 배치 작업 중의 정보를 저장하는 저장소 역할
+- Job이 언제 수행되었고, 언제 끝났으며, 몇번이 수행되었고 실행에 대한 결과 등의 배치 작업의 수행과 관련된 모든 meta deta를 저장함
+  - JobLauncher, Job, Step 구현체 내부에서 모든 CRUD 기능을 처리함
+2. JobRepository 설정
+- @EnableBatchProcessing 어노테이션만 선언하면 JobRepository가 자동으로 빈으로 생성됨
+- BatchConfigurer 인터페이스를 구현하거나 BasicBatchConfigurer를 상속해서 JobRepository설정을 커스터마이징 할 수 있다.
+  - **JDBC방식으로 설정 - JobRepositoryFactoryBean**
+    - 내부적으로 AOP기술을 통해 트랜잭션 처리를 해주고 있음
+    - 트랜잭션 isolation의 기본값은 SERIALIZEBLE로 최고 수준, 다른 레벨(READ_COMMITED, REPEATABLE_READ)로 지정 가능
+    - 메타테이블의 테이블 prefix를 변경할 수 있음 기본값은 "BATCH_"임
+  - **In Memory 방식으로 설정 - MapJobRepositoryFactoryBean**
+    - 성능 등의 이유로 도메인 오브젝트를 굳이 데이터베이스에 저장하고 싶지 않을 경우
+    - 보통 Test나 프로토타입의 빠른 개발이 필요할 때 사용 
+    -    
 
 
 #### Reference
