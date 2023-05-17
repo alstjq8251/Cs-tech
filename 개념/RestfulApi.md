@@ -12,7 +12,7 @@ Rest의 구체적 개념
 
 #### Rest의 장단점
 
-#### Rest가 필요한 
+#### Rest가 필요한 이유?
 
 API란?
 - API(Application Programming Interface)란
