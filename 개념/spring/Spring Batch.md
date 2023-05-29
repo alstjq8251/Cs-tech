@@ -257,6 +257,26 @@ Load - 적재한다.
     - taskExecutor가 SimpleAsynkTaskExecutor로 설정할 경우
     - JobExecution을 획득하고 Client에게 바로 JobExecution을 반환하고 배치처리를 완료한다.
     - Http요청에 의한 배치처리에 적합 함 - 배치처리 시간이 길 경우 응답시간이 늦어지지 않도록 함
+
+#### SpringBatch Initialization
+1. `JobLauncherApplicationRunner`
+   - SpringBatch 작업을 시작하는 ApplicationRunner로서 BatchAutoConfiguration에서 생성됨 
+   - 스프링 부트에서 제공하는 ApplicationRunner의 구현체로서 어플리케이션이 정상적으로 구동되자마자 실행됨
+   - 기본적으로 빈으로 등록된 모든 Job을 실행시킨다.
+2. `BatchProperties`
+  - SpringBatch의 환경 설정 클래스
+  - Job이름 , 스키마 초기화 설정 , 테이블 Prefix등의 값을 설정할 수 있다.
+  - application.properties, application.yml에 설정할 수 있다.
+    - batch.job.names : ${job.name:none}
+    - batch.job.schema : never
+    - batch.job.tablePrefix : Ex
+3. `Job 실행 옵션`
+  - 지정한 Batch Job만 실행하도록 할 수 있음
+  - 상단의 yaml에 설정한 것과같은 batch 설정
+  - 어플리케이션 실행 시 Program Arguments로 job name을 입력한다.
+    - --job.name=hello
+    - --job.name=exampleJob
+- 
    
 
 
