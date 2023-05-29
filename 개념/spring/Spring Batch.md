@@ -276,8 +276,45 @@ Load - 적재한다.
   - 어플리케이션 실행 시 Program Arguments로 job name을 입력한다.
     - --job.name=hello
     - --job.name=exampleJob
-- 
-   
+
+
+#### SpringBatch 실행
+1. 스프링 배치는 Job과 Step을 쉽게 생성 및 설정할 수 있도록 util성격의 빌더 클래스들을 제공함
+2. `JobBuilderFactory`
+  - `JobBuilder`를 생성하는 팩토리 클래스로서 get(String name)메서드 제공
+  - jobBuilderFactory.get("job name")
+    - "job name"은 스프링 배치가 job을 실행할 때 참조하는 job의 이름
+3. `JobBuilder`
+  - Job을 구성하는 설정 조건에 따라 두 개의 하위 빌더 클래스들을 생성하고 실제 Job생성을 위임한다.
+  - `SimpleJobBuilder`
+    - SimpleJob을 생성하는 빌더 클래스
+    - Job실행과 관련된 여러 설정 API를 제공한다.
+  - `FlowJobBuilder`
+    - FlowJob을 생성하는 빌더 클래스
+    - 내부적으로 FlowBuilder를 반환함으로서 Flow 실행과 관련된 여러 설정 API를 제공한다.
+
+- 스프링 배치 Builder의 아키텍쳐
+<img width="100%" alt="image" src="https://github.com/alstjq8251/Cs-tech/assets/98382954/ca29cbd8-1f48-4a4b-80af-b836dabcad91">
+
+`SimpleJobBuilder의 Api`
+<img width="100%" alt="image" src="https://github.com/alstjq8251/Cs-tech/assets/98382954/23756874-1f1f-4c82-a7de-e1bd18b94614">
+
+- `validator()`
+  - Job실행에 꼭 필요한 파라미터를 검증하는 용도
+  - DefaultJobParametersValidator구현체를 지원하며, 좀 더 복잡한 제약조건이 있다면 인터페이스를 직접 구현할 수도 있음
+
+- `preventRestart()`
+  - Job의 재시작 여부를 설정
+  - 기본 값은 true이며 false로 설정 시 "이 Job은 재시작을 지원하지 않는다" 라는 의미
+  - Job이 실패해도 재시작이 안되며 Job을 재시작하려고 하면 JobRestartException이 발생
+  - 재 시작과 관련 있는 기능으로 Job을 처음 실행하는 것과는 아무 연관이 없음 
+
+**Job의 실행이 처음이 아닌 경우는 성공/실패와 상관없이 오직 preventRestart 설정 값에 따라서 실행 여부를 판단한다.**
+
+> 기본값은 true이나 파라미터 없이 api를 호출하게 되면 false로 설정된다.
+
+<img width="100%" alt="image" src="https://github.com/alstjq8251/Cs-tech/assets/98382954/00e55a8b-917f-414c-8b93-29b493eb337b">
+
 
 
 #### Reference
