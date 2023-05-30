@@ -14,6 +14,7 @@
     - API
     - REST
     - RESTful API 
+  - [Websocket](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/Network/websocket.md)
 
 ## 📒 Java
 - [VM-JVM](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/JVM/JVM.md)
