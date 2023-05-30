@@ -315,6 +315,13 @@ Load - 적재한다.
 
 <img width="100%" alt="image" src="https://github.com/alstjq8251/Cs-tech/assets/98382954/00e55a8b-917f-414c-8b93-29b493eb337b">
 
+- `Incrementer()`
+  - JobParameters에서 필요한 값을 증가시켜 다음에 사용될 JobParamters 오브젝트를 리턴
+  - 기존의 JobParameter 변경없이 Job을 여러번 실행하고자 할 때
+  - RunIdIncrementer 구현체를 지원하며 인터페이스를 직접 구현할 수 있음 
+
+**SimpleJob Architecture**
+<img width="100%" alt="image" src="https://github.com/alstjq8251/Cs-tech/assets/98382954/5eba8462-be27-46e9-8657-44654147f905">
 
 
 #### Reference
