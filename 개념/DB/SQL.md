@@ -60,8 +60,19 @@
 5. `테이블 변경`
   - 테이블명 변경은 Alter Table ~ Rename To 구문으로 변경 가능 하다.
   - 칼럼 추가는 Alter Table ADD(제약 조건); 으로 가능 하다.
+    - ALTER TABLE EMP ADD(AGE NUMBER(2) DEFAULT 1); -> COLUMN은 절대 넣어선 안됨 
   - 칼럼 변경은 Alter Table ~ Modify문으로 변경 가능 하다.
+    - ALTER TABLE EMP MODIFY(ENAME VARCHAR2(50) NOT NULL); -> 이미 추가된 제약사항으로 추가하면 변경되지 않는다.
     - 칼럼 변경을 통해 데이터 타입을 변경하거나 데이터의 길이를 변경할 수 있다. 
+  - 칼럼 삭제는 Alter Table ~ DROP COLUMN {칼럼명}문으로 삭제 가능하다.
+  - 칼럼명 변경은 ALTER TABLE RENAME COLUMN ~ TO {변경 칼럼명} 문으로 변경 가능하다.
+
+6. `테이블 삭제`
+  - 테이블 삭제는 DROP TABLE 문을 사용해서 삭제 가능하다.
+    - 테이블 구조와 데이터를 모두 삭제하기 때문에 주의가 필요하다
+    - DROP TABLE에서 **CASCADE CONSTRAINT**옵션을 사용해서 해당 테이블의 데이터를 외래키로 참조한
+
+      슬레이브 테이블과 관련된 제약사항도 삭제할 때 사용된다.
 
 #### SQL 각 명령어들
 `DESC`
