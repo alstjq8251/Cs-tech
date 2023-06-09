@@ -103,6 +103,48 @@
 
 > MYSQL에서는 SELF JOIN 이 계층형 조회같은 역할을 지원한다.
 
+## SUB QUERY
+1. MAIN QUERY 와 SUB QUERY 
+   - **Subquery는 SELECT문 내에 다시 SELECT문을 사용하는 SQL문**이다.
+   - **Subquery의 형태는 FROM구에 SELECT문을 사용하는 인라인 뷰(Inline View)와 SELECT문에 Subquery를 사용하는**
+
+     **스칼라 서브쿼리(Scala subquery)등**이 있다.
+   - **WHERE구에 SELECT문을 사용하면 서브쿼리(Sub Query)라고 한다.**
+   - FROM구에 SELECT문을 사용하여 가상의 테이블을 만드는 효과를 얻을 수 있다.
+2. 단일 행 서브쿼리와 다중 행 서브쿼리
+   - 서브쿼리(Sub query)는 반환하는 행 수가 한 개인 것과 여러 개인 것에 따라서 단일 행 서브쿼리와 멀티 행 서브쿼리로 분류된다.
+   - **단잃 행 서브쿼리는 단 하나의 행만 반환하는 서브쿼리로 비교 연산자(=,>,<,>=,<=,<>)를 사용한다.**
+   - 다중 행 서브쿼리는 여러 개의 행을 반환하는 것으로 IN,ANY,ALL,EXISTS를 사용해야 한다.
+  - <details>
+    <summary>단일 행 서브쿼리 , 다중 행 서브쿼리</summary>
+    <div>
+
+       | 서브쿼리 종류 | 설명|
+       | :--: | :--: |
+       | 단일 행 서브쿼리 | 서브쿼리를 실행하면 `그 결과는 반드시 한 행만 조회`된다. <br> 비교 연산자(=,>,<,>=,<=,<>)를 사용한다.|
+       | 다중 행 서브쿼리 | 서브쿼리를 실행하면 그 결과는 여러 개의 행이 조회 된다. <br> 다중 행 비교 연산자인 `IN,ANY,ALL,EXISTS`를 사용한다.|
+
+    </div>
+    </details>
+   
+    1. ANY
+       - select * from emp where empno > ANY (SELECT empno from usertbl where empname ='경남')
+       - 서브쿼리 앞에 **ANY의 의미는 OR의 개념과 비슷하다. 즉 비교대상들중 조건만 만족한다면 모두 출력하겠다는 의미**이다.
+       - **아울러 ANY와 동일한 역할을 하는 것으로 SOME도 있다.**
+   2. ALL
+       - **ALL은 서브쿼리의 결과 값 둘 다 만족하는 데이터만 출력**한다. 즉 AND의 개념과 유사
+   3. IN()
+       - **IN()은 Main query의 비교조건이 Subquery의 결과 중 하나만 동일하면 참이 된다.(OR과 유사)**
+       - IN은 반환하는 여러 개의 행 중에서 하나만 참이 되어도 참이 되는 연산이다.
+   4. EXISTS
+       - **EXISTS는 Subquery로 어떤 데이터 존재 여부를 확인하는 것 이다. **
+       - 즉 EXISTS의 결과는 참과 거짓인 BOOLEAN값이 반환된다.
+       - 첫 번째 SELECT 문의 결과를 토대로 하여 WHERE EXISTS의 SELECT를 비교해서 맞는 행이 있으면 출력한다. DISTINCT와 비슷한 역할 수행
+3. 스칼라(Scala Subquery)
+   - **스칼라 Subquery는 반드시 한 행과 한 칼럼만 반환하는 서브쿼리이다. 만약 여러 행이 반환되면 오류가 발생한다.**
+   
+   
+   
 ### REFERENCE
 <https://www.inflearn.com/course/lecture?courseSlug=sqld-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B4%88%EA%B8%89-2&unitId=103395&tab=curriculum><br>
 <https://blog.naver.com/javaking75/220010288704>
