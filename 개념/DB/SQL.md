@@ -424,10 +424,12 @@ oracle db의 모든 사용자가 이용 가능하다.
   - **COMMIT은 INSERT,UPDATE,DELETE문으로 변경한 데이터를 물리적 데이터베이스에 반영한다.**
   - commit이 완료되면 데이터베이스 변경으로 인한 LOCK이 해제(UNLOCK)된다.
   - commit을 실행하면 하나의 트랜잭션 과정을 종료한다.
+
 `ROLLBACK`
   - **ROLLBACK을 실행하면 데이터에 대한 변경 사용을 모두 취소하고 트랜잭션을 종료한다.**
   - INSERT,UPDATE,DELETE문의 작업을 모두 취소한다. 단, 이전에 COMMIT한 곳까지만 복구한다.
   - ROLLBACK을 실행하면 LOCK이 해제되고 다른 사용자도 데이터베이스행을 조작할 수 있다.
+
 `SAVEPOINT`
   - **SAVEPOINT는 트랜잭션을 작게 분할하여 관리하는 것으로 SAVEPOINT를 사용하면 지정된 위치 이후의 트랜잭션만 ROLLBACK할 수 있다.**
   - SAVEPOINT의 지정은 SAVEPOINT <SAVEPOINT명>을 실행한다.
