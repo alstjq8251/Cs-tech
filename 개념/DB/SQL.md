@@ -437,15 +437,19 @@ oracle db의 모든 사용자가 이용 가능하다.
 ### SQL 각 명령어들
 `DESC`
   - DESC(DESCRIBE) **테이블 이름**  명령어는 간단하게 테이블 구조를 확인하는 명령어이다.
+
 `Default`
   - Default 제약조건 insert시 비우고 삽입하게 되면 Default 후로 오는 값이 기본값으로 들어가게 된다.
+
 `DECODE`
   - **DECODE문으로 IF문을 구현할 수 있다. 즉 특정 조건이 참이면 A, 거짓이면 B로 응답한다.**
     - SELECT DECODE(ex,1000,true,false) 1000과 같으면 true 아니면 false
+
 `CASE`
   - **CASE문은 IF~THEN , ~ELSE~AND의 프로그래밍처럼 조건문을 사용할 수 있다.
   - 조건을 when구문에 사용하고 then구문은 해당 구문이 참이면 실행되고 거짓이면 ELSE구문이 실행된다.
   - CASE(ex) WHEN EMPNO = 1000 THEN result1 WHEN EMPNO = 1001 THEN result2 ELSE 12 END
+
 `ROWNUM`
   - **ROWNUM은 ORACLE 데이터베이스의 SELECT문 결과에 대해서 논리적인 일련번호를 부여**한다.
   - **ROWNUM은 조회되는 행 수를 제한할때 많이 사용**한다.
@@ -456,6 +460,7 @@ oracle db의 모든 사용자가 이용 가능하다.
   - **ROWNUM의 값을 1,2,3,4,5 등 순차적으로 증가하는 ROWNUM 데이터를 얻고 싶을 때 인라인뷰를 사용한다.** 
     - SELECT * FROM (SELECT ROWNUM list, ENAME FROM EMP ) WHERE LIST <=5; 
   - oracle db에선 rownum sql Server에선 top mysql에선 limit으로 동일한 기능을 제공한다.
+
 `ROWID`
   - **ROWID는 ORACLE 데이터베이스 내에서 데이터를 구분할 수 있는 유일한 값**이다.
   - SELECT ROWID,EMPNO FROM EMP; 와 같은 select문으로 확인할 수 있다.
