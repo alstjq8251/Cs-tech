@@ -117,5 +117,11 @@
    - Hash 조인은 해시 함수를 사용해서 주소를 계산하고, 해당 주소를 사용해서 테이블을 조인하기 때문에 CPU 연산을 많이 한다.
    - 특히, Hash조인 시에는 선행 테이블이 충분히 메모리에 로딩되는 크기여야 한다.
 
+#### 용어 학습
+`High WaterMark`
+   - Full Table Scan 테이블을 모두 읽은 것을 의미한다.
+   - 테이블을 읽을 때 High WaterMark전까지만 Full Table Scan을 한다.
+   - 테이블에서 데이터가 저장되어 있는 블록에서 최상위 위치를 의미하고, 데이터가 삭제,추가 되면 High WaterMark의 값도 같이 변경된다.
+
 ### Reference
 <https://www.inflearn.com/course/lecture?courseSlug=sqld-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B4%88%EA%B8%89-3&unitId=112493&tab=curriculum> 
