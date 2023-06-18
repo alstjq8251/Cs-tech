@@ -76,6 +76,31 @@
        - hadoop(대용량 데이터 적재, 이전 데이터 확인)
     - 컨슈머 그룹 장애에 격리되는 컨슈머 그룹으로 구성하여 컨슈머 그룹간 간섭(coupling)을 줄인다.
 
+#### Kafka Replication
+
+`나오게 된 배경`
+  - bin/kafka-topic.sh --ex-server localhost:9092 --create -topic ex_topic --partition3
+     - 카푸카에서 토픽을 만드는 명령어이며 상단과 같이 입력할 시 브로커 3개에 각각의 파티션이 할당된다.
+     - 이 때 1번 브로커가 장애가 발생했을 시 복구되기 전까지 파티션1이 사용 불가하다.
+     - 장애를 대응하기 위해 레플리케이션이 도입되었다.
+   
+`예시 명령어`
+  - bin/kafka-topic.sh --ex-server localhost:9092 --create -topic ex_topic --partition3 --replication-factor 3
+  - 3개의 브로커에 있는 것중 1번 브로커의 1번 파티션이 2번 3번으로 복제되게 된다.
+
+`리더 파티션`
+  - Kafka 클라이언트와 data를 주고받는 역할
+
+`팔로워 파티션`
+  - 리더 파티션으로부터 지속적으로 데이터를 복제(복제하는데 시간이 걸린다.)
+  - 리더 파티션의 장애가 발생했을 시 나머지 팔로워 중 한개가 리더로 선출된다.
+
+`ISR(In Sync Replica)`
+  - 파티션 3개, 어플리케이션 3개로 이루어진 토픽이 브로커에 할당되어 리더, 팔로워 파티션이 모두 복제되 sync가 맞는 상태
+  - ISR이 아닌 상태에서 장애가 발생하면 
+    - unclean.leader.election.enable false - 리더 파티션의 데이터가 모두 복제되고 복구될때 까지 기다린 후 수행
+    - unclean.leader.election.enable true - 리더 파티션의 데이터가 복제, 복구되지 않아도 수행
+
 #### Kafka rack-awareness
   - 1개의 Rack에 다수의 브로커를 몰아넣는것은 위험하다.
     - rack이 다운되면 모든 서버가 다운되기 때문(가용성 측면)
@@ -139,7 +164,30 @@
     - Rest api interface를 통해 제어
     - stream 또는 batch 형태로 데이터 전송 가능
     - 커스텀 connector를 통한 다양한 plugin 제공(file, s3, hive, mysql 등)
-      
+
+#### Kafka Mirror Maker
+`특징`
+  - 특정 카프카 클러스터에서 다른 카프카 클러스터로 Topic 및 Record를 복제하는 Standalone tool
+  - 클러스터간 토픽에 관한 모든 것을 복제하는 것이 목적
+    - 신규 토픽, 파티션 감지 기능 및 토픽 설정 자동 Sync 기능
+    - 양방향 클러스터 토픽 복제
+    - 미러링 모니터링을 위한 다양한 metric(latency, count 등) 제공
+
+#### Kafka 를 지원하는 다양한 어플리케이션
+1. conflunet/ksqlDB
+   - sql 구문을 통한 stream data processing 지원
+2. confluent/schema Registry
+   - avro 기반의 스키마 저장소
+3. confluent/Rest Proxy
+   - Rest Api를 통한 Producer/consumer
+4. linkedin/kafka burrow
+   - consumer lag 수집 및 분석
+5. yahoo/CAMK
+   - 카푸카 클러스터 매니저
+6. uber/uReplicator
+   - 카푸카 클러스터간 토픽 복제(전달)
+7. Spark stream
+   - 다양한 소스(카푸카 포함)로 부터 실시간 데이터 처리
 
 ### Reference
 <https://www.youtube.com/watch?v=catN_YhV6To><br>
