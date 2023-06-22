@@ -209,3 +209,4 @@
 <https://www.youtube.com/watch?v=catN_YhV6To><br>
 <https://www.iotsi.org/end-to-end-technology-landscape><br>
 <https://www.javatpoint.com/apache-kafka-architecture><br>
+<https://www.popit.kr/%ec%b9%b4%ed%94%84%ec%b9%b4-%ec%84%a4%ec%b9%98-%ec%8b%9c-%ea%b0%80%ec%9e%a5-%ec%a4%91%ec%9a%94%ed%95%9c-%ec%84%a4%ec%a0%95-4%ea%b0%80%ec%a7%80/><br>
