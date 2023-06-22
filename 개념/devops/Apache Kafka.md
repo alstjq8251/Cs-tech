@@ -189,6 +189,22 @@
 7. Spark stream
    - 다양한 소스(카푸카 포함)로 부터 실시간 데이터 처리
 
+#### Kafka 운영시 도움될 환경변수
+`log.retention.hours=72`
+  - kafka는 기본적으로 메세지, 이벤트 로그를 7일동안 남기게 되어있는데 클러스터링 환경에 따라 너무 많은 디스크
+
+    용량을 차지할 수 있기에 주말 고려하여 3일이 적합한 옵션
+    
+`delete.topic.enable=true`
+  - kafka는 기본적으로는 topic을 지울 수 없게 되있으며 레퍼런스를 봐도 해당 옵션은 적용되어 있지 않은데 이후 운영*관리 측면에서
+
+    토픽을 삭제할 수 있기에 운영단계에선 적용해야할 옵션
+
+`allow.auto.create.topics=false`
+  - kafka는 토픽이 생성되어있지 않을때 기본 설정이 true이기에 토픽을 만들고 메세지를 producer가 발행하게 되는데
+
+    해당 토픽을 사용하지 않음에도 이 옵션때문에 재생성이 된다면 관리가 어려워져서 꼭 필요한 옵션
+
 ### Reference
 <https://www.youtube.com/watch?v=catN_YhV6To><br>
 <https://www.iotsi.org/end-to-end-technology-landscape><br>
