@@ -40,3 +40,9 @@
     - 이를 위해 서비스 레지스트리를 로컬에 캐싱하고 주기적으로 유레카 서버와 통신하면서 이를 업데이트한다.
   - 서비스 레지스트리를 로컬에 캐싱하기 때문에 유레카 서버가 멈추더라도 서비스끼리 통신할 수 있다는 점이 장점이다.
 
+
+### Reference
+<https://happycloud-lee.tistory.com/210><br>
+<https://cjw-awdsd.tistory.com/52><br>
+<https://javachoi.tistory.com/396><br>
+
