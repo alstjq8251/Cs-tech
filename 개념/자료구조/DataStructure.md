@@ -110,12 +110,32 @@ POP | 데크에서 Front와 Rear에 있는 데이터를 하나씩 꺼내는 연�
 
 > 트리의 차수를 묻는 경우 특정 노드를 언급하지 않는다면 가장 큰 차수가 그 트리의 차수가 된다.
 
-#### 트리 순회 방법
-1. 전위 순행
-2. 중위 순행
-3. 후위 순행
+##### 이진 트리
+`정의`
+  - **차수(Degree)가 2 이하인 노드들로 구성된 트리**, 즉 자식이 둘 이하인 노드들로만 구성된 트리를 말한다.
+  - 이진 트리의 레벨 i에서 최대 노드의 수는 2 (i-1)승 이다.
+  - 이진 트리에서 Terminal Node 수가 n0, 차수가 2인 노드 수가 n2라 할때 n0= n2+1이 된다.
 
-5. 트리
+![image](https://github.com/alstjq8251/Cs-tech/assets/98382954/be845ba2-e18e-404b-8c17-d895f70cd02e)
+
+
+#### 트리 순회 방법
+  - 트리를 구성하는 각 노드들을 찾아가는 방법을 운행법(Traversal)dlfk gksek.
+1. 전위(Preorder) 순행
+  - Root -> Left -> Right 순으로 진행
+2. 중위(Inorder) 순행
+  - Left -> Root -> Right 순으로 진행  
+3. 후위(Postorder) 순행
+  - Left -> Right -> Root 순으로 진행
+
+##### 트리 순회 방법 수식 표기법
+
+1. 전위(Preorder) 순행 표기법(PreFix)
+   - 연산자 -> Left -> Right, +AB
+2. 중위(Inorder) 순행 표기법(Infix)
+   - Left -> 연산자 -> Right , A+B
+3. 후위(PostOrder) 순행 표기법(PostFix)
+   - Left -> Right -> 연산자 , AB+
 
 
 
@@ -123,4 +143,5 @@ POP | 데크에서 Front와 Rear에 있는 데이터를 하나씩 꺼내는 연�
 <https://boycoding.tistory.com/32><br>
 <https://velog.io/@seulgea/DataStructure-LinkedList><br>
 <https://colinch4.github.io/2020-11-28/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-ArrayList%EC%99%80-LinkedList/><br>
-<https://aerocode.net/188>
+<https://aerocode.net/188><br>
+<https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%A7%84_%ED%8A%B8%EB%A6%AC>
