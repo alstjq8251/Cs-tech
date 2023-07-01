@@ -27,6 +27,19 @@
   - 객체지향의 5대 원칙(OOP)
   - Java에서의 객체(클래스-인스턴스)
 
+## 📒 DB
+  - [Database](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/DB/DataBase.md)
+  - [Schema](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/DB/%EC%8A%A4%ED%82%A4%EB%A7%88.md)
+  - [Entity](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/DB/Entity.md)
+  - [데이터 모델링](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/DB/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%AA%A8%EB%8D%B8%EB%A7%81.md)
+  - [트랜잭션](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/DB/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98.md)
+  - [정규화 반정규화](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/DB/%EC%A0%95%EA%B7%9C%ED%99%94%20%EB%B0%98%EC%A0%95%EA%B7%9C%ED%99%94.md)
+  - [분산 데이터베이스](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/DB/%EB%B6%84%EC%82%B0%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4.md)
+  - [관계형 데이터베이스](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/DB/%EA%B4%80%EA%B3%84%ED%98%95%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4.md)
+  - [Sq](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/DB/SQL.md)
+  - [Sql 최적화 원리](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/DB/SQL%20%EC%B5%9C%EC%A0%81%ED%99%94%EC%9D%98%20%EC%9B%90%EB%A6%AC.md)
+  - [Sql 활용](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/DB/SQL%20%ED%99%9C%EC%9A%A9.md)
+ 
 ## 📒 디자인 패턴
 - [디자인 패턴](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/%EA%B0%9D%EC%B2%B4/%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4.md)
 
@@ -57,6 +70,11 @@
   - Context Switching인 경우와 아닌 경우
   - Context Switching의 절차
   - 오버헤드 해결 방안
+
+## 📒 SoftWare Engineering
+  - [요구사항 확인](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/Software%20Engineering/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%ED%99%95%EC%9D%B8.md)
+  - [소프트웨어 아키텍쳐](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/Software%20Engineering/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.md)
+  - [통합 구현](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/Software%20Engineering/%ED%86%B5%ED%95%A9%20%EA%B5%AC%ED%98%84.md)
 
 ## 📒 Spring(Java Back-End Framework)
   - [JPA](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/spring/JPA.md)
@@ -121,5 +139,7 @@
       - JacocoTestReport Task
       - JacocoTestCoverageVerification Task
         - rule
-        - exclude  
+        - exclude
+  - [Apache Kafka](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/devops/Apache%20Kafka.md)
+
      
