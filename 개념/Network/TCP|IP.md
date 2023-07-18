@@ -29,6 +29,8 @@
 | SMTP<br>(Simple Mail Transfer Protocol) | 전자 우편을 교환하는 서비스 |
 | TELNET | 멀리 떨어져 있는 컴퓨터에 접속해 자신의 컴퓨터처럼 사용할 수 있도록 해주는 서비스 <br> 프로그램을 실행하는 등 시스템 관리 작업을 할 수 있는 가상의 터미널(Virtual Terminal) 기능 수행 |
 | SNMP(Simple Network Management Protocol) | TCP/IP의 네트워크 관리 프로토콜로, 라우터나 허브 등 네트워크 기기의 네트워크 정보를 네트워크 관리 시스템에 보내는데 사용되는 표준 통신 규약 |
+| POP3(Post Office Protocol Version 3) | TCP 110번 포트를 사용하고, 응용 계층 인터넷 프로토콜 중 하나로, 원격 서버로부터 TCP/IP 연결을 통해 이메일을 가져오는 데 사용하는 프로토콜 |
+| IMAP(Internet Messaging Access Protocol) | TCP 143번 포트를 사용하고, 원격 서버로부터 TCP/IP 연결을 통해 이메일을 가져오고, 온라인 및 오프라인을 모두 지원하는 프로토콜 |
 | DNS(Domain Name System) | 도메인 네임을 IP 주소로 매핑(Mapping)하는 시스템 |
 | HTTP(HyperText Transfer Protocol) | 월드 와이드 웹(www)에서 HTML 문서를 송수신 하기 위한 표준 프로토콜
 
