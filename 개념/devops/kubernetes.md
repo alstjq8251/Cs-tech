@@ -146,3 +146,53 @@ spec:
 **Spec이란 쿠버네티스가 달성해야할 목표이며 Status는 오브젝트의 현재 상태를 의미한다.**
    - 쿠버네티스의 API Server가 Spec을 읽어 오브젝트를 생성하고 Status와 맞는지 지속적으로 비교한다.
    - 이 때 쿠버네티스의 Controller Manager가 Spec과 Status를 비교하면서 계속 조정하고 상태를 업데이트 한다.
+
+#### Kubernetes 명령어(Kubectl)
+
+`kubectl api-resources`
+   - 쿠버네티스 클러스터에서 사용할 수 있는 오브젝트 목록 조회
+
+`kubectl explain <type>`
+   - 쿠버네티스 오브젝트의 설명과 1레벨 속성들의 설명
+   - apiVerson, kind, metadata, spec, status
+
+`kubectl explain <type>,<fieldName>[.<fieldName>]`
+   - kubectl explain pods.spec.containers
+   - 쿠버네티스 오브젝트 속성들의 구체적인 설명(Json 경로)
+
+`kubectl get Nodes`
+   - 쿠버네티스 클러스터에서 속한 노드 목록 조회
+
+`kubectl apply -f <object-file-name>`
+   - kubectl apply -f deployment.yaml
+   - 쿠버네티스 오브젝트 생성/변경
+
+`kubectl get pods`
+   - 실행 중인 Pod(컨테이너) 목록 조회
+
+> 배포한 컨테이너들을 운영할 때 사용할 수 있는 명령어
+
+`kubectl scale -f <object-file-name> --replicas=#`
+   - kubectl scale -f deployment.yaml --replicas=3
+   - 애플리케이션 배포 개수를 조정(replicas:복제본)
+
+`kubectl diff -f <object-file-name>`
+   - kubectl diff -f depolyment.yaml
+   - 현재 실행중인 오브젝트 설정과 입력한 파일의 차이점 분석
+
+`kubectl edit <type>/<name>`
+   - kubectl edit depolyment/nginx-depolyment:replicas를 4로 변경
+   - 쿠버네티스 오브젝트의 Spec을 editor로 편집
+
+`kubectl port-foward <type>/<name> <localport>:<container-port>`
+   - kubectl port-forward pod/nginx-depolyment-874-fc 8080:80
+   - 로컬 포트는 실행중인 컨테이너 포트로 포워딩
+
+`kubectl attach <type>/<name> -c <container-name>`
+   - kubectl attack depolyment/nginx-depolyment -c nginx
+   - 현재 실행중인 컨테이너 프로세스에 접속하여 로그 확인
+
+`kubectl logs <type>/<name> -c <container-name> -f`
+   - kubectl logs depolyment/nginx-depolyment -c nginx -f
+   - 현재 실행중인 컨테이너 프로세스의 모든 로그 출력 (-f:watch 모드)
+
