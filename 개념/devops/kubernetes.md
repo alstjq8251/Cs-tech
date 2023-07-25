@@ -93,6 +93,8 @@
 
 <img width="1156" alt="image" src="https://github.com/alstjq8251/Cs-tech/assets/98382954/93a9fe83-642f-4428-b7b6-84beb6194f18">
 
+### Kubernetes Pods
+
 ### Kubernetes Object
 `정의`
 - 쿠버네티스 클러스터를 이용해서 애플리케이션을 배포하고 운영하기 위해 필요한 모든 쿠버네티스 리소스
