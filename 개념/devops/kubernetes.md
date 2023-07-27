@@ -94,6 +94,7 @@
 <img width="1156" alt="image" src="https://github.com/alstjq8251/Cs-tech/assets/98382954/93a9fe83-642f-4428-b7b6-84beb6194f18">
 
 ### Kubernetes Pods
+`정의`
 
 ### Kubernetes Object
 `정의`
