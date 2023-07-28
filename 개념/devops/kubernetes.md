@@ -116,6 +116,7 @@
 - `metadata`
   - 오브젝트를 구분지을 수 있는 정보
     - `name`, `resourceVersion`, `labels`, `namespace`
+      
 - `spec`
   - 사용자가 원하는 오브젝트 상태
   - 선언할 수 있는 속성은 오브젝트 마다 다름
