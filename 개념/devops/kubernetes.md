@@ -95,6 +95,7 @@
 
 ### Kubernetes Pods
 `정의`
+- 쿠버네티스에서 구동되는 어플리케이션의 집합을 의미한다.
 
 ### Kubernetes Object
 `정의`
