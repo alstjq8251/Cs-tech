@@ -21,6 +21,12 @@
 - `Declarative Pipeline`
   - 선언형 파이프라인 작성법을 의미하며 Pipeline선언문이 최상단에 위치해야한다.
 
+#### Jenkins가 다른 여타 CI툴과 비교해서 가지는 장 * 단점
+- 기본적으로 CI툴엔 Jenkins를 제외하고도 Travis CI, GitAction, GitLabRunner등이 존재한다.
+  - 여기서 원격 저장소와 같이 연동되어 간편하게 사용할 수 있는 것들과 비교해 Jenkins가 가지는 단점은 `구축형` 및 `리소스 점유`이다.
+ 
+
+
 #### Reference
 <https://ict-nroo.tistory.com/31><br>
 <https://www.itworld.co.kr/news/107527>
