@@ -96,6 +96,44 @@
 ### Kubernetes Pods
 `정의`
 - 쿠버네티스에서 구동되는 어플리케이션의 집합을 의미한다.
+- 노드에서 컨테이너를 실행하기 위한 가장 **기본적인 배포 단위**
+- 여러 노드에 **1개 이상의 Pod을 분산 배포/실행 가능(Pod Replicas)**
+
+`특징`
+- 쿠버네티스는 **Pod을 생성할 때** 노드에서 **유일한 IP를 할당**(서버 분리 효과)
+- **Pod 내부 컨테이너에서 localhost로 통신** 가능, **포트 충돌 주의**
+- Pod안에서 네트워크와 볼륨 등 자원 공유
+
+`주의할 점`
+- **Pod IP는 클러스터 내에서만 접근할 수 있다.**
+- 클러스터 외부 트래픽을 받기 위해선 Service 혹은 Ingress 오브젝트 필요
+
+`Pod 및 컨테이너 설정 시 고려할 점`
+1. 컨테이너들의 라이프사이클이 같은가?
+   - Pod 라이프사이클 = 컨테이너 라이프 사이클
+   - A는 앱 B는 로그 수집기라면 A가 다운됐을때 B의 실행의미가 사라짐
+2. 스케일링 요구사항이 같은가?
+   - 웹 서버 vs DB 서버, 트래픽이 많은가 , 그렇지 않은가
+3. 인프라 활용도가 더 높아지는 방향으로
+   - 쿠버네티스가 노드 리소스 등 여러 상태를 고려하여 Pod을 스케줄링
+
+`노드에 배포되는 과정`
+1. 사용자로부터 Pod 배포 요청을 수락한다.
+2. 요청 받은 수만큼 Pod Replica를 생성한다.(Pod desired state = current state)
+3. Pod을 배포할 적절한 노드를 선택한다.(Node Selector)
+4. 5에게 이미지 다운로드를 명령하고 Pod 실행을 준비한다. Pod 상태를 업데이트한다.
+5. 이미지를 다운로드하고 컨테이너를 실행한다.
+
+ 
+
+`한계점`
+- Pod가 나도 모르게 종료된경우
+  - 자가 치유 능력(Self-Healing)이 없음, Pod이나 노드 이상으로 종료되면 끝
+  - **"사용자가 선언한 만큼 POD을 유지"** 해주는 ReplicaSet 오브젝트 도입
+ 
+- Pod IP는 외부에서 접근할 수 없다, 그리고 생성될 때마다 IP가 변경된다.
+- 클러스터 **"외부에서 접근"할 수 있는 "고정적인 단일 엔드포인트"** 필요
+- **Pod집합**을 **클러스터 외부로 노출**하기 위한 Service 오브젝트 도입 
 
 ### Kubernetes Object
 `정의`
@@ -123,11 +161,13 @@
   - 선언할 수 있는 속성은 오브젝트 마다 다름
 
 ```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-   name: nginx-deployment
-spec:
+apiVersion: apps/v1   # 쿠버네티스 API 버전
+kind: Deployment      # 오브젝트 타입
+metadata:             # 오브젝트를 유일하게 식별하기 위한 정보
+   name: nginx-deployment  # 오브젝트 이름
+   labels:                 # 오브젝트 집합을 구할 때 사용하는 이름표 
+spec:                 # 사용자가 원하는 오브젝트의 바람직한 상태
+   nodeSelector       # Pod을 배포할 노드
    selector:
       matchLables:
          app: nginx
@@ -137,11 +177,12 @@ spec:
             lables:
                app: nginx
          spec:
-            containers:
+            containers:    # Pod안에서 실행할 컨테이너 목록 
                - name: nginx
                  image: nginx:1.14.2
                  ports:
                     - containerPort: 80
+                 volumes:    # 컨테이너가 사용할 수 있는 볼륨 목록
 ```
 
 `쿠버네티스의 상태를 알려주는 Status 필드`
