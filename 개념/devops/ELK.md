@@ -9,3 +9,5 @@
 1. Spring등 로그를 전달하기 위한 서비스에서 LogStash로 로그를 전달한다.
 2. LogStash에서 Input에 등록한 서비스에서 로그가 전달되면 Codec에 적힌대로 인코딩한뒤 Output으로 결과를 전달한다.
 3. ElasticSearch는 색인된 데이터를 전달받고 Kibana에선 해당 데이터를 쿼리를 날려 자료를 시각화한다.
+
+### ELK 사용시 주의할 점
