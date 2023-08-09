@@ -1,5 +1,7 @@
 ## ELK란?
-- ElasticSearch , LogStash , Kibana의 앞글자를 딴 것을 의미한다.
+<img width="753" alt="image" src="https://github.com/alstjq8251/Cs-tech/assets/98382954/0a598860-851d-47a5-b807-a2176bd87d14">
+
+- ElasticSearch , LogStash , Kibana의 앞글자를 딴 것을 의미하며 상단의 사진처럼 파이프라인을 구성하는 것을 말한다.
 
 ### ELK를 사용하는 이유?
 - 버그 및 프로덕션 문제를 진단하고 해결하는 데 사용할 수 있다.
