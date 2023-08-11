@@ -21,7 +21,7 @@
 3. `Kibana`
    - Elasticsearch에서 차트와 그래프를 이용해 데이터 시각화를 가능하게 해주는 도구.
 
-### ELK 사용시 주의할 점
+> ELK는 기본적으로 버전이 같아 모두 똑같은 버전을 사용하며 설치시 java 8버전이 설치되어 있어야 한다.
 
 ### Reference
 <https://fubabaz.tistory.com/12>
