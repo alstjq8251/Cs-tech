@@ -24,6 +24,9 @@
 > ELK는 기본적으로 버전이 같아 모두 똑같은 버전을 사용하며 설치시 java 8버전이 설치되어 있어야 한다.
 
 ### ELK Stack 이란?
+![image](https://github.com/alstjq8251/Cs-tech/assets/98382954/b6b4ef9c-a1ee-4260-9521-dd1d8c49a0dd)
+
+- ELK stack이란 ELK 3가지로 구성된 것을 말하지만 최근엔 데이터의 수집을 담당하는 Beats 부분을 합쳐 Elk Stack이라고 부른다.
 
 ### Reference
 <https://fubabaz.tistory.com/12>
