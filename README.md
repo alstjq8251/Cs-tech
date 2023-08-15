@@ -15,6 +15,9 @@
     - REST
     - RESTful API 
   - [Websocket](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/Network/websocket.md)
+  - [경로제어*트래픽제어](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/Network/%EA%B2%BD%EB%A1%9C%20%EC%A0%9C%EC%96%B4%20*%20%ED%8A%B8%EB%9E%98%ED%94%BD%20%EC%A0%9C%EC%96%B4.md)
+  - [네트워크](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/Network/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.md)
+  - [TCP/IP](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/Network/TCP%7CIP.md)
 
 ## 📒 Java
 - [VM-JVM](https://github.com/alstjq8251/Cs-tech/blob/main/%EA%B0%9C%EB%85%90/JVM/JVM.md)
