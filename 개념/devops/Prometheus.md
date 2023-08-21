@@ -4,3 +4,8 @@
 
 ### 특징
 - 메트릭 이름과 Key-Value 쌍으로 식별되는 시계열 데이터가 있는 다차원 데이터 모델
+- PromQL, 이차 원성을 활용하는 유연한 쿼리 언어
+
+
+### Reference
+<https://magpienote.tistory.com/257><br>
