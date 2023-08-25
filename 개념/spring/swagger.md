@@ -44,6 +44,10 @@
   - swagger가 사용하는 어노테이션들의 이름이 직관적이며 러닝커브가 적고 레퍼런스가 많아 쉽게 문서화가 가능하다.
   - 난이도는 전체적으로 낮고 사용자가 원하는 수준에 따라 UI및 설명을 추가적으로 조성할 수 있다.
 
+### SpringFox vs SpringDoc OpenAPI
+- 두 라이브러리 모두 swagger를 만들어주는 의존성들이다.
+- 현재 SpringFox는 2020년 기준 개발이 중단됐으며 OpenAPI는 개발이 계속 진행되고 있다.
+- 좀 더 많은 레퍼런스나 과거 자료는 SpringFox에서 배급하는 swagger가 더 많지만 꾸준히 개발중인 SpringDoc OpenAPI WebMvc를 사용하는걸 권장한다.
 
 #### swagger사용법
 
