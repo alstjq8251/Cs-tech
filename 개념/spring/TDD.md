@@ -1,5 +1,6 @@
 ## TDD란?
 - Test Driven Develop의 줄임말이다.
+-  반복 테스트를 이용한 소프트웨어 방법론으로, 작은 단위의 테스트 케이스를 작성하고 이를 통과하는 코드를 추가하는 단계를 반복하여 구현한다.
   
 ![image](https://github.com/alstjq8251/Cs-tech/assets/98382954/31b7a797-f5ce-493b-af6f-823b87a27b5f)
 
