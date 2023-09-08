@@ -45,6 +45,9 @@
     - @ExtendWith(SpringExtension.class)를 @ExtendWith(MockitoExtension.class) 로 작성해도 동일하게 작용한다.
 
     - MockitoExtension은 SpringExtension 보다는 적지만, 다양한 기능을 구현하여 테스트 클래스의 기능을 확장한다.
+- `@DataJpaTest`
+  - JPA에 관련된 요소들만 테스트하기 위한 어노테이션으로 JPA 테스트에 관련된 설정들만 적용해준다.
+  - 메모리상에 내부 데이터베이스를 생성하고 @Entity 클래스들을 등록하고 JPA Repository 설정들을 해준다. 각 테스트마다 테스트가 완료되면 관련한 설정들은 롤백된다. 
 
 #### 주석 관련 어노테이션
 - `@Override`
