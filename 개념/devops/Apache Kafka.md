@@ -52,6 +52,9 @@
   - 커스텀 직렬화 class를 통해 `Custom Object 직렬화, 역직렬화 가능`
  
 #### Topic * Partition
+
+![image](https://github.com/alstjq8251/Cs-tech/assets/98382954/47d82cd8-9586-4763-9ec6-41a0d98da8ba)
+
 - `Topic`은 메세지 분류 단위이다.
 - 1개의 토픽에 최소한 한개 이상의 파티션이 할당되어야 하며 n개의 파티션이 할당 가능하다.
 - 각 파티션마다 고유한 `오프셋(Offset)`을 가진다.
@@ -227,3 +230,4 @@
 <https://www.javatpoint.com/apache-kafka-architecture><br>
 <https://www.popit.kr/%ec%b9%b4%ed%94%84%ec%b9%b4-%ec%84%a4%ec%b9%98-%ec%8b%9c-%ea%b0%80%ec%9e%a5-%ec%a4%91%ec%9a%94%ed%95%9c-%ec%84%a4%ec%a0%95-4%ea%b0%80%ec%a7%80/><br>
 <https://programming-workspace.tistory.com/69><br>
+<https://ggop-n.tistory.com/89>
