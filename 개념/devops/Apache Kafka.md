@@ -125,6 +125,8 @@
     - unclean.leader.election.enable false - 리더 파티션의 데이터가 모두 복제되고 복구될때 까지 기다린 후 수행
     - unclean.leader.election.enable true - 리더 파티션의 데이터가 복제, 복구되지 않아도 수행
 
+`Ack(Acknowledgments)`
+ 
 #### Kafka rack-awareness
   - 1개의 Rack에 다수의 브로커를 몰아넣는것은 위험하다.
     - rack이 다운되면 모든 서버가 다운되기 때문(가용성 측면)
