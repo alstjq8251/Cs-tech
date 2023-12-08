@@ -126,6 +126,7 @@
     - unclean.leader.election.enable true - 리더 파티션의 데이터가 복제, 복구되지 않아도 수행
 
 `Ack(Acknowledgments)`
+  - 그 메시지를 카프카가 잘 받았는지 확인을 할 것인지 또는 확인을 하지 않을 것인지를 결정하는 옵션이다.
  
 #### Kafka rack-awareness
   - 1개의 Rack에 다수의 브로커를 몰아넣는것은 위험하다.
