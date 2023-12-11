@@ -51,6 +51,25 @@
 - 객체를 프로듀서에서 컨슈머로 전달하기 위해 kafka내부에 byte형태로 저장할 수 있도록 직렬화/역직렬화하여 사용한다.
   - 기본 제공 직렬화 class: StringSerializer, ShortSerializer
   - 커스텀 직렬화 class를 통해 `Custom Object 직렬화, 역직렬화 가능`
+
+#### Event & Stream
+`Event`
+  - 이벤트란 과거에 일어난 사실을 뜻하며 비즈니스에서는 **어떤 일이 발생했다**는 사실을 기록한다.
+  - 어떤 일이 발생됨으로써 인해 변화된 상태를 가지고 시스템 사이를 오가는, 불변하는 데이터를 의미한다.
+`Stream`
+  - 관련된 이벤트들을 의미한다.
+
+`Event Streaming`
+  - db, 센서 등 수많은 source Application에서 발생되는 데이터를 Event Streaming 형태로 저장해서 추후 검색할 수 있게 하는 것
+  - Event Stream을 실시간으로 처리하고 필요시 Target Application으로 Event Stream을 라우팅 하는것
+  - 이벤트 스트리밍은 데이터의 지속적인 흐름과 해석을 보장하여 올바른 정보가 올바른 장소, 올바른 시간에 제공되도록 하는 것이 주요 목적이다.
+
+#### Apache Kafka가 Event Streaming Platform으로써 제공하는 것
+1. 다른 시스템에서 데이터를 지속적으로 가져오기/내보내기를 포함하여 이벤트 스트림을 게시 (쓰기)하고 구독 (읽기) 한다.
+2. 원하는 기간 동안 이벤트 스트림을 지속적이고 **안정적으로 저장**한다.
+3. 이벤트 스트림을 발생 시 또는 소급하여 **처리**한다.
+
+> Kafka는 3가지 주요 기능을 확장성이 뛰어나고 탄력적이며 내결함성을 갖춘 안전한 분산 방식으로 제공한다. 
  
 #### Topic * Partition
 
@@ -60,11 +79,14 @@
 - 1개의 토픽에 최소한 한개 이상의 파티션이 할당되어야 하며 n개의 파티션이 할당 가능하다.
 - 각 파티션마다 고유한 `오프셋(Offset)`을 가진다.
   - 해당 오프셋은 컨슈머가 메세지를 읽는 위치를 의미하며 컨슈머 그룹이 같은 컨슈머들은 같은 오프셋의 메세지를 한번 이상 읽을 수 없다. 
+
+#### Partition
 - 메세지 처리순서는 파티션 별로 유지 관리됨
   - 파티션이 여러개일 때는 처리순서가 입력 순서로 처리되지 않을 수 있음
 - 토픽에 n개에 해당하는 파티션이 존재할때 키를 설정하여 메세지를 발행하게 되면 특정 파티션에 해당 키가 등록되게 되는데 키와 파티션의 개수가 어긋나게 된다면
 
   키와 파티션의 결합이 깨져 key에 지정한대로 저장되지 않고 round-robin방식으로 데이터가 저장되게 된다.
+
  
 #### Kafka 동작 순서
 1. `프로듀서는` 레코드를 생성하고 브로커로 전송
@@ -243,4 +265,5 @@
 <https://www.javatpoint.com/apache-kafka-architecture><br>
 <https://www.popit.kr/%ec%b9%b4%ed%94%84%ec%b9%b4-%ec%84%a4%ec%b9%98-%ec%8b%9c-%ea%b0%80%ec%9e%a5-%ec%a4%91%ec%9a%94%ed%95%9c-%ec%84%a4%ec%a0%95-4%ea%b0%80%ec%a7%80/><br>
 <https://programming-workspace.tistory.com/69><br>
-<https://ggop-n.tistory.com/89>
+<https://ggop-n.tistory.com/89><br>
+<https://kafka.apache.org/intro><br>
