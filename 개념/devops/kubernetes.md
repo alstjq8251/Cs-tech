@@ -196,7 +196,7 @@ spec:                 # 사용자가 원하는 오브젝트의 바람직한 상�
 
 ### K8s 배포 파일들
 
-#### k8s 배포시 권장 사양 및 권장 설정
+#### k8s 설치시 권장 사양 및 권장 설정
 `centOs ver 7`
 - setenforce 0
 - sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
@@ -206,7 +206,8 @@ spec:                 # 사용자가 원하는 오브젝트의 바람직한 상�
 - `sed -e '/swap/ s/^#*/#/' -i /etc/fstab/`
 - `vi /etc/fstab`  # SWAP이 정의된 줄을 '#'으로 주석처리해준다.
     - Kubernetes에서는 kubelet이 제대로 동작하게 하려면, 반드시 swap을 사용하지 않게 하라고 권장함
- 
+
+ ##### k8s 설치시 master 노드와 worker노드의 역할을 겸하게 할땐 하단의 명령어를 입력한다.
 
 #### Kubernetes 명령어(Kubectl)
 
