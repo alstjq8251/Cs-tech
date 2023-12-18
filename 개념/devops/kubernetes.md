@@ -207,8 +207,9 @@ spec:                 # 사용자가 원하는 오브젝트의 바람직한 상�
 - `vi /etc/fstab`  # SWAP이 정의된 줄을 '#'으로 주석처리해준다.
     - Kubernetes에서는 kubelet이 제대로 동작하게 하려면, 반드시 swap을 사용하지 않게 하라고 권장함
 
- ##### k8s 설치시 master 노드와 worker노드의 역할을 겸하게 할땐 하단의 명령어를 입력한다.
-
+##### k8s 설치시 master 노드와 worker노드의 역할을 겸하게 할땐 하단의 명령어를 입력한다.
+- `kubectl taint node {master-node name} node.role.kubernetes.io/control-plane:NoSchedule-`
+ 
 #### Kubernetes 명령어(Kubectl)
 
 `kubectl api-resources`
