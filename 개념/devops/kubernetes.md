@@ -208,6 +208,7 @@ spec:                 # 사용자가 원하는 오브젝트의 바람직한 상�
     - Kubernetes에서는 kubelet이 제대로 동작하게 하려면, 반드시 swap을 사용하지 않게 하라고 권장함
 - CNI(Container Network Inteface)설정
 > `CNI(Container Network Interface)`란? : 컨테이너가 생성되거나 소멸될때 컨테이너 네트워킹을 쉽게 구성할 수 있도록 설계된 표준이다.
+- 쿠버네티스에서는 Pod 간의 통신을 위해서 CNI 를 사용한다. 
 
 ##### k8s 설치시 master 노드와 worker노드의 역할을 겸하게 할땐 하단의 명령어를 입력한다.
 - `kubectl taint node {master-node name} node.role.kubernetes.io/control-plane:NoSchedule-`
