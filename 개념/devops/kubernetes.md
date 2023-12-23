@@ -207,11 +207,18 @@ spec:                 # 사용자가 원하는 오브젝트의 바람직한 상�
 - `vi /etc/fstab`  # SWAP이 정의된 줄을 '#'으로 주석처리해준다.
     - Kubernetes에서는 kubelet이 제대로 동작하게 하려면, 반드시 swap을 사용하지 않게 하라고 권장함
 - CNI(Container Network Inteface)설정
-> `CNI(Container Network Interface)`란? : 컨테이너가 생성되거나 소멸될때 컨테이너 네트워킹을 쉽게 구성할 수 있도록 설계된 표준이다.
-- 쿠버네티스에서는 Pod 간의 통신을 위해서 CNI 를 사용한다. 
+
+
+#### CNI
+`CNI(Container Network Interface)`란? 
+- 컨테이너가 생성되거나 소멸될때 컨테이너 네트워킹을 쉽게 구성할 수 있도록 설계된 표준이다.
+- 쿠버네티스에서는 Pod 간의 통신을 위해서 CNI 를 사용한다.
+- 쿠버네티스는 기본적으로 'kubenet' 이라는 자체적인 CNI 플러그인을 제공하지만 네트워크 기능이 매우 제한적인 단점이 있다.
+    - 그 단점을 보완하기 위해, 3rd-party 플러그인을 사용하는데 그 종류에는 Flannel, Calico, Weavenet, NSX 등 다양한 종류의 3rd-party CNI 플러그인들이 존재한다.
 
 ##### k8s 설치시 master 노드와 worker노드의 역할을 겸하게 할땐 하단의 명령어를 입력한다.
 - `kubectl taint node {master-node name} node.role.kubernetes.io/control-plane:NoSchedule-`
+
 
  
 #### Kubernetes 명령어(Kubectl)
