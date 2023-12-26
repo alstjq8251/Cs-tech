@@ -73,6 +73,19 @@
 - 클러스터란 여러 개의 서버를 하나로 묶은 집합, 하나의 서버처럼 동작한다.
 - 쿠버네티스 클러스터란 애플리케이션 컨테이너를 배포하기 위한 서버 집합을 의미한다.
 
+`클러스터 구성요소`
+- 마스터 노드 Control Plane
+	- 클러스터 상태를 저장하고 관리 - 그런 구성요소들이 들어있음
+	- etcd(key-value data store)
+		클러스터에 배포된 애플리케이션 실행 정보를 저장
+	- API Server
+	- Scheduler - 노드를 선택하기 위한 노드 스케줄링
+	-  Controller Managers - 사용자가 선택한 컨테이너 개수가 맞는지 아닌지 검사하고 API Server에게 요청
+- Worker 노드
+	- 컨테이너 실행을 담당
+	- kubelet, Container Runtime(Docker, CRIO)
+	- Kube-proxy
+
 ### Kubernetes Cluster 구성
 
 ![image](https://github.com/alstjq8251/Cs-tech/assets/98382954/6fa9e838-b3a6-453f-85c6-d0262e5dced6)
