@@ -173,6 +173,8 @@
 - `metadata`
   - 오브젝트를 구분지을 수 있는 정보
     - `name`, `resourceVersion`, `labels`, `namespace`
+    - volumes : 파드레벨에서의 볼륨을 설정
+    - volumeMounts : 컨테이너 레벨에서의 볼륨을 설정
       
 - `spec`
   - 사용자가 원하는 오브젝트 상태
