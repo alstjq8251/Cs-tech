@@ -234,6 +234,8 @@ spec:                 # 사용자가 원하는 오브젝트의 바람직한 상�
     - Kubernetes에서는 kubelet이 제대로 동작하게 하려면, 반드시 swap을 사용하지 않게 하라고 권장함
 - CNI(Container Network Inteface)설정
 
+- CRI-O 설치시 버전
+    - k8s와 cri-o는 버전을 동일하게 맞춰서 설치해야 적용이 가능하다.   
 
 #### CNI
 `CNI(Container Network Interface)`란? 
