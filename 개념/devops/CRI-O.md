@@ -20,5 +20,8 @@
 `특정 CRI-O 컨테이너 이슈 로깅 명령어` (kubernetes 환경에서만 사용 가능)
   - crictl logs <실행중인 컨테이너 ID>
 
+#### CRI-O 설치법
+
+
 ### Reference
 <https://fastcampus.co.kr/courses/208963/clips/>
