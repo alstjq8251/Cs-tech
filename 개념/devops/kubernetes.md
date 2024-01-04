@@ -1,4 +1,4 @@
-## Kubernetes란?
+9## Kubernetes란?
 `정의`
 - 쿠버네티스란 **여러 개의** 컨테이너화된 애플리케이션을 **여러 서버(클러스터)에** 자동으로 배포, 스케일링 및 관리해주는 오픈소스 시스템이다.
 
@@ -85,6 +85,8 @@
 	- 컨테이너 실행을 담당
 	- kubelet, Container Runtime(Docker, CRIO)
 	- Kube-proxy
+
+#### Kubernetes Cluster 형태
 
 ### Kubernetes Cluster 구성
 
