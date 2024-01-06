@@ -224,6 +224,7 @@ spec:                 # 사용자가 원하는 오브젝트의 바람직한 상�
    - 쿠버네티스의 API Server가 Spec을 읽어 오브젝트를 생성하고 Status와 맞는지 지속적으로 비교한다.
    - 이 때 쿠버네티스의 Controller Manager가 Spec과 Status를 비교하면서 계속 조정하고 상태를 업데이트 한다.
 
+### ReplicaSet
 
 ### K8s 배포 파일들
 
