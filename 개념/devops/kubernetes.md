@@ -88,6 +88,10 @@
 
 #### Kubernetes Cluster 형태
 
+`단일 클러스터`
+
+`HA 클러스터`
+
 ### Kubernetes Cluster 구성
 
 ![image](https://github.com/alstjq8251/Cs-tech/assets/98382954/6fa9e838-b3a6-453f-85c6-d0262e5dced6)
