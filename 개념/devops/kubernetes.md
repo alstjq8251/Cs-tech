@@ -89,9 +89,10 @@
 #### Kubernetes Cluster 형태
 
 `단일 클러스터`
-
+- 단일 클러스터는 마스터 노드1 + 워커 노드 N 개의 형태를 유지한 클러스터라고 할 수 있다.
+  
 `HA 클러스터`
-
+- HA 클러스터는 고가용성 클러스터로써 마스터 노드N + 워커 노드N 개로 구성된 클러스터의 형태라고 할 수 있다.
 ### Kubernetes Cluster 구성
 
 ![image](https://github.com/alstjq8251/Cs-tech/assets/98382954/6fa9e838-b3a6-453f-85c6-d0262e5dced6)
