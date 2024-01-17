@@ -240,6 +240,24 @@ spec:                 # 사용자가 원하는 오브젝트의 바람직한 상�
    - Pod에 문제가 생겼을 시 복구되는동안 서비스에 장애가 생길 수 있는데 이 때 Replicaset오브젝트로 파드를 관리해
 
      필요한 Pod의 개수를 선언하고 해당 수만큼 실행을 보장하여 사람의 개입없이 정상적인 기능을 수행할 수 있게 하기 위해서 사용한다.
+
+`오브젝트 생성 예시`
+``` yaml
+apiVersion: apps/v1 #k8s api 버전
+
+kind: Replicaset #오브젝트 타입
+
+metadata: #오브젝트를 유일하게 식별하기 위한 정보
+	name: blue-app-rs #오브젝트 이름
+	lables: # 오브젝트 집합을 구할 때 사용하는 이름표
+		app:blue-app 
+
+spec: # 사용자가 원하는 Pod의 바람직한 상태
+	selector: #Replicaset이 관리하기 위한 Pod을 선택하기 위한 label query
+	replicas: # 실행하고자 하는 Pod 복제본 개수 선언
+	template: # Pod 실행 정보 - Pod template과 동일
+```
+
 ### Service
 
 ### Ingress
