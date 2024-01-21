@@ -259,6 +259,7 @@ spec: # 사용자가 원하는 Pod의 바람직한 상태
 ```
 
 #### Deployment
+`정의`
 
 #### Service
 
