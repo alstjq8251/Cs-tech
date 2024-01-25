@@ -261,7 +261,9 @@ spec: # 사용자가 원하는 Pod의 바람직한 상태
 #### Deployment
 `정의`
 - Pod배포를 자동화한 오브젝트 (ReplicaSet + 배포전략)
-
+    - 새로운 Pod를 롤아웃/롤백할때 Replicaset 생성을 자동화해준다(Pod 복제)
+ 
+  
 #### Service
 
 #### Ingress
