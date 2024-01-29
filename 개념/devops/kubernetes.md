@@ -262,7 +262,11 @@ spec: # 사용자가 원하는 Pod의 바람직한 상태
     - 새로운 Pod를 롤아웃/롤백할때 Replicaset 생성을 자동화해준다(Pod 복제)
     - 다양한 배포 전략을 자동화하고 이전 파드에서 새로운 파드로의 전환 속도를 제어할 수 있다
     - 이제는 Pod를 배포할 때 ReplicaSet이 아니라 Deployment를 이용한다.
-  
+
+`배포전략`
+1. recreate
+2. RollingUpdate
+   
 #### Service
 
 #### Ingress
