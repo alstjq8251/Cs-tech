@@ -265,7 +265,8 @@ spec: # 사용자가 원하는 Pod의 바람직한 상태
 
 `배포전략`
 1. recreate
-2. RollingUpdate
+- 이전에 배포되어있는 Pod들을 순차적으로 하나씩 지우면서 롤아웃을 시작하고 모든 Pod가 다 지워졌으면 새로운 ReplicaSet과 Pod집합을 생성시키며 롤아웃을 마무리한다.
+3. RollingUpdate
    
 #### Service
 
