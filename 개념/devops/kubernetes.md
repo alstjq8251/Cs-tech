@@ -269,7 +269,8 @@ spec: # 사용자가 원하는 Pod의 바람직한 상태
 - Pod가 존재하지 않는 구간이 존재해 Service DownTime이 존재한다.
     - 개발 단계에선 유용하다 ( RollingUpdate 배포 전략은 이전 버전, 새 버전이 같이 배포되어 있어 트래픽이 이전 버전의 파드로도 흘러갈 수 있기 때문) 
 2. RollingUpdate
-   
+- 새로운 Pod 생성과 이전 Pod 종료가 동시에 일어나는 방식  
+
 #### Service
 
 #### Ingress
