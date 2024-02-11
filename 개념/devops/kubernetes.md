@@ -291,6 +291,9 @@ spec: # 사용자가 원하는 Pod의 바람직한 상태
 - `Service Discovery`
 
 #### Ingress
+`탄생 배경`
+
+`역할`
 
 ### K8s 배포 파일들
 
