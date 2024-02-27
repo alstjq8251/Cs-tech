@@ -296,6 +296,14 @@ spec: # 사용자가 원하는 Pod의 바람직한 상태
 `역할`
 - L7 단에서 작동하며 헤더, 호스트, url 등으로 구분하여 라우팅해주는 역할을 담당하며 Ingress는 해당 라우팅하는 규칙들의 모임일뿐이며 단일로는 라우팅을 수행하지 못한다.
 
+#### LivenessProbe & ReadinessProbe
+`LivenessProbe`
+- 생사, 수사를 합친 의미로서 파드 내 컨테이너의 생사를 확인하기 위한 방법이다.
+- warkerNode에서 돌고있는 kubelet이 주기적으로 LivenessProbe에서 제공한 Endpoint에서 적절한 응답을 받지 못했을 때 자체적으로 컨테이너를 재시작하는 매커니즘
+- k8s가 제공하는 self-healing과 재시작 매커니즘
+- 
+
+
 #### ConfigMap
 `역할`
 - 설정 정보, 환경 설정에 들어가는 등의 데이터를 저장하고 있는 오브젝트다.
