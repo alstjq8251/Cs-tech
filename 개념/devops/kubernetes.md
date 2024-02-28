@@ -301,7 +301,8 @@ spec: # 사용자가 원하는 Pod의 바람직한 상태
 - 생사, 수사를 합친 의미로서 파드 내 컨테이너의 생사를 확인하기 위한 방법이다.
 - warkerNode에서 돌고있는 kubelet이 주기적으로 LivenessProbe에서 제공한 Endpoint에서 적절한 응답을 받지 못했을 때 자체적으로 컨테이너를 재시작하는 매커니즘
 - k8s가 제공하는 self-healing과 재시작 매커니즘
-- 
+- 쿠버네티스가 컨테이너 상태를 확인할 수 있도록 Pod livenessProbe를 선언하는 방법이다.
+   - Pod livenessProbe를 선언하게 되면 kubelet은 제공된 이 EndPoint로 상태를 체크할 수 있게 된다.
 
 
 #### ConfigMap
