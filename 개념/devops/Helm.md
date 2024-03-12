@@ -27,5 +27,46 @@ MSA환경으로 가며 서버가 많아지고 서버와 같이 배포해야 하�
 2. Repository(저장소)
 3. Release(인스턴스)
 
+#### Helm CLI 명령어 모음
+> Helm Repo
+1. Helm Stable Repository
+   - http://charts.helm.sh/stable
+2. Bitnami kubernetes OpenSource Repo - Vmware 벤더사쪽에서 제공
+   - https://charts.bitnami.com/bitnami
+3. AWS EKS 관련 Repo
+   - https:// aws.github.io/eks-charts
+
+1. 설치확인
+  - helm version
+2. Helm Repo 추가
+  - helm repo add [repo명] [Repo URL]
+3. Repo 조회
+  - helm repo list
+4. Repo 삭제
+  - helm repo remove [repo명]
+5. Repository 정보 업데이트
+  - helm repo update
+6. Repository 내 Chart 조회
+  - helm search repo [공식 Helm Charts 릴리즈명]
+7. Helm Chart 설치
+  - helm install [helm repo명]/[공식 Helm Charts 릴리즈명][옵션] (Repo참조)
+  - helm install [배포될 Helm Chart 릴리즈명][Helm Chart 파일 경로]
+
+##### 자주 사용되는 옵션
+| 옵션명 | 설명 |
+| :--: | :--: |
+| --version | chart의 버전 지정. <br> Chart.yaml안에 version 정보를 참조 |
+| --set | 해당 옵션으로 values.yaml 값을 동적으로 설정 |
+| --namespace | chart가 설치될 네임스페이스를 지정 <br> - 특정 네임스페이스에 종속되어 배포됨 |
+    
+8. 배포된 Helm Chart 릴리즈 목록 확인
+  - helm list , helm ls
+9. 배포된 특정 Helm Chart 릴리즈 상태 및 제공 도움말 확인
+  - helm status [배포된 특정 Helm Chart 릴리즈명]
+10. Helm Chart 업데이트
+  - helm upgrade [배포된 Helm Chart 릴리즈명] [Helm Repository명]/[공식 Helm Chart 릴리즈명][옵션]
+  - helm upgrade [배포된 Helm Chart 릴리즈명][Helm Chart 파일 경로]
+
+
 ### Reference
 <https://helm.sh/><br>
