@@ -37,20 +37,20 @@ MSA환경으로 가며 서버가 많아지고 서버와 같이 배포해야 하�
    - https:// aws.github.io/eks-charts
 
 1. 설치확인
-  - helm version
+    - helm version
 2. Helm Repo 추가
-  - helm repo add [repo명] [Repo URL]
+    - helm repo add [repo명] [Repo URL]
 3. Repo 조회
-  - helm repo list
+    - helm repo list
 4. Repo 삭제
-  - helm repo remove [repo명]
+    - helm repo remove [repo명]
 5. Repository 정보 업데이트
-  - helm repo update
+    - helm repo update
 6. Repository 내 Chart 조회
-  - helm search repo [공식 Helm Charts 릴리즈명]
+    - helm search repo [공식 Helm Charts 릴리즈명]
 7. Helm Chart 설치
-  - helm install [helm repo명]/[공식 Helm Charts 릴리즈명][옵션] (Repo참조)
-  - helm install [배포될 Helm Chart 릴리즈명][Helm Chart 파일 경로]
+    - helm install [helm repo명]/[공식 Helm Charts 릴리즈명][옵션] (Repo참조)
+    - helm install [배포될 Helm Chart 릴리즈명][Helm Chart 파일 경로]
 
 ##### 자주 사용되는 옵션
 | 옵션명 | 설명 |
@@ -60,13 +60,38 @@ MSA환경으로 가며 서버가 많아지고 서버와 같이 배포해야 하�
 | --namespace | chart가 설치될 네임스페이스를 지정 <br> - 특정 네임스페이스에 종속되어 배포됨 |
     
 8. 배포된 Helm Chart 릴리즈 목록 확인
-  - helm list , helm ls
+    - helm list , helm ls
 9. 배포된 특정 Helm Chart 릴리즈 상태 및 제공 도움말 확인
-  - helm status [배포된 특정 Helm Chart 릴리즈명]
+    - helm status [배포된 특정 Helm Chart 릴리즈명]
 10. Helm Chart 업데이트
-  - helm upgrade [배포된 Helm Chart 릴리즈명] [Helm Repository명]/[공식 Helm Chart 릴리즈명][옵션]
-  - helm upgrade [배포된 Helm Chart 릴리즈명][Helm Chart 파일 경로]
+    - helm upgrade [배포된 Helm Chart 릴리즈명] [Helm Repository명]/[공식 Helm Chart 릴리즈명][옵션] - Repo 참조
+    - helm upgrade [배포된 Helm Chart 릴리즈명][Helm Chart 파일 경로] - 파일 참조
+11. Helm Chart 버전 히스토리 확인
+    - helm history [배포된 Helm Chart 릴리즈명]
+12. Helm Chart 버전 RollBack
+    - helm rollback [ 배포된 Helm Chart 릴리즈명][Rollback할 Revision 번호]
+13. Helm Charts Fetch
+    - helm fetch --untar [Helm Repo 명]/[공식 Helm Chart 릴리즈명] --version [Helm Chart 버전]
+         - Fetch 후 압축 해제된 상태의 Helm Chart 디렉토리 확인
+14. Helm Chart 생성 명령어
+    - helm create [Helm Chart명]
 
+### Helm Chart의 파일 구조
+
+| 파일명 | 설명 |
+| :--: | :--: |
+| Chart.yaml | Helm Chart에 대한 이름, 버전, 설명이 설정된 파일|
+| charts/ | Helm Chart에서 참조해서 사용할 특정 Helm Charts 패키지를 저장하는 디렉토리 |
+| values.yaml | Helm Chart의 변수값이 설정된 파일 |
+| templates/ | Template Manifest 파일 저장 디렉토리 |
+| _helpers.tpl | Template Manifest에서 공용으로 사용하는 변수값 정의 및 구현하는 파일 |
+| NOTES.txt  | Helm install, upgrade, status시 출력되는 도움말 혹은 정보를 조합해 출력하는 파일 |
+| *.yaml | Helm Charts로 릴리즈 배포할 kubernetes Object의 Template Manifest 파일 |
+
+## Helm 사용 목적
+- 다수의 오브젝트, 리소스를 활용 & 오브젝트 및 리소스들을 변수에 따라 동적으로 템플릿화하고 해당 템플릿화된
+
+  Manifest를 생성 및 파일 기반 kubernetes 오브젝트를 생성하기 위함
 
 ### Reference
 <https://helm.sh/><br>
