@@ -75,6 +75,19 @@ MSA환경으로 가며 서버가 많아지고 서버와 같이 배포해야 하�
          - Fetch 후 압축 해제된 상태의 Helm Chart 디렉토리 확인
 14. Helm Chart 생성 명령어
     - helm create [Helm Chart명]
+15. Helm Chart 코드 문법 스캔 명령어
+    - helm init [Helm Chart 디렉토리 경로]
+16. Helm Chart 랜더링(Dry-run) audfuddj
+    - helm template [Helm Chart 디렉토리 경로]
+17. Helm Chart 패키징 명령어
+    - helm package [Helm Chart 디렉토리 명령어]
+18. Helm Chart Test 수행 명령어
+    - helm test [Helm Chart 릴리즈명]
+19. Helm Chart 내 Chart.yaml에 설정된 정보 확인 명령어
+    - helm show chart [Helm Chart 디렉토리 경로]
+20. Helm Chart 내 Chart.yaml 및 values.yaml에 설정된 정보 확인 명령어
+    - helm show all [helm Chart 디렉토리]
+
 
 ### Helm Chart의 파일 구조
 
@@ -92,6 +105,41 @@ MSA환경으로 가며 서버가 많아지고 서버와 같이 배포해야 하�
 - 다수의 오브젝트, 리소스를 활용 & 오브젝트 및 리소스들을 변수에 따라 동적으로 템플릿화하고 해당 템플릿화된
 
   Manifest를 생성 및 파일 기반 kubernetes 오브젝트를 생성하기 위함
+
+#### Chart.yaml의 적용 항목
+
+| 항목 | 설명 |
+| :--: | :--: |
+| apiVersion | Helm 자체의 API Version으로 Helm3부터는 v2지원(Required) |
+| name | Helm Chart명(Required) |
+| description | Helm Chart의 설명(Optional)|
+| type | Helm Chart의 유형, 유형은 application 및 library 중 택1(Required) <br> application은 버전이 저장된 아카이브로 패키징 할 수 있는 템플릿 모음, 배포 O <br> library는 chart 개발시 필요한 유틸리티 혹은 기능을 제공, 템플릿이 없으므로 배포 X |
+| version | Helm Chart버전으로 SemVer(Semantic Versioning)규칙을 준수해야함(Required) |
+| appVersion | 버전 형태는 숫자로 된 x.y.z 형식이어야함(https://semver.org/lang/ko/) <br> Helm Charts에서 제공되는 App 버전이며, SemVer 형식을 따르지 않아도 됨 (Optional) <br> 보통은 배포될 App Container Image의 버전(Tag)를 명시|
+
+#### values.yaml에 적용 항목
+- template에 지정하는 변수값이 선언됨.
+- template에 k8s의 여러가지 object즉 Manifest가 명시되어 있고 해당 Object를 배포하기 위해선 Object에 들어가는 변수값이 정의되야
+
+  파라미터에 변수값이 매핑되고 구현되어 생성할 때 그 값들이 조합되어 k8s Manifest가 되어 배포됨
+
+- key-value 값으로 넣고 template에 values.yaml에 들어가는 key값을 변수로 지정하고 키가 되는 파라미터로 매핑될 수 있게
+
+  values.yaml에 명시되어 있다.
+
+#### template/*.taml내 적용 항목
+| 항목 | 설명 |
+| :--: | :--: |
+| .values | values.yaml 파일에서 설정된 변수값 구현|
+| .Charts | Chart.yaml 파일에서 설정된 변수값 구현|
+| .Release | 배포할때 할당된 정보를 변수로 구현 <br> (ex. Helm Charts 릴리즈명을 nginx로 할 경우 .Release.Name에 Nginx로 구현)|
+| include | _helpers.tpl에서 설정된 변수값 구현 |
+| if ~ end | if문(statement) 구현 (구문 안 else적용 가능, if not 형태로 적용 가능) |
+| with ~ end | 변수에 대한 범위(scope)를 지정, 해당 범위는 . 아래 설정된 변수값을 구현 | 
+| nindent | 들여쓰기 적용 공백수(char 단위) | 
+| toYaml | 구현된 변수를 yaml형식으로 변경 |
+| default | 기본적으로 구현되는 변수 |
+| quote | 변수값이 string type으로 구현 |
 
 ### Reference
 <https://helm.sh/><br>
