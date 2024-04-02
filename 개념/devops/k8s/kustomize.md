@@ -8,3 +8,5 @@
   해당 파일들을 관리하는 것 자체가 어렵고 비효율 적이기 때문에 이런 파일들을 관리하는 도구들이 k8s 배포 도구다.
 
     - kustomize, helm , Ksonnet같은 도구들이 대표적이다.
+
+![image](https://github.com/alstjq8251/Cs-tech/assets/98382954/d28efd51-f58c-49ce-8b1d-831da078879e)
