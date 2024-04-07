@@ -10,3 +10,5 @@
     - kustomize, helm , Ksonnet같은 도구들이 대표적이다.
 
 ![image](https://github.com/alstjq8251/Cs-tech/assets/98382954/d28efd51-f58c-49ce-8b1d-831da078879e)
+
+### 배포 도구의 방식
