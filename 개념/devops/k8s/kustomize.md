@@ -12,3 +12,6 @@
 ![image](https://github.com/alstjq8251/Cs-tech/assets/98382954/d28efd51-f58c-49ce-8b1d-831da078879e)
 
 ### 배포 도구의 방식
+
+1. 템플릿 방식
+2. 상속 방식
