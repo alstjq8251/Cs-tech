@@ -65,11 +65,18 @@
 - 앞으로 사용하지 않을 것을 권장하는 필드나 메서드에 붙인다.
 - @Deprecated의 사용 예, Date클래스의 getDate()
 - @Deprecated가 붙은 대상이 사용된 코드를 컴파일하면 나타나는 메시지
+- <details>
+  <summary><strong>컴파일 했을때 나오는 메시지</strong></summary>
+  <div>
+
   - Note: AnnotationEx2.java uses or overrieds a deprecated API.
   - Node: Recompile with -Xlint:deprecation for details.
-    - javac -xlint:deprecation AnnotationEx2.java -> 
+    - javac -xlint:deprecation AnnotationEx2.java ->
     - AnnotationEx2.java:21: warning: [deprecation] oldField in NewClass has been deprecated
     - nc.oldField = 10;
+
+  </div>
+  </details>
 - java는 하위 호환성을 중요하게 여겨 jdk 전 버전들에서 사용하는 메서드가 장애가 나지 않게 끔 만들지만
  
   향후 해당 메서드를 사용하지 않도록 권장하기 위해서 사용하는 애너테이션이다.
@@ -77,12 +84,12 @@
 - 함수형 인터페이스에 붙이면, 컴파일러가 올바르게 작성했는지 체크
 - 함수형 인터페이스에는 하나의 추상메서드만 가져야 한다는 제약이 있음
   - <details>
-    <summary><strong>함수형 인터페이싀 예</strong></summary>
+    <summary><strong>함수형 인터페이스의 예</strong></summary>
     <div>
 
     - @FunctionalInterface
       
-      public interface Runnable { public abstract void run(); | // 추상 메서
+      public interface Runnable { public abstract void run(); | // 추상 메서드
 
     </div>
     </details>
