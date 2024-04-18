@@ -106,3 +106,4 @@
   - @SuppressWarnings ({"deprecation","unchecked"})
 
 ### 메타 Annotation
+- 메타 애너테이션은 `애너테이션을 위한 애너테이션`
