@@ -107,3 +107,35 @@
 
 ### 메타 Annotation
 - 메타 애너테이션은 `애너테이션을 위한 애너테이션`
+- 메타 애너테이션은 java.lang.annotation패키지에 포함
+
+| 애너테이션 | 설명   |
+| :----: |:----:|
+| @Target | 애너테이션이 적용가능한 대상을 지정하는데 사용한다. |
+| @Documented | 애너테이션 정보가 javadoc으로 작성된 문서에 포함되게 한다. |
+| @Inherited | 애너테이션이 자손 클래스에 상속되도록 한다. |
+| @Retention | 애너테이션이 유지되는 범위를 지정하는데 사용한다. |
+| @Repeatable | 애너테이션을 반복해서 적용할 수 있게 한다. (JDK1.8) |
+
+1. `@Target`
+- 애너테이션을 정의할 때, 적용되상 지정에 사용
+- <details>
+  <summary><strong>@Target 적용 시 적용 대상 타입과 의미</strong></summary>
+  <div>
+
+    | 대상 타입 |  의미   |
+    |:-----:| :----: |
+    | ANNOTATION_TYPE | 애너테이션 |
+    | CONSSTRUCTOR | 생성자 |
+    | FIELD | 필드(맴버변수,ENUM상수) |
+    | LOCAL_VARIABLE | 지역변수 |
+    | METHOD | 메서드 |
+    | PACKAGE | 패키지 |
+    | PARAMETER | 매개변수 |
+    | TYPE | 타입(클래스,인터페이스,enum) |
+    | TYPA_PARAMETER | 타입 매개변수(JDK1.8) |
+    | TYPE_USE | 타입이 사용되는 모든 곳(JDK1.8)
+  
+  </div>
+  </details>
+- 예시 - @Target({TYPE,FIELD,METHOD})
