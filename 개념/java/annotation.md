@@ -139,3 +139,119 @@
   </div>
   </details>
 - 예시 - @Target({TYPE,FIELD,METHOD})
+
+2. `@Retention`
+- 애너테이션이 유지(retention)되는 기간을 지정하는데 사용
+- <details>
+    <summary><strong>유지 정책</strong></summary>
+    <div>
+  
+    | 유지 정책 | 의미 |
+    | :----: | :----: |
+    | SOURCE | 소스 파일에만 존재, 클라스파일에는 존재하지 않음 |
+    | CLASS | 클래스 파일에 존재. 실행시에 사용불가. 기본값 |
+    | RUNTIME | 클래스 파일에 존재. 실행시에 사용가능 |
+
+    </div>
+  </details>
+- 컴파일러에 의해 사용되는 애너테이션의 유지 정책은 `SOURCE`이다.
+- 실행시에 사용 가능한 애너테이션의 정책은 `RUNTIME`이다.
+
+> 유지 정책 중 CLASS는 잘 사용되지 않는다. 소스파일에만 존재하는 것도 아니며 실행시 사용 불가하기 때문 
+ 
+3. `@Documented`
+- javadoc으로 작성한 문서에 포함시키려면 @Documented를 붙인다.
+4. `@Inherited`
+- 애너테이션을 자손 클래스에 상속하고자 할 때, @Inherited를 붙인다.
+5. `@Repeatable`
+- 반복해서 붙일 수 있는 애너테이션을 정의할 때 사용
+  - ```java
+    @Repeatable(Todos.class)
+    @interface ToDo {
+        String value();
+    }
+    ```
+- @Repeatable이 붙은 애너테이션은 반복해서 붙일 수 있다.
+  - ```java
+    @ToDo("delete test codes.")
+    @Todo("override inherited methods")
+    class ex{
+    }
+    ```
+- @Repeatable인 @Todo를 하나로 묵을 컨테이너 애너테이션도 정의해야 함
+    - ```java
+        @interface ToDos {
+            ToDo[] value();
+        }
+      ```
+  
+#### 애너테이션 타입 정의
+- 애너테이션을 직접 만들어 쓸 수 있음
+- ```java
+    @interface ex {
+      타입 요소이름;
+    }
+    ```
+- 애너테이션의 메서드는 추상 메서드이며(구현x), 애너테이션을 적용할 때 지정(순서X)
+- ```java
+    @interface test{
+        int count();
+        String testBy();
+        String[] testsBy();
+        Test Type(); // enum Test { Class, Field}
+        ex testEx(); // 자신 외 다른 애너테이션(@ex)를 포함할 수 있다.
+    }
+    ```
+
+#### 애너테이션의 요소
+- 적용시 값을 지정하지 않으면, 사용될 수 있는 기본값 지정 가능(null 제외)
+- ```java
+    @interface ex{
+        int count() default 1; // 기본값 1로 지정
+    }
+    ```
+- 요소가 하나이고 이름이 value일 때 요소의 이름 생략 가능
+- ```java
+    @interface ex{
+        String value();
+    }
+    @ex("test") // @ex(value="test")와 동일
+    ```
+- 요소의 타입이 배열인 경우, 괄호{}를 사용해야 한다.
+- ```java
+    @interface ex{ String[] tests();}
+    @ex(tests={"java","python"})
+    @ex(tests="java") // 값이 하나일 땐 괄호 생략 가능
+    @ex(tests={}) // 값이 없을 땐 괄호{}가 반드시 필요
+    ```
+
+### 모든 애너테이션의 조상
+- Annotation은 모든 애너테이션의 조상이지만 상속은 불가
+- ```java
+    @interface ex extends Annotation{} // 에러 허용x
+    ```
+- Annotation은 인터페이스이다.
+- ```java
+    public interface Annotation {
+        boolean equals(Object obj);
+        int hashcode();
+        String toString();
+  
+        class<? extends Annotation> annotationType(); // 애너테이션의 타입 반환
+    }
+    ```
+  
+#### 마커 애너테이션 - marker Annotation
+- 요소가 하나도 정의되지 않은 애너테이션
+- ```java
+    @Target(ElementType.METHOD)
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface override {} // 마커 애너테이션 정의된 요소가 하나도 없음
+    ```
+  
+### 애너테이션 요소의 규칙
+- 애너테이션의 요소를 선언할 때 아래의 규칙을 반드시 지켜야 한다.
+  - 요소의 타입은 기본형, String, enum, 애너테이션, Class만 허용
+  - 괄호()안에 매개변수를 선언할 수 없다.
+  - 예외를 선언할 수 없다.
+  - 요소를 타입 매개변수로 정의할 수 없다.
