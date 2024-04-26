@@ -21,3 +21,4 @@
   - 상속은 base Yaml파일을 정의한 후에 다른 변경할 부분만 상속받은 YAML에서 구현하는 방식이다.
     - kustomize
 
+### Kustomize의 동작 방식
