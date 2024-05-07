@@ -22,3 +22,6 @@
     - kustomize
 
 ### Kustomize의 동작 방식
+![img.png](img.png)
+
+- 사진과 같이 한 폴더내에 같은 파일들이 존재하고 resource부분으로 참조하게 되면 하나의 배포단위로 묶이고 해당 리소스들을 생성해 kubernetes 오브젝트를 생성하게 된다.
