@@ -23,7 +23,7 @@
     - kustomize
 
 ### Kustomize의 동작 방식
-![img.png](img.png)
+<img width="453" alt="스크린샷 2024-05-07 오후 11 31 30" src="https://github.com/alstjq8251/Cs-tech/assets/98382954/76d25ab3-6f16-4ecd-9899-3feef592a22c">
 
 - 사진과 같이 한 폴더내에 같은 파일들이 존재하고 resource 부분으로 참조하게 되면 하나의 배포단위로 묶이고 해당 리소스들을 생성해 kubernetes 오브젝트를 생성하게 된다.
 - patch등 변동사항이 있을 경우에 맞춰서 kustomization을 수정하거나 따로 패치 파일을 두어 수정이 가능하다.
@@ -53,8 +53,8 @@
 - 패치하려는 대상의 정보는 Patch Manifest 내부의 Object path에 맞춰 value값을 입력한다.
 - Json 패치의 정확한 리소스를 찾기 위해, 리소스 내부의 api group, version, kind, name을 kustomization.yaml에 명시한다.
 
-|            방식            |   메서드   |              설명              | 예시 |
-|:------------------------:|:-------:|:----------------------------:| :---: |
+| 방식 | 메서드 | 설명 | 예시 | 
+| :--: | :--: | :--: | :--: | 
 |   patchsStrategicMerge   | replace | replace를 포함하는 요소가 병합되는 대신 대체 | containers: <br> - name: nginx <br>  image: nginx-1.0 <br>  - $patch: replace |
 |   patchsStrategicMerge   |  merge  | merge를 포함하는 요소가 대체되는 대신 병합 | containers: <br> - name: nginx <br> image: nginx-1.0 <br> - name: log-tailer <br> image: fluentd:latest |
 |   patchsStrategicMerge   | delete | delete를 포함하는 요소가 삭제 |  containers: <br>- name: nginx name: nginx | 
