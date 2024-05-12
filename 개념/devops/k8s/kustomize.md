@@ -58,7 +58,15 @@
 |   patchsStrategicMerge   | replace | replace를 포함하는 요소가 병합되는 대신 대체 | containers: <br> - name: nginx <br>  image: nginx-1.0 <br>  - $patch: replace |
 |   patchsStrategicMerge   |  merge  | merge를 포함하는 요소가 대체되는 대신 병합 | containers: <br> - name: nginx <br> image: nginx-1.0 <br> - name: log-tailer <br> image: fluentd:latest |
 |   patchsStrategicMerge   | delete | delete를 포함하는 요소가 삭제 |  containers: <br>- name: nginx name: nginx | 
+|   patchJson6902          | add    | path에 명시된 value 추가    | op: add <br> path: /spec/replicas <br> | value: 2 |
+|   patchJson6902          | replace    | path에 명시된 value 대체   | op: replace <br> path: /spec/replicas <br> | value: 2 |
+|   patchJson6902          | remove    | path에 명시된 value 삭제   | op: delete <br> path: /spec/replicas <br> | value: 2 |
+
 
 ### Kustomized 명령어
 - kubectl kustomize <kustomize_directory>
   - 해당 디렉토리에 있는 리소스들이 어떻게 생성되는지 확인하려면 해당 명령어로 확인할 수 있다.
+  - kustomization 파일을 포함하는 디렉토리 내의 리소스 확인 방법(Dry Run, 실제 배포x 어떤 결과가 나오는지 출력)
+- kubectl apply --kustomize <kustomization 디렉토리>
+- kubectl apply -k <kustomization 디렉토리>
+  - 해당 디렉토리에 있는 리소스들을 패치한 뒤 적용
