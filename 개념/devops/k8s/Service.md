@@ -95,5 +95,5 @@ Pod 안에서는 Service 이름과 네임스페이스 이름을 이용해 다른
 - FQDN: <서비스 이름>.<네임스페이스>.svc.cluster.local
 - FQDN을 이용해서 DNS쿼리 실행
 - DNS 서버로부터 받은 Service IP를 이용해 요청 완료
-  1 -> http://pod -> 2(pod:kube-dns)
-  1 <- 10.80.2.141(Service ClusterIP) 
+  - 1 -> http://pod -> 2(pod:kube-dns)
+  - 1 <- 10.80.2.141(Service ClusterIP) 
