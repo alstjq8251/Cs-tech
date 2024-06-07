@@ -8,3 +8,4 @@
 
 ### Haproxy HA
 - Haproxy는 기본적으로 VRRP(Virtual Router Redundancy Protocol)를 지원한다.
+  - Haproxy를 이중화하여 Master의 장애시 Slave가 Master의 VIP를 가져와 Master로 승격된다.
