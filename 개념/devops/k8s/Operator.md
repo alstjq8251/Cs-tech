@@ -19,3 +19,6 @@ kubernetes에서 제공하는 기본적인 컨트롤러 외에도 커스텀 컨�
 - kubernetes Controller 개념을 통해 Go 언어 기반의 kubernetes 구현 소스코드를 수정(빌드/컴파일/배포)하지 않고 k8s 클러스터의 동작을 확장
 
 ### 도구
+- Operator Framework
+- Operator Lifecycle Manager(OLM)
+- Kudo
