@@ -21,4 +21,6 @@ kubernetes에서 제공하는 기본적인 컨트롤러 외에도 커스텀 컨�
 ### 도구
 - Operator Framework
 - Operator Lifecycle Manager(OLM)
+  - Operator의 생태주기를 관리하는 매니저로 Operator를 설치 , 업데이트, 백업, 스케일링 등 운영/관리 가능
+  - operatorhub.io에 OLM과 연관지어 Operator방식으로 Custom Resource를 배포할 수 있다.
 - Kudo
