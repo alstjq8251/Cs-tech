@@ -23,4 +23,7 @@ kubernetes에서 제공하는 기본적인 컨트롤러 외에도 커스텀 컨�
 - Operator Lifecycle Manager(OLM)
   - Operator의 생태주기를 관리하는 매니저로 Operator를 설치 , 업데이트, 백업, 스케일링 등 운영/관리 가능
   - operatorhub.io에 OLM과 연관지어 Operator방식으로 Custom Resource를 배포할 수 있다.
-- Kudo
+- Kudo(Kubernetes Universal Declarative Operator)
+  - Operator 작성 도구
+  - yaml 형태의 선언적 명세 작성만으로 손쉽게 Operator를 만들 수 있는 도구 제공
+  - Operator 라이프 사이클 간의 공통화 및 재사용 할 수 있는 기능 제공
