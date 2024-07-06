@@ -13,6 +13,9 @@ kubernetes에서 제공하는 기본적인 컨트롤러 외에도 커스텀 컨�
 ### Operator란?
 - kubernetes Operator는 Custom Resource Definition(CRD)를 기반으로 애플리케이션 및 컴포넌트를 관리하는 kubernetes API 확장 개념
 
+### 이점
+- Operator 방식으로 특정 kubernetes 상의 워크노드에서 배포되고 실행되고자 하는 부분 그리고 수행 방식의 자동화를 구현할 수 있다.
+
 ### 특징
 - kubernetes의 워크로드 배포, 실행 등의 자동화 및 수행 방식의 자동화 구현
 - CRD를 위해 API를 구현하는 방식같이 구현, 처리하고자 하는 형태들을 패넡화해서 관리하는 방식
