@@ -7,3 +7,7 @@
 
 ### 준비사항
 - `Metric Server`
+
+
+### Hpa 적용 명령어
+- kubectl autoscale deployment <deployment명> --cpu-percent=50 --min=1 --max=10
