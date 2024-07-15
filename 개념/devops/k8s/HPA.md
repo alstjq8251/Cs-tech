@@ -24,3 +24,6 @@
 
 ### Hpa 적용 명령어
 - kubectl autoscale deployment <deployment명> --cpu-percent=50 --min=1 --max=10
+
+#### Hpa 테스트(CPU)를 도와주는 수행 명령어
+- kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://test-deploy; done"
