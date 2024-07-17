@@ -6,6 +6,8 @@
 ### Architecture
 ![image](https://github.com/user-attachments/assets/361d681a-df24-464e-b000-81cdaca04f7a)
 
+- harbor-core
+
 ### Reference
 <https://nangman14.tistory.com/78><br>
 <https://kimmj.github.io/harbor/what-is-harbor>
