@@ -7,7 +7,7 @@
 ![image](https://github.com/user-attachments/assets/361d681a-df24-464e-b000-81cdaca04f7a)
 
 - harbor-core
-
+    - Harbor의 API와 인증, 웹 GUI를 담당하는 Component입니다. 이미지의 Pull/Push에 필요한 Token을 발행하며 웹 환경의 GUI 및 Webhook을 제공한다.
 ### Reference
 <https://nangman14.tistory.com/78><br>
 <https://kimmj.github.io/harbor/what-is-harbor>
