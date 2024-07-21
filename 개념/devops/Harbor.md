@@ -10,6 +10,9 @@
     - Harbor의 API와 인증, 웹 GUI를 담당하는 Component입니다. 이미지의 Pull/Push에 필요한 Token을 발행하며 웹 환경의 GUI 및 Webhook을 제공한다.
 - Job Service:
   - 이미지의 Replication과 같은 작업을 담당하는 Components
+- Database
+  - Harbor의 모든 Components들은 Stateless인데 이 때문에 데이터들은 모두 Redis나 PostgreSql같은 외부 저장소에 저장한다.
+  - 이런 메다데이터같은 정보들을 저장하는 역할을 한다.
 
 ### Reference
 <https://nangman14.tistory.com/78><br>
