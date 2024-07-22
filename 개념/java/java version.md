@@ -114,3 +114,69 @@
 - `라이브러리`
   - 스트림이나 버퍼로 들어오는 데이터의 분석(Parse)을 보다 간편하게 할 수 있는 Scanner 클래스 추가
   - 쓰레드 처리를 쉽게 할 수 있는 concurrent 패키지(java.util.concurrent)추가
+
+
+#### JDK8
+- Lambda(람다) 표현식
+- Functional(함수형) 인터페이스
+- Stream(스트림)
+- Optional(옵셔널)
+  - Optional은 선택적인 의미이며 Funtional 언어인 Haskell과 Skala에서 제공하는 기능을 따온 것 이다.
+- 인터페이스의 기본 메서드(Default method)
+  - 인터페이스의 기본 메서드(하위 호환성), static메서드를 가질 수 있게 됨
+- 날짜 관련 클래스들 추가
+  - Jdk8이전엔 Date, SimpleDateFormatter라는 클래스로 날짜 처리가 가능했으나 단점이 존재 ~~후술~~
+- 병렬 배열 정렬
+- StringJoiner 추가
+
+`인터페이스 예제`
+```java
+public interface MyInterface {
+    default String getReturn() {
+        return "Hi";  // default 메소드, 기본 구현 제공
+    }
+}
+
+public interface MyInterface {
+    static void printHello() {
+        System.out.println("Hello");
+    }
+}
+```
+
+JDK8 이전 날짜 클래스의 단점과 차이점
+`단점`
+1. 쓰레드에 안전하지 않다.
+2. 불변(immutable)객체게 아니어서 지속적으로 값이 변경 가능했다.
+3. API구성이 복잡하게 되어 연도는 1900년도부터 시작하고 달은 1부터, 일은 0부터 시작하는등 일관성이 없었다.
+
+| 내용 | 버전 | 패키지 |  설명   |
+| :---: | :---: | :---: |:-----:|
+| 값 유지 | 예전 버전| java.util.Date <br> java.util.Calander| Date 클래스는 날짜 계산을 할 수 없다.<br> Calender클래스는 불변 객체가 아니므로 연산시 객체 자체가 변경되었다. |
+| 값 유지 | java 8 | java.time.ZonedDateTime <br> java.time.LocalDate등 | ZonedDateTime과 LocalDate 등은 불변 객체다. <br> 모든 클래스가 연산용의 메서드를 갖고 있으며, 연산시 새로운 불변 객체를 돌려 준다. <br> 쓰레드에 안전하다 . |
+| 변경 | 예전 버전 | java.text.SimpleDateFormat | SimpleDateFormat는 쓰레드에 안전하지도 않고 느리다. |
+| 변경 | java 8 | java.time.format.DateTimeFormatter | DateTimeFormatter는 쓰레드에 안전하며 빠르다. |
+| 시간대 | 예전 버전 | java.util.TimeZone | "Asia/seoul"이나 "+09:00" 같은 정보를 가진다. |
+| 시간대 | java 8 | java.time.ZoneId <br> java.timeZoneOffset | ZoneId는 "Asia/seoul"라는 정보를 갖고 있고<br> ZoneOffset는 "+09:00"라는 정보를 갖고 있다. |
+| 속성 관련 | 예전 버전 | java.util.Calender | Calender.Year <br> Calendar.MONTH <br> Calender.DATE(또는 Calendar.DAY_OF_MONTH)등 이들은 정수(int)다. |
+| 속성 관련 | java 8 | java.time.temporal.ChronoField<br>(java.time.temporal.TemporalField) | ChronoField.YEAR <br? ChronoField.MONTH_OF_YEAR <br> ChronoField.DAY_OF_MONTH 등이 enum타입이다. |
+| 속성 관련 | java 8 | java.tiome.temporal.ChronoUnit<br>(java.time.temporal.TemporalUnit) | ChronoUnit.YEARS(연수) <br> Chrono.MONTHS(개월) <br> ChronoUnit.DAYS(일) 등이 enum 타입이다. |
+
+추가적으로 시간을 나타내는 클래스는
+1. Local
+  - 시간대가 없는 시간. 예를 들어 "1시"는 어느 지역의 1시인지 구분되지 않는다.
+2. Offset
+  - UTC(그리니치 시간대)와의 오프셋(차이)을 가지는 시간. 한국은 "+09:00"
+3. Zoned
+  - tlrkseo("한국 시간"과 같은 정보)를 갖는 시간. 한국의 경우는 "Asia/Seoul"
+
+##### 여기서 Local과 Locale은 다른 클래스다.
+- Local은 시간을 이야기하며 Locale은 지역을 의미하는 클래스이다.
+
+**DayOfWeek 라는 클래스도 있는데 이 클래스는 요일이 상수로 선언되어 있으며 지역 정보를 파라미터로 던져 메서드를 호출 시 각 지역에 맞는 요일로 나온다.**
+
+`병렬 배열 정렬(Parallel array sorting)`
+- java를 사용하며 배열을 정렬하는 가장 간편한 방법은 java.util 패키지의 Arrays 클래스를 사용하는 것이다.
+- jdk8부턴 parallelSort()라는 정렬 메서드가 제공되며 Java 7에서 소개된 Fork-Join 프레임웍이 내부적으로 사용된다.
+- Arrays.sort()는 단일 쓰레드 Arrays.parrelsort()는 필요에 따라 멀티쓰레드로 동작하며 CPU점유량이 높은 대신 5,000개 정도부터 성능이 더 빠르다.
+
