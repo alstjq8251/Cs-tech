@@ -128,6 +128,7 @@
   - Jdk8이전엔 Date, SimpleDateFormatter라는 클래스로 날짜 처리가 가능했으나 단점이 존재 ~~후술~~
 - 병렬 배열 정렬
 - StringJoiner 추가
+- Method 참조 
 
 `인터페이스 예제`
 ```java
@@ -182,3 +183,13 @@ JDK8 이전 날짜 클래스의 단점과 차이점
 
 `Lambda 표현식(Expression`
 - 람다 표현식은 익명 클래스를 사용할 때 가독성이 떨어지고 불편한 점을 보완하기 위해 나왔으며 인터페이스에 메서드가 하나인 것들만 적용 가능하다.
+
+`Method 참조`
+- ::을 사용하여 클래스나 메서드를 참조하는 방식이며 jdk8부터 추가되었다.
+
+종류 |   예   |
+:---: |:-----:| 
+| static메서드 참조 | ContainingClass::staticMethodName|
+| 특정 객체의 인스턴스 메서드 참조 | containingObject::instanceMethodName|
+| 특정 유형의 임의의 객체에 대한 인스턴스 메서드 참조 | containingType::methodName |
+| 생성자 참조 | ClassName::New |
