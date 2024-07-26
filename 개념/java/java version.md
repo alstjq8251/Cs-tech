@@ -193,3 +193,23 @@ JDK8 이전 날짜 클래스의 단점과 차이점
 | 특정 객체의 인스턴스 메서드 참조 | containingObject::instanceMethodName|
 | 특정 유형의 임의의 객체에 대한 인스턴스 메서드 참조 | containingType::methodName |
 | 생성자 참조 | ClassName::New |
+
+
+#### Java9
+주요 추가 기능, 개선 기능
+- 모듈화 - 직소 프로젝트(Jigsaw project)
+- 새로운 HTTP 클라이언트
+- publish - Subscribe 프레임워크
+- Immutable 셋 제공
+- StackWalker API 추가
+- -Xlog 옵션으로 로그 일원화
+- jshell 명령어 추가 (VOL.1 부록 참조)
+
+개선된 기능
+- Process API
+- try-with-resources
+- 다이아몬드 연산자 확장
+- interface에 private 메서드 추가 가능
+- jcmd에 로딩된 클래스 목록 확인 가능한 옵션 추가
+- 다중 해상도의 이미지를 처리하는 MultiResolutionImage API
+- Optional에 Stream 사용
