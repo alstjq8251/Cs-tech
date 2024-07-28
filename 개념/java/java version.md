@@ -183,6 +183,20 @@ JDK8 이전 날짜 클래스의 단점과 차이점
 
 `Lambda 표현식(Expression`
 - 람다 표현식은 익명 클래스를 사용할 때 가독성이 떨어지고 불편한 점을 보완하기 위해 나왔으며 인터페이스에 메서드가 하나인 것들만 적용 가능하다.
+  람다 표현식은 익명 클래스로 전환이 가능하며, 익명 클래스는 람다 표현식으로 전환 가능하다.
+  Java에 있는 인터페이스 중 메서드가 하나인 인터페이스들
+- java.lang.Runnable
+- java.util.Comparator
+- java.io.FileFilter
+- java.util.concurrent.Callable
+- java.security.PrivilegedAction
+- java.nio.file.Pathmatcher
+- java.lang.reflect.InvocationHandler
+
+**기본 람다 표현식**
+| 매개 변수 목록 | 화살표 토큰(Arrow Token) | 처리 식 |
+| :------: | :------: | :------: |
+| (int x, int y) | ->  | x+y  |
 
 `Method 참조`
 - ::을 사용하여 클래스나 메서드를 참조하는 방식이며 jdk8부터 추가되었다.
@@ -223,3 +237,17 @@ LTS 버전은 Java 11, Java17은 3년 주기로 출시되었고, 2023년 9월에
 
 jdk9 부터 바뀐 String 클래스
 문자열에 있는 값들을 char 배열에서 byte배열로 변경했다.
+```java
+java 8
+	private final char[] value; 
+java 9
+	private final byte[] value;
+```
+
+private interface 규칙
+- abstract 메서드로 선언하면 안 되고, private와 abstract 접근제어자를 같이 사용해서도 안됨
+- 인터페이스 내에 선언한 메서드와 static이나 static이 아닌 인터페이스 메서드에서만 사용 가능
+- private로 선언한 static이 아닌 메서드는 다른 private static 메서드에서 사용 불가
+- private로만 선언해야함
+
+publish-Subscribe 프레임워크
