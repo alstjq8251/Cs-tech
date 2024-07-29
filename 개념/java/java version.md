@@ -251,3 +251,29 @@ private interface 규칙
 - private로만 선언해야함
 
 publish-Subscribe 프레임워크
+
+### jdk10
+크게 jdk10에서 추가되거나 변경된 것은
+- 지역변수에 대한 타입 추론 기능
+  var로 우측항에 타입이 명시적이면 선언시 타입정보를 var라고 해도 된다.
+  https://openjdk.org/projects/amber/guides/lvti-style-guide
+- 수정 불가능한 Collection
+  - List나 Map에 데이터를 한두 개만 넣으려고 할때 몇줄의 코드를 작성해야 했는데 간단하게 처리 되도록 수정 불가능한 Collection 기능(Unmodifiable collection)
+  - 이미 만들어진 List를 불변하게 만드려면 toUnmodifiableList()를 호출하여 가능
+  - java16이상부턴 Stream.of로 불변 목록형 객체를 손쉽게 만들 수 있음
+- Optional에 orElseThorw()추가
+
+
+성능 개선
+- G1의 Parallel Full GC 제공
+- 어플리케이션 클래스 데이터 공유(CDS, Class Data Sharing)기능 추가
+- Graal Compiler를 실험적으로 사용 가능
+
+### jdk11
+
+#### jjdk11 변경사항중 JEP330번 변경의 의의 
+java파일을 javac 컴파일 없이 실행할 수 있다는 것
+**bash나 csh와 같은 쉘 스크립트를 공부하지 않아도 java11이상이 해당 장비에 깔려있다면 자바로 쉘 스크립트 같이 필요한 기능을 만들어 사용할 수 있는 것을 의미**
+
+#### JDK 버전별 추가된 사항을 확인하는 곳
+https://openjdk.org/projects/jdk/12/ 등으로 버전을 올려가며 확인하면 됨
