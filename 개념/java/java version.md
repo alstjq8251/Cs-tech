@@ -271,6 +271,28 @@ publish-Subscribe 프레임워크
 
 ### jdk11
 
+`굵직한 기능 외 알아두면 좋은 기능
+- String 클래스에 메서드 추가
+- File클래스에 메서드 추가
+- Collection 인터페이스에 toArray()메서드 추가
+- Predicate 인터페이스에 not() 메서드 추가
+- Lambda 사용시 var 변수 사용 가능
+- HTTP Client 클래스 추가
+- Nestmate 접근 제어
+
+`기능 보완 및 제거`
+- Dynamic Class-File Constants
+- Improved Aarch64 Intrinsics
+  Intrinsics(인트린직)은 CPU에서 하드웨어의 기능을 보아 효율적으로 제공하기 위해 지원하는 함수를 의미
+- A No-Op Garbage Collector
+- Java EE/CORBA 제거
+- Nashorn 자바스크립트 엔진, Pack200 툴 deprecate
+
+`JDK에서 분리된 기능/ 툴`
+- Java Flight Recorder JDK에서 분리
+- Java Mission Control JDK에서 분리
+- JavaFX 모듈 JDK에서 분리
+
 #### jjdk11 변경사항중 JEP330번 변경의 의의 
 java파일을 javac 컴파일 없이 실행할 수 있다는 것
 **bash나 csh와 같은 쉘 스크립트를 공부하지 않아도 java11이상이 해당 장비에 깔려있다면 자바로 쉘 스크립트 같이 필요한 기능을 만들어 사용할 수 있는 것을 의미**
