@@ -297,5 +297,11 @@ publish-Subscribe 프레임워크
 java파일을 javac 컴파일 없이 실행할 수 있다는 것
 **bash나 csh와 같은 쉘 스크립트를 공부하지 않아도 java11이상이 해당 장비에 깔려있다면 자바로 쉘 스크립트 같이 필요한 기능을 만들어 사용할 수 있는 것을 의미**
 
+### Jdk12
+- String 클래스에 indent(), transform()메서드 추가
+- Files 클래스에 mismath() 메서드 추가
+- Collecotrs 클래스에 teeing()메서드 추가
+- CompactNumberFormat 클래스 추가
+
 #### JDK 버전별 추가된 사항을 확인하는 곳
 https://openjdk.org/projects/jdk/12/ 등으로 버전을 올려가며 확인하면 됨
