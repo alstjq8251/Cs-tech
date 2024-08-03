@@ -303,5 +303,8 @@ java파일을 javac 컴파일 없이 실행할 수 있다는 것
 - Collecotrs 클래스에 teeing()메서드 추가
 - CompactNumberFormat 클래스 추가
 
+### Jdk16
+- instanceof의 패턴 매칭을 정식 버전으로 사용할 수 있게 되고 Record라는 읽기 전용 클래스를 생성할 수 있게 된 점이 가장 큰 변화
+
 #### JDK 버전별 추가된 사항을 확인하는 곳
 https://openjdk.org/projects/jdk/12/ 등으로 버전을 올려가며 확인하면 됨
