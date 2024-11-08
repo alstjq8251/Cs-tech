@@ -25,6 +25,7 @@
 | **지원 환경**                 | Docker Hub 이미지 스캔 (주로 컨테이너 이미지)                                           | Docker, Kubernetes, 파일 시스템 스캔 등 다양한 환경에서 사용 가능            | Docker 이미지 스캔 (주로 Red Hat Quay와 통합 사용)            | Docker, Kubernetes, 파일 시스템 스캔 등 다양한 환경에서 사용 가능                  | Docker 이미지 스캔                                        | Docker 이미지 스캔 및 SBOM 생성                            | Docker 이미지 스캔 및 다양한 환경에서 사용 가능   |
 | **출처 및 문서**               | [Docker Scout 요금제 및 제한사항](https://docs.docker.com/billing/scout-billing/) | [Trivy GitHub 페이지](https://github.com/aquasecurity/trivy) | [Clair GitHub 페이지](https://github.com/quay/clair) | [Anchore GitHub 페이지](https://github.com/anchore/anchore-engine) | [Grype GitHub 페이지](https://github.com/anchore/grype) | [Syft GitHub 페이지](https://github.com/anchore/syft) | [Snyk 공식 웹사이트](https://snyk.io/) |
 
+### Scan 범위
 
 ### 컨테이너 이미지 스캔 툴 종류와 특징
 
