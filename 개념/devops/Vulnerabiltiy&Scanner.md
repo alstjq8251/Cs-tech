@@ -32,6 +32,8 @@
 1. Anchore
 <img width="830" alt="image" src="https://user-images.githubusercontent.com/98382954/217847641-2dddb21e-be07-4485-b629-e580817bd0a5.png">
 
+2. trivy
+
 ### Reference
 - docker scout vs trivy - [DevSecops Tools in CICD Pipeline - DEV Community](https://dev.to/akhil_mittal/devsecops-tools-in-cicd-pipeline-375p)
 - synk vs trivy vs gripe vs GoGuard-CLI - [The different flavours of Docker image security](https://www.coguard.io/post/docker-security-snyk-grype-trivy-coguard)
