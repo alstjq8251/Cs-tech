@@ -36,6 +36,8 @@
 
 3. clair
 
+4. docker scout
+
 ### Reference
 - docker scout vs trivy - [DevSecops Tools in CICD Pipeline - DEV Community](https://dev.to/akhil_mittal/devsecops-tools-in-cicd-pipeline-375p)
 - synk vs trivy vs gripe vs GoGuard-CLI - [The different flavours of Docker image security](https://www.coguard.io/post/docker-security-snyk-grype-trivy-coguard)
