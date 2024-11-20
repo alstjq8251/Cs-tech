@@ -7,6 +7,8 @@
 #### 컨테이너 이미지 스캔을 하는 이유?
 - 코드 레벨에서의 품질 뿐만 아니라 취약점을 스캔하는 이유는 하단의 총 5가지 이유이다.
 
+1. 취약점 탐지 (Vulnerability Detection)
+
 ### scanning tool 
 - `anchore`
 - `docker scout`
