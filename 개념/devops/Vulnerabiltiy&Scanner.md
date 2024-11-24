@@ -9,6 +9,7 @@
 
 1. 취약점 탐지 (Vulnerability Detection)
 2. 품질 보장
+3. 컴플라이언스 준수
 
 ### scanning tool 
 - `anchore`
