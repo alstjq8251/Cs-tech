@@ -12,6 +12,8 @@
 3. 품질 보장 
 4. 컴플라이언스 준수
 
+### sbom
+
 ### scanning tool 
 - `anchore`
 - `docker scout`
