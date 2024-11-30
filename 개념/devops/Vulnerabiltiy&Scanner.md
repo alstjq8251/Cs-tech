@@ -13,6 +13,7 @@
 4. 컴플라이언스 준수
 
 ### sbom
+- Software Bill of Materials의 약자로 사용된 소프트웨어의 명세를 기록하는 것을 말한다.
 
 ### scanning tool 
 - `anchore`
