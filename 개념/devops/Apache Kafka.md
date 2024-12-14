@@ -229,6 +229,8 @@
     - 양방향 클러스터 토픽 복제
     - 미러링 모니터링을 위한 다양한 metric(latency, count 등) 제공
 
+### Kafka Kraft
+
 #### Kafka 를 지원하는 다양한 어플리케이션
 1. conflunet/ksqlDB
    - sql 구문을 통한 stream data processing 지원
