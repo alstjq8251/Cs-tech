@@ -290,6 +290,8 @@ spec: # 사용자가 원하는 Pod의 바람직한 상태
   - Service는 Selector에 의해 선택된 파드 집합 중 임의의 파드로 트래픽을 전달한다(로드밸런싱).
 - `Service Discovery`
 
+#### StatefulSet
+
 #### Ingress
 `탄생 배경`
 
