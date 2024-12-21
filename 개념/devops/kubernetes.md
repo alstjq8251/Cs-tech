@@ -291,6 +291,8 @@ spec: # 사용자가 원하는 Pod의 바람직한 상태
 - `Service Discovery`
 
 #### StatefulSet
+`역할`
+- 파드의 ID와 파드의 볼륨을 유지한다.
 
 #### Ingress
 `탄생 배경`
