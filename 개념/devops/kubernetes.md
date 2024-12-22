@@ -199,9 +199,9 @@ apiVersion: apps/v1   # 쿠버네티스 API 버전
 kind: Deployment      # 오브젝트 타입
 metadata:             # 오브젝트를 유일하게 식별하기 위한 정보
    name: nginx-deployment  # 오브젝트 이름
-   labels:                 # 오브젝트 집합을 구할 때 사용하는 이름표 
+   labels:  nginx              # 오브젝트 집합을 구할 때 사용하는 이름표 
 spec:                 # 사용자가 원하는 오브젝트의 바람직한 상태
-   nodeSelector       # Pod을 배포할 노드
+   nodeSelector:       # Pod을 배포할 노드
    selector:
       matchLables:
          app: nginx
@@ -293,6 +293,8 @@ spec: # 사용자가 원하는 Pod의 바람직한 상태
 #### StatefulSet
 `역할`
 - 파드의 ID와 파드의 볼륨을 유지한다.
+- 컨테이너 애플리케이션의 상태를 관리하는 데 사용하는 컨트롤러
+
 
 #### Ingress
 `탄생 배경`
