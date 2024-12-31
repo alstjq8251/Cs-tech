@@ -58,6 +58,7 @@ Pod 안에서는 Service 이름과 네임스페이스 이름을 이용해 다른
 - 쿠버네티스 서비스 생성 시 .spec.clusterIP 필드 값을 None으로 설정하면 클러스터 IP가 없는 서비스를 만들 수 있고 이걸 Headless Service라 부른다.
 
 `역할`
+- N개의 파드의 단일 진입점으로 동작하는 기존의 Service와 다르게 Dns Resolving기능만 갖춘 컴포넌트이다.
 
 #### Service Type은 총 3가지로 만들 수 있으며 기능의 포괄도는 1 < 2 < 3 으로 확장된다.
 
