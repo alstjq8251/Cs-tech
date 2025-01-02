@@ -62,6 +62,12 @@ Pod 안에서는 Service 이름과 네임스페이스 이름을 이용해 다른
 
 `생성`
 
+```yaml
+
+ClusterIp: None
+
+```
+
 #### Service Type은 총 3가지로 만들 수 있으며 기능의 포괄도는 1 < 2 < 3 으로 확장된다.
 
 1. `ClusterIP`
