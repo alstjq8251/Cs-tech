@@ -64,7 +64,18 @@ Pod 안에서는 Service 이름과 네임스페이스 이름을 이용해 다른
 
 ```yaml
 
-ClusterIp: None
+apiVersion: v1
+kind: Service
+metadata:
+  name: test
+spec:
+   clusterIP: None
+   type: ClusterIP
+   selector:
+     app: test
+   ports:
+      - targetPort: 8080
+        port: 80
 
 ```
 
