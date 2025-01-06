@@ -69,7 +69,7 @@ kind: Service
 metadata:
   name: test
 spec:
-   clusterIP: None
+   clusterIP: None # 해당 옵션을 설정해야 Headless Service로 정의되며 Ip가 생성되지 않는다.
    type: ClusterIP
    selector:
      app: test
