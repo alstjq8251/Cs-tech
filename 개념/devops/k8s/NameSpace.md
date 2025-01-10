@@ -10,7 +10,6 @@
 
 **하지만 환경을 효과적으로 격리하려면 네임스페이스로 효과적이지 않고 클러스터를 분리하는것이 일반적**
 
-
 ### 특징 및 사용례
 - 네임스페이스는 쿠버네티스 자원으로서 관리된다.
 - 네임스페이스는 컨테이너, 파드, 서비스, 레플리카셋 등의 자원에 대한 영역을 제공한다.
@@ -26,3 +25,16 @@
       예로 특정 네임스페이스에 컨피그맵 5개, 시크릿 5개 파드 10개만 생성되도록 제어 가능
 - 리소스쿼터는 네임스페이스 별로 사용자가 요청하는 총 컴퓨팅 자원량을 제한할 수 있다.
     - 32GB RAM과 16코어를 갖춘 클러스터에서 운영 네임스페이스에선 자원 절반, 스테이징에선 4분의1 등 자원 할당을 할 수 있고 네임스페이스와 리소스쿼터를 이용해 객체 그룹에 제약을 거는 기능은 중요
+
+#### Default Namespace 변경
+
+기본으로 사용되는 namespace를 default가 아닌 다른 이름의 namespace로 switch
+k8s의 config에 ns를 등록해야 하는데 그 공간을 k8s config의 context라고 부름
+
+1) namespace를 포함한 context 등록
+   $ kubectl config --help
+   $ kubectl config set-context NAME --cluster=kubernets --user=kubernetes-admin --namespace=ex-ns
+   $ kubectl config view
+2) 등록된 namespace로 context 변경
+   $ kubectl config use-context NAME
+
