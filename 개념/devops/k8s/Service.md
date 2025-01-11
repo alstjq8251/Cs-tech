@@ -79,6 +79,11 @@ spec:
 
 ```
 
+`dns`
+
+- nslookup service-name.namespace.svc.cluster.local 시 파드의 ip를 리턴
+- nslookup pod-name.service-name.namespace.svc.cluster.local 해당 파드의 ip를 리턴 
+
 #### Service Type은 총 3가지로 만들 수 있으며 기능의 포괄도는 1 < 2 < 3 으로 확장된다.
 
 1. `ClusterIP`
