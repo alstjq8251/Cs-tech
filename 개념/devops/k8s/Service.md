@@ -84,6 +84,8 @@ spec:
 - nslookup service-name.namespace.svc.cluster.local 시 파드의 ip를 리턴
 - nslookup pod-name.service-name.namespace.svc.cluster.local 해당 파드의 ip를 리턴 
 
+> Headless Service는 pod-name이 고정되는 Statefulset과 같이 사용되는게 일반적이며 해당 파드로만 ip를 얻어주는 dns resolving역할을 수행한다.
+
 #### Service Type은 총 3가지로 만들 수 있으며 기능의 포괄도는 1 < 2 < 3 으로 확장된다.
 
 1. `ClusterIP`
