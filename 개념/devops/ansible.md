@@ -9,3 +9,25 @@
 - 사용하는 명령을 ad-hoc 명령으로 실행하지 않고 스크립트로 만든 것이다. 
 
 ### role
+
+role의 기본 구조
+```shell
+
+├── README.md
+├── defaults
+│   └── main.yml
+├── files
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── tasks
+│   └── main.yml
+├── templates
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+└── main.yml
+
+```
