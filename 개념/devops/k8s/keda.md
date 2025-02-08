@@ -16,3 +16,5 @@ KEDA는 다양한 소스로 부터 이벤트를 받아 애플리케이션 파드
 2. metrics
 
 3. Admission Webhooks
+
+### 동작 방식
