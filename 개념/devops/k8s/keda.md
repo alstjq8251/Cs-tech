@@ -18,3 +18,4 @@ KEDA는 다양한 소스로 부터 이벤트를 받아 애플리케이션 파드
 3. Admission Webhooks
 
 ### 동작 방식
+- Keda는 궁극적으로 HPA를 이용해서 Deployment, Replicaset, Job 등을 autoscaling 하게 된다.
