@@ -32,3 +32,15 @@
 #### vault
 - ansible에서 사용하는 playbook이나 role task등엔 비밀번호 등 외부로 노출되지 않아야 하는 중요한 데이터가 포함될 수 있다.
 - 이런 것들에 대해 평문으로 저장하는 것이 아니라 암호화를 할 필요성이 있는데 ansible에선 ansible valut를 통해 암호화, 복호화를 수행한다.
+
+### 유용한 명령어
+
+```ansible
+
+ansible-playbook syntax-check
+- ansible의 playbook의 문법을 검사해주는 명령어
+
+ansible-playbook --check
+- ansible playbook의 실행을 모의로 진행하고 결과를 알려주는 명령어로 실행결과가 모의와 완전 동일하지 않을 순 있다.
+
+```
