@@ -4,6 +4,8 @@
 
 ### PersistentVolume 종류
 
+`hostPath`
+
 `nfs`
 
 `aws`
