@@ -18,10 +18,13 @@ KEDA는 다양한 소스로 부터 이벤트를 받아 애플리케이션 파드
 3. Admission Webhooks
 
 ### 동작 방식
+
 - Keda는 궁극적으로 HPA를 이용해서 Deployment, Replicaset, Job 등을 autoscaling 하게 된다.
 
 ### Keda의 대상 타겟
 
 `ScaledJob`
+- Kubernetes Job에 대한 확장 규칙을 지정하는 데 사용된다.
+
 
 `ScaledObject`
