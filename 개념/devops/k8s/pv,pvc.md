@@ -19,8 +19,13 @@
 
 ### PersistentVolume 종류
 
-`hostPath`
+**임시**
+- `emptyDir`
 
-`nfs`
+**로컬**
+- `hostPath`
+- `local`
 
-`aws`
+**원격**
+- `persistentVolumeClaim`, `cephfs`, `cinder`, `csi`, `fc(fibre channel)`, `flexVolume`, `flocker`, `glusterfs`, `iscsi`, `nfs`, `portworxVolume`, `quobyte`, `rbd`, `scaleIO`, `storageos`, `vsphereVolume` 
+
