@@ -29,6 +29,8 @@
 **원격**
 - `persistentVolumeClaim`, `cephfs`, `cinder`, `csi`, `fc(fibre channel)`, `flexVolume`, `flocker`, `glusterfs`, `iscsi`, `nfs`, `portworxVolume`, `quobyte`, `rbd`, `scaleIO`, `storageos`, `vsphereVolume` 
 
+#### PV 보존정책
+
 ### 볼륨 용량 제한하는 방법
 
 `resourceQuota`
