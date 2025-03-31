@@ -31,6 +31,12 @@
 
 #### PV 보존정책
 
+`Delete`
+
+`Retain`
+
+`Recycle`
+
 ### 볼륨 용량 제한하는 방법
 
 `resourceQuota`
