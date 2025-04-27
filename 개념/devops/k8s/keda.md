@@ -32,3 +32,5 @@ KEDA는 다양한 소스로 부터 이벤트를 받아 애플리케이션 파드
 - 이벤트 소스와 객체 간의 매핑을 나타내며 K8s 클러스터의 Deployment, StatefulSet, Jobs 또는 사용자 지정 리소스에 대한 확장 규칙을 지정한다.
 
 #### KEDA의 Trigger
+
+1. kafka
