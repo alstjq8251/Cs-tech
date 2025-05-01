@@ -12,6 +12,7 @@ KEDA는 다양한 소스로 부터 이벤트를 받아 애플리케이션 파드
 `3가지 역할`
 
 1. agent
+   - 이벤트가 유무에 따라 애플리케이션 Deployment를 activate/deactivate시키는 역활 수행하는데, keda-operator POD에 의해서 수행 된다.
 
 2. metrics
 
