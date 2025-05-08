@@ -47,5 +47,8 @@ KEDA는 다양한 소스로 부터 이벤트를 받아 애플리케이션 파드
 #### Keda Install
 
 1. helm
+   - helm repo add kedacore https://kedacore.github.io/charts
+   - helm repo update
+   - helm install keda kedacore/keda --namespace keda --create-namespace
 
 2. kubernetes manifest
