@@ -51,4 +51,6 @@ KEDA는 다양한 소스로 부터 이벤트를 받아 애플리케이션 파드
    - helm repo update
    - helm install keda kedacore/keda --namespace keda --create-namespace
 
-2. kubernetes manifest
+2. operator hub
+
+3. kubernetes manifest
