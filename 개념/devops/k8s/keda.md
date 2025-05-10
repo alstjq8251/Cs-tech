@@ -54,3 +54,4 @@ KEDA는 다양한 소스로 부터 이벤트를 받아 애플리케이션 파드
 2. operator hub
 
 3. kubernetes manifest
+   - kubectl apply -f https://github.com/kedacore/keda/releases/download/v2.9.3/keda-2.9.3.yaml
