@@ -6,3 +6,5 @@
 - istio는 동작하는 파드에 data plain으로 작동하는 Envoy Proxy 컨테이너를 삽입하는 방식으로 보안, 관리, 모니터링 기능을 추가한다.
 
 ### 오브젝트
+
+### install
