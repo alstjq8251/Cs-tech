@@ -8,3 +8,7 @@
 ### 오브젝트
 
 ### install
+
+1. istioctl
+2. operator
+3. helm
