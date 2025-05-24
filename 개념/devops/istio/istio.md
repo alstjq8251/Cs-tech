@@ -17,3 +17,5 @@
 
 ### Ambient
 - sidecar 모드와 다르게 pod에 proxy 컨테이너를 주입하지 않고 외부의 하나의 컨테이너로 통신
+
+#### cni
