@@ -19,5 +19,5 @@
 - istio를 sidecar모드로 배포하게 되면 각 파드의 envoy proxy를 주입하기전 Init container로 iptables규칙을 수정하여 envoy 파드로 오게끔 하는 절차가 추가되게 된다.
 
 ### Ambient
-- sidecar 모드와 다르게 pod에 proxy 컨테이너를 주입하지 않고 외부의 하나의 컨테이너로 통 
+- sidecar 모드와 다르게 pod에 proxy 컨테이너를 주입하지 않고 외부의 proxy 컨테이너를 배포하고 그 컨테이너를 통해 통신하는 방식
 
