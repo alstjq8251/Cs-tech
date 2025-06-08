@@ -17,6 +17,8 @@
    - istio gateway
    - istio cni
 
+### control , data plain
+
 ### Sidecar 
 
 #### cni
