@@ -1,3 +1,5 @@
 ##  Argocd
 
+### Architecture
+
 ### Gitops
