@@ -2,4 +2,8 @@
 
 ### Architecture
 
+`redis server`
+
+
+
 ### Gitops
