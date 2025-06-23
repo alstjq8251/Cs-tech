@@ -4,6 +4,6 @@
 
 `redis server`
 
-
+`dex server`
 
 ### Gitops
