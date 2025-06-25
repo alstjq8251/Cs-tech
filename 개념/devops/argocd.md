@@ -7,4 +7,6 @@
 
 `dex server`
 
+### install
+
 ### Gitops
