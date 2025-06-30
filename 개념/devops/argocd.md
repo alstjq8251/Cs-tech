@@ -3,6 +3,8 @@
 
 ### Architecture
 
+`ArgoCD application-controller`
+
 `redis server`
 
 `dex server`
