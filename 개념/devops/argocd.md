@@ -11,4 +11,6 @@
 
 ### install
 
+#### Ha구성
+
 ### Gitops
