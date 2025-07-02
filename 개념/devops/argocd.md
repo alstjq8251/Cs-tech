@@ -9,6 +9,8 @@
 
 `dex server`
 
+`argocd notification server`
+
 ### install
 
 #### Ha구성
