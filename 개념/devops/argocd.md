@@ -16,3 +16,5 @@
 #### Ha구성
 
 ### Gitops
+
+`declarative configuration`
