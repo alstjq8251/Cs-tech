@@ -5,6 +5,8 @@
 
 `ArgoCD application-controller`
 
+`argocd repo server`
+
 `redis server`
 
 `dex server`
