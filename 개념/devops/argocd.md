@@ -6,6 +6,7 @@
 `ArgoCD application-controller`
 
 `argocd repo server`
+- 역할
 
 `redis server`
 
