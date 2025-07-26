@@ -16,6 +16,12 @@
 
 ### install
 
+`yaml`
+
+`helm`
+
+`operator`
+
 #### Ha구성
 
 ### Gitops
