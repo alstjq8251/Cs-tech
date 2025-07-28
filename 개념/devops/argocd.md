@@ -27,7 +27,7 @@
 ### Gitops
 
 1. `declarative configuration`
-2. Version-controlled immutable storage
-3. Automated delivery
-4. Software agents
-5. Closed loop
+2. `Version-controlled immutable storage`
+3. `Automated delivery`
+4. `Software agents`
+5. `Closed loop`
