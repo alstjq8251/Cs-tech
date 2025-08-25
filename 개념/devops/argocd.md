@@ -6,7 +6,7 @@
 `ArgoCD application-controller`
 
 `argocd repo server`
-- 역할
+- cluster에 생성할 manifests들을 Git에서 참조하여 최종적으로 생성하는 책임이 있는 컴포넌트
 
 `redis server`
 
