@@ -101,6 +101,8 @@ MSA환경으로 가며 서버가 많아지고 서버와 같이 배포해야 하�
 | NOTES.txt  | Helm install, upgrade, status시 출력되는 도움말 혹은 정보를 조합해 출력하는 파일 |
 | *.yaml | Helm Charts로 릴리즈 배포할 kubernetes Object의 Template Manifest 파일 |
 
+이 중 가장 중요한 건 templtes/ , templates/ Charts.yml이라고 할 수 있다.
+
 ## Helm 사용 목적
 - 다수의 오브젝트, 리소스를 활용 & 오브젝트 및 리소스들을 변수에 따라 동적으로 템플릿화하고 해당 템플릿화된
 
